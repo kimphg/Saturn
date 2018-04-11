@@ -16,13 +16,23 @@ namespace IRS_Demo
         public string recCommand;
         public string recParam;
     }
+    public struct SessionData
+    {
+        public string caseName,caseCode;
+        public string suspectName, suspectCode;
+        public string inspectorName, inspectorCode;
+        public string supervisorName, supervisorCode;
+    }
     class CommonParam
     {
         public static string ProgramPath = "C:\\Recorder\\";
         public static string ConfigFileName = "config.xml";
-        
+        public static string SessionFileName = "sessiondata.xml";
+        public static SessionData mSesData;//du lieu cua session
+        public static string SessionFolderName;// thu muc ghi video va luu du lieu cua session
         public static Config mConfig;
         public static string UserName;
+        
         public static void LoadConfig()
         {
             mConfig = LoadObject<Config>(ConfigFileName);
@@ -35,6 +45,10 @@ namespace IRS_Demo
             mConfig.recCommand = "C://Program Files (x86)//VideoLAN//VLC//vlc.exe";
             mConfig.recParam = "\""+mConfig.videoUrl+ "\" --qt-start-minimized --sout=#transcode{vcodec=theo,vb=800,acodec=flac,ab=128,channels=2,samplerate=44100}:file{dst=D:\\Video\\abc.ogg,overwrite}";
             saveConfig();
+        }
+        public static void saveSession()
+        {
+            SaveObject<SessionData>(mSesData, SessionFileName);
         }
         public static void saveConfig()
         {
