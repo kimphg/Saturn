@@ -34,6 +34,8 @@ namespace IRS_Demo
         public static string SessionFolderName;// thu muc ghi video va luu du lieu cua session
         public static Config mConfig;
         public static string UserName;
+        public static string videoUrl = "";
+        public static string MjpegUrl = "http://root:root@192.168.1.212/mjpg/video.mjpg";
         
         public static void LoadConfig()
         {
@@ -50,7 +52,7 @@ namespace IRS_Demo
         }
         public static void saveSession()
         {
-            SaveObject<SessionData>(mSesData, SessionFileName);
+            SaveObject<SessionData>(mSesData, SessionFolderName +"\\"+ SessionFileName);
         }
         public static void saveConfig()
         {

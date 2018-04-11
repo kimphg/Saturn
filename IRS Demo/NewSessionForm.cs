@@ -16,6 +16,7 @@ namespace IRS_Demo
         public NewSessionForm()
         {
             InitializeComponent();
+
         }
 
         private void btnNewSession_Click(object sender, EventArgs e)
