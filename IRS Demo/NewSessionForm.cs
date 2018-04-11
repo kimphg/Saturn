@@ -23,9 +23,9 @@ namespace IRS_Demo
         {
             CommonParam.SessionFolderName = "SS_" + DateTime.Now.ToString(@"MM_dd_yyyy.h_mm_tt");
             System.IO.Directory.CreateDirectory(CommonParam.ProgramPath +"\\" + CommonParam.SessionFolderName);
-            
             recform = new RecordingForm();
             recform.Show();
+            CommonParam.saveSession();
         }
 
         private void label3_Click(object sender, EventArgs e)

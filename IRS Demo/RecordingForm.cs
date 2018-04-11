@@ -19,7 +19,7 @@ namespace IRS_Demo
         {
             InitializeComponent();
             CommonParam.LoadConfig();
-            axVLCPlugin21.playlist.add(new Uri(CommonParam.mConfig.videoUrl).AbsoluteUri);
+            axVLCPlugin21.playlist.add(new Uri(CommonParam.videoUrl).AbsoluteUri);
             axVLCPlugin21.playlist.play();
 
             m_mjpeg = new MjpegDecoder();
