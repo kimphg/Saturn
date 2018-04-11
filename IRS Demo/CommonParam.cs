@@ -22,6 +22,8 @@ namespace IRS_Demo
         public string suspectName, suspectCode;
         public string inspectorName, inspectorCode;
         public string supervisorName, supervisorCode;
+        public string supervisorName2;
+        public string supervisorCode2;
     }
     class CommonParam
     {
