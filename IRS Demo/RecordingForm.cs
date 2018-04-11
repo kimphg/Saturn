@@ -27,6 +27,16 @@ namespace IRS_Demo
             m_mjpeg.FrameReady += mjpeg_FrameReady;
             m_mjpeg.ParseStream(new Uri(CommonParam.MjpegUrl));
 
+            textBox1.Text = CommonParam.mSesData.caseCode;
+            textBox2.Text = "Phòng 1";
+            textBox3.Text = DateTime.Now.ToString("MM/dd/yyyy h:mm tt");
+            textBox4.Text = ""; // time ket thuc
+            textBox5.Text = ""; // Thoi diem dien ra
+            textBox6.Text = ""; // Ma phien
+            textBox7.Text = ""; // Thoi gian thuc hien
+            textBox8.Text = CommonParam.mSesData.inspectorName;
+            textBox9.Text = CommonParam.mSesData.inspectorCode;
+
 
         }
         private void mjpeg_FrameReady(object sender, FrameReadyEventArgs e)
@@ -45,6 +55,11 @@ namespace IRS_Demo
                 _process.Kill();
             }
             // Dừng Process vlc.exe tại đây
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

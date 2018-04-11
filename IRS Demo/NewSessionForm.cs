@@ -24,8 +24,10 @@ namespace IRS_Demo
             CommonParam.SessionFolderName = "SS_" + DateTime.Now.ToString(@"MM_dd_yyyy.h_mm_tt");
             System.IO.Directory.CreateDirectory(CommonParam.ProgramPath +"\\" + CommonParam.SessionFolderName);
             recform = new RecordingForm();
-            recform.Show();
+            this.Hide();
+            recform.ShowDialog();
             CommonParam.saveSession();
+            this.Show();
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -86,6 +88,11 @@ namespace IRS_Demo
         private void textBox9_TextChanged(object sender, EventArgs e)
         {
             CommonParam.mSesData.supervisorCode2 = textBox9.Text;
+        }
+
+        private void textBox19_TextChanged(object sender, EventArgs e)
+        {
+            CommonParam.mSesData.Notes = textBox19.Text;
         }
     }
 }

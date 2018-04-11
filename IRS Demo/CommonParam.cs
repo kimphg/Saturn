@@ -23,6 +23,7 @@ namespace IRS_Demo
         public string supervisorName, supervisorCode;
         public string supervisorName2;
         public string supervisorCode2;
+        public string Notes;
     }
     class CommonParam
     {
