@@ -19,23 +19,28 @@ namespace IRS_Demo
         {
             InitializeComponent();
             CommonParam.LoadConfig();
+
+            tabControl1.SelectedIndex = 1;
+
             axVLCPlugin21.playlist.add(new Uri(CommonParam.videoUrl).AbsoluteUri);
             axVLCPlugin21.playlist.play();
+
+
 
             m_mjpeg = new MjpegDecoder();
             m_mjpeg.imageSizeBytes = 1024*1024;
             m_mjpeg.FrameReady += mjpeg_FrameReady;
             m_mjpeg.ParseStream(new Uri(CommonParam.MjpegUrl));
 
-            textBox1.Text = CommonParam.mSesData.caseCode;
-            textBox2.Text = "Phòng 1";
-            textBox3.Text = DateTime.Now.ToString("MM/dd/yyyy h:mm tt");
-            textBox4.Text = ""; // time ket thuc
-            textBox5.Text = ""; // Thoi diem dien ra
-            textBox6.Text = ""; // Ma phien
-            textBox7.Text = ""; // Thoi gian thuc hien
-            textBox8.Text = CommonParam.mSesData.inspectorName;
-            textBox9.Text = CommonParam.mSesData.inspectorCode;
+            label23.Text = CommonParam.mSesData.caseCode;
+            label24.Text = "Phòng 1";
+            label25.Text = DateTime.Now.ToString("MM/dd/yyyy h:mm tt");
+            label26.Text = ""; // time ket thuc
+            label27.Text = ""; // Thoi diem dien ra
+            label28.Text = ""; // Ma phien
+            label29.Text = ""; // Thoi gian thuc hien
+            label30.Text = CommonParam.mSesData.inspectorName;
+            label31.Text = CommonParam.mSesData.inspectorCode;
 
 
         }
@@ -57,9 +62,6 @@ namespace IRS_Demo
             // Dừng Process vlc.exe tại đây
         }
 
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }
