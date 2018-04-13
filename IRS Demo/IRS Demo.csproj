@@ -32,6 +32,27 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Emgu.CV">
+      <HintPath>..\..\..\..\..\Setups\Programming\OpenCV\libemgucv-windows-x86-2.4.0.1717\bin\Emgu.CV.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.GPU">
+      <HintPath>..\..\..\..\..\Setups\Programming\OpenCV\libemgucv-windows-x86-2.4.0.1717\bin\Emgu.CV.GPU.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.ML">
+      <HintPath>..\..\..\..\..\Setups\Programming\OpenCV\libemgucv-windows-x86-2.4.0.1717\bin\Emgu.CV.ML.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.OCR">
+      <HintPath>..\..\..\..\..\Setups\Programming\OpenCV\libemgucv-windows-x86-2.4.0.1717\bin\Emgu.CV.OCR.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.Stitching">
+      <HintPath>..\..\..\..\..\Setups\Programming\OpenCV\libemgucv-windows-x86-2.4.0.1717\bin\Emgu.CV.Stitching.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.CV.UI">
+      <HintPath>..\..\..\..\..\Setups\Programming\OpenCV\libemgucv-windows-x86-2.4.0.1717\bin\Emgu.CV.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Emgu.Util">
+      <HintPath>..\..\..\..\..\Setups\Programming\OpenCV\libemgucv-windows-x86-2.4.0.1717\bin\Emgu.Util.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -49,6 +70,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommonParam.cs" />
+    <Compile Include="FindSession.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FindSession.Designer.cs">
+      <DependentUpon>FindSession.cs</DependentUpon>
+    </Compile>
     <Compile Include="fLoginForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +97,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FindSession.resx">
+      <DependentUpon>FindSession.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fLoginForm.resx">
       <DependentUpon>fLoginForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -119,6 +149,32 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="cublas32_42_9.dll" />
+    <Content Include="cudart32_42_9.dll" />
+    <Content Include="cufft32_42_9.dll" />
+    <Content Include="cvextern.dll" />
+    <Content Include="cvextern_gpu.dll" />
+    <Content Include="npp32_42_9.dll" />
+    <Content Include="opencv_calib3d240.dll" />
+    <Content Include="opencv_contrib240.dll" />
+    <Content Include="opencv_core240.dll" />
+    <Content Include="opencv_features2d240.dll" />
+    <Content Include="opencv_ffmpeg240.dll" />
+    <Content Include="opencv_flann240.dll" />
+    <Content Include="opencv_gpu240.dll" />
+    <Content Include="opencv_highgui240.dll" />
+    <Content Include="opencv_imgproc240.dll" />
+    <Content Include="opencv_legacy240.dll" />
+    <Content Include="opencv_ml240.dll" />
+    <Content Include="opencv_nonfree240.dll" />
+    <Content Include="opencv_objdetect240.dll" />
+    <Content Include="opencv_photo240.dll" />
+    <Content Include="opencv_stitching240.dll" />
+    <Content Include="opencv_video240.dll" />
+    <Content Include="opencv_videostab240.dll" />
+    <Content Include="vcruntime140.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

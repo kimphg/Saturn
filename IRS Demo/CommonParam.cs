@@ -13,7 +13,7 @@ namespace IRS_Demo
     public struct Config
     {
         public string recCommand;
-        public string recParam;
+        
     }
     public struct SessionData
     {
@@ -35,6 +35,7 @@ namespace IRS_Demo
         public static Config mConfig;
         public static string UserName;
         public static string videoUrl = "rtsp://admin:admin@192.168.1.2/live3.sdp";
+        //public static string videoUrl = "rtsp://root:root@192.168.1.218/axis-media/media.amp";
         public static string MjpegUrl = "http://root:root@192.168.1.212/mjpg/video.mjpg";
         
         public static void LoadConfig()
@@ -47,7 +48,7 @@ namespace IRS_Demo
         {
             
             mConfig.recCommand = "C://Program Files (x86)//VideoLAN//VLC//vlc.exe";
-            mConfig.recParam = "\""+videoUrl+ "\" --qt-start-minimized --sout=#transcode{vcodec=theo,vb=800,acodec=flac,ab=128,channels=2,samplerate=44100}:file{dst=";
+            
             saveConfig();
         }
         public static void saveSession()

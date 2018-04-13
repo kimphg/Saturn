@@ -12,10 +12,12 @@ namespace IRS_Demo
 {
     public partial class NewSessionForm : Form
     {
-        RecordingForm recform;
+        public RecordingForm recform;
+        public FindSession findForm;    
         public NewSessionForm()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
 
         }
 
@@ -23,16 +25,11 @@ namespace IRS_Demo
         {
             CommonParam.SessionFolderName = "SS_" + DateTime.Now.ToString(@"MM_dd_yyyy.h_mm_tt");
             System.IO.Directory.CreateDirectory(CommonParam.ProgramPath +"\\" + CommonParam.SessionFolderName);
-            recform = new RecordingForm();
+            recform = new RecordingForm(this);
             this.Hide();
             recform.ShowDialog();
-            CommonParam.saveSession();
-            this.Show();
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
+            CommonParam.saveSession();            
+            Application.Exit();            
         }
 
         private void button1_Click(object sender, EventArgs e)//tra cuu du lieu
@@ -92,7 +89,22 @@ namespace IRS_Demo
 
         private void textBox19_TextChanged(object sender, EventArgs e)
         {
-            CommonParam.mSesData.Notes = textBox19.Text;
+            CommonParam.mSesData.Notes = textBox10.Text;
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            findForm = new FindSession(this);
+            this.Hide();            
+            findForm.ShowDialog();
+
+            this.Show();
+        }
+
+        private void NewSessionForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
     }
 }
