@@ -158,15 +158,15 @@ namespace IRS_Demo
 
         private void btnStopRec_Click(object sender, EventArgs e)
         {
-            DialogResult stopRecDialogResult = MessageBox.Show("Bạn có muốn dừng ghi lại phiên hỏi cung?", "Dừng ghi", MessageBoxButtons.YesNo);
+            DialogResult stopRecDialogResult = MessageBox.Show("Bạn có muốn dừng ghi lại phiên hỏi cung?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (stopRecDialogResult == DialogResult.Yes)
             {
-                stopRecording();
+                stopRecording();                
                 //btnStartRec.Enabled = true;
                 btnStopRec.Enabled = false;
                 btnExport.Enabled = true;
                 btnFinish.Enabled = true;
-                MessageBox.Show("Dữ liệu video đã được ghi tại " + CommonParam.ProgramPath + CommonParam.SessionFolderName);
+                MessageBox.Show("Dữ liệu video đã được ghi tại " + CommonParam.ProgramPath + CommonParam.SessionFolderName, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else if (stopRecDialogResult == DialogResult.No)
             {
@@ -200,8 +200,8 @@ namespace IRS_Demo
 
         private void RecordingForm_FormClosing(object sender, FormClosingEventArgs e)
         {            
-            if (!m_bSession) return;
-            DialogResult stopRecDialogResult = MessageBox.Show("Bạn có muốn thoát chương trình?", "Thoát chương trình", MessageBoxButtons.YesNo);
+            if (!m_bSession) return; 
+            DialogResult stopRecDialogResult = MessageBox.Show("Bạn có muốn thoát chương trình?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (stopRecDialogResult == DialogResult.Yes)
             {
                 stopRecording();

@@ -31,6 +31,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Intechco.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Emgu.CV">
       <HintPath>..\..\..\..\..\Setups\Programming\OpenCV\libemgucv-windows-x86-2.4.0.1717\bin\Emgu.CV.dll</HintPath>
@@ -156,6 +159,7 @@
     <Content Include="cufft32_42_9.dll" />
     <Content Include="cvextern.dll" />
     <Content Include="cvextern_gpu.dll" />
+    <Content Include="Intechco.ico" />
     <Content Include="npp32_42_9.dll" />
     <Content Include="opencv_calib3d240.dll" />
     <Content Include="opencv_contrib240.dll" />

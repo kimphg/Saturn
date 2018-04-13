@@ -18,7 +18,6 @@ namespace IRS_Demo
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
-
         }
 
         private void btnNewSession_Click(object sender, EventArgs e)

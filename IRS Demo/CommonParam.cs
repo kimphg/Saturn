@@ -39,7 +39,7 @@ namespace IRS_Demo
         public static string MjpegUrl = "http://root:root@192.168.1.212/mjpg/video.mjpg";
         
         public static void LoadConfig()
-        {
+        {            
             mConfig = LoadObject<Config>(ConfigFileName);
             if (mConfig.recCommand == null) LoadDefault();
         }
