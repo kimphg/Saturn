@@ -18,6 +18,7 @@ namespace IRS_Demo
             InitializeComponent();
             _newSessionForm = newSessionForm;
             this.StartPosition = FormStartPosition.CenterScreen;
+            comboBox1.SelectedIndex = 0;
         }
 
         private void FindSession_FormClosing(object sender, FormClosingEventArgs e)

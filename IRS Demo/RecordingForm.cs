@@ -39,6 +39,9 @@ namespace IRS_Demo
 
             m_bSession = true;
 
+            btnStartRec.Enabled = true;
+            btnStopRec.Enabled = false;
+
             CommonParam.LoadConfig();
                         
             tabControl1.SelectedIndex = 1;
@@ -56,7 +59,7 @@ namespace IRS_Demo
 
             if (tabControl1.SelectedIndex == 1)
             {
-                axVLCPlugin21.playlist.add(new Uri(CommonParam.videoUrl).AbsoluteUri);
+                axVLCPlugin21.playlist.add(new Uri(CommonParam.mConfig.videoUrl).AbsoluteUri);
                 axVLCPlugin21.playlist.play();
             }
 
@@ -126,12 +129,12 @@ namespace IRS_Demo
         private void btnStartRec_Click(object sender, EventArgs e)
         {
             String command =  "\"" 
-                + CommonParam.videoUrl
-                + "\" --qt-start-minimized --sout=#transcode{vcodec=theo,vb=800,acodec=flac,ab=128,channels=2,samplerate=44100}:file{dst=" 
+                + CommonParam.mConfig.videoUrl
+                + "\" --qt-start-minimized --sout=#transcode{vcodec=theo,vb=800,acodec=flac,ab=128,channels=2,samplerate=44100}:file{dst="
                 + CommonParam.ProgramPath 
                 + CommonParam.SessionFolderName 
                 + "\\video.ogg"
-                + ",no-overwrite"
+                + ",overwrite"
                 + "}\"";
 
             //"C://Program Files (x86)//VideoLAN//VLC//vlc.exe", "\"rtsp://admin:admin@192.168.1.2/live3.sdp\" --qt-start-minimized --sout=#transcode{vcodec=theo,vb=800,acodec=flac,ab=128,channels=2,samplerate=44100}:file{dst=D:\\abc.ogg,no-overwrite}"
@@ -140,6 +143,9 @@ namespace IRS_Demo
             //Process.Start("C://Program Files (x86)//VideoLAN//VLC//vlc.exe", "\"rtsp://root:root@192.168.1.218/axis-media/media.amp\" --sout=#std{access=file,mux=mpeg1,vcodec=theo, acodec=vorb, dst=d:/go.ogg}");
             //rtsp://root:root@192.168.1.218/axis-media/media.amp --sout="#std{access=file,mux=mpeg1,dst=d:/go.mpg}" --ghi duoc hinh chua co tieng
             //C://Program Files (x86)//VideoLAN//VLC//vlc.exe "rtsp://root:root@192.168.1.218/axis-media/media.amp" --sout=#std{access=file,mux=mpeg1,vcodec=theo, acodec=vorb, dst=d:/go.ogg}
+            btnStartRec.Enabled = false;
+            btnStopRec.Enabled = true;
+            lblVideoPath.Text = CommonParam.ProgramPath + CommonParam.SessionFolderName + "\\video.ogg";
         }
         
         private void stopRecording()
@@ -156,7 +162,11 @@ namespace IRS_Demo
             if (stopRecDialogResult == DialogResult.Yes)
             {
                 stopRecording();
-                MessageBox.Show("Dữ liệu video đã được ghi tại ...");
+                //btnStartRec.Enabled = true;
+                btnStopRec.Enabled = false;
+                btnExport.Enabled = true;
+                btnFinish.Enabled = true;
+                MessageBox.Show("Dữ liệu video đã được ghi tại " + CommonParam.ProgramPath + CommonParam.SessionFolderName);
             }
             else if (stopRecDialogResult == DialogResult.No)
             {
@@ -164,14 +174,15 @@ namespace IRS_Demo
             }
             
         }
-
+                
         private void button2_Click(object sender, EventArgs e)
         {
-            //this.DialogResult = DialogResult.Cancel;            
+            this.Close();
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            
             if (_newSessionForm.findForm == null)
             {
                 _newSessionForm.findForm = new FindSession(_newSessionForm);
@@ -188,13 +199,14 @@ namespace IRS_Demo
         }
 
         private void RecordingForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
+        {            
             if (!m_bSession) return;
             DialogResult stopRecDialogResult = MessageBox.Show("Bạn có muốn thoát chương trình?", "Thoát chương trình", MessageBoxButtons.YesNo);
             if (stopRecDialogResult == DialogResult.Yes)
             {
                 stopRecording();
                 axVLCPlugin21.playlist.stop();
+                axVLCPlugin21.playlist.items.clear();
                 m_bSession = false;                
             }
             else if (stopRecDialogResult == DialogResult.No)
@@ -202,6 +214,19 @@ namespace IRS_Demo
                 e.Cancel = true;
             }            
 
+        }
+
+        private void btnFinish_Click(object sender, EventArgs e)
+        {            
+            axVLCPlugin21.playlist.stop();
+            btnPlay.Enabled = true;
+        }
+
+        private void btnPlay_Click(object sender, EventArgs e)
+        {
+            axVLCPlugin21.playlist.items.clear();
+            axVLCPlugin21.playlist.add(new Uri(CommonParam.ProgramPath + CommonParam.SessionFolderName + "\\video.ogg").AbsoluteUri);
+            axVLCPlugin21.playlist.play();
         }
 
     }

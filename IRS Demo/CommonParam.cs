@@ -13,7 +13,7 @@ namespace IRS_Demo
     public struct Config
     {
         public string recCommand;
-        
+        public string videoUrl;
     }
     public struct SessionData
     {
@@ -27,14 +27,14 @@ namespace IRS_Demo
     }
     class CommonParam
     {
-        public static string ProgramPath = "C:\\Recorder\\";
+        public static string ProgramPath = "C:\\IRS_Data\\";
         public static string ConfigFileName = "config.xml";
         public static string SessionFileName = "sessiondata.xml";
         public static SessionData mSesData;//du lieu cua session
         public static string SessionFolderName;// thu muc ghi video va luu du lieu cua session
         public static Config mConfig;
         public static string UserName;
-        public static string videoUrl = "rtsp://admin:admin@192.168.1.2/live3.sdp";
+        //public static string videoUrl = "rtsp://admin:admin@192.168.1.2/live3.sdp";
         //public static string videoUrl = "rtsp://root:root@192.168.1.218/axis-media/media.amp";
         public static string MjpegUrl = "http://root:root@192.168.1.212/mjpg/video.mjpg";
         
@@ -45,9 +45,9 @@ namespace IRS_Demo
         }
 
         public static void LoadDefault()
-        {
-            
+        {            
             mConfig.recCommand = "C://Program Files (x86)//VideoLAN//VLC//vlc.exe";
+            mConfig.videoUrl = "rtsp://admin:admin@192.168.1.2/live3.sdp";
             
             saveConfig();
         }
