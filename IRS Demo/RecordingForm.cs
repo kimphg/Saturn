@@ -22,6 +22,7 @@ namespace IRS_Demo
     public partial class RecordingForm : Form
     {
         private NewSessionForm _newSessionForm;
+        private Vlc.DotNet.Forms.VlcControl vlcControl;
         // class attribute
         MjpegDecoder m_mjpeg;
         Capture m_capture;
@@ -128,6 +129,10 @@ namespace IRS_Demo
         }
         private void btnStartRec_Click(object sender, EventArgs e)
         {
+            vlcControl.SetMedia("rtsp://admin:admin@192.168.1.2/live3.sdp",
+                ":sout=#transcode{vcodec=theo,vb=1000,scale=1,acodec=flac,ab=128,channels=2,samplerate=44100}:std{access=file,mux=ogg,dst=D:\\123.mp4}");
+            vlcControl.Play();
+            /*
             String command =  "\"" 
                 + CommonParam.mConfig.videoUrl
                 + "\" --qt-start-minimized --sout=#transcode{vcodec=theo,vb=800,acodec=flac,ab=128,channels=2,samplerate=44100}:file{dst="
@@ -145,15 +150,16 @@ namespace IRS_Demo
             //C://Program Files (x86)//VideoLAN//VLC//vlc.exe "rtsp://root:root@192.168.1.218/axis-media/media.amp" --sout=#std{access=file,mux=mpeg1,vcodec=theo, acodec=vorb, dst=d:/go.ogg}
             btnStartRec.Enabled = false;
             btnStopRec.Enabled = true;
-            lblVideoPath.Text = CommonParam.ProgramPath + CommonParam.SessionFolderName + "\\video.ogg";
+            lblVideoPath.Text = CommonParam.ProgramPath + CommonParam.SessionFolderName + "\\video.ogg";*/
         }
         
         private void stopRecording()
         {
-            foreach (var _process in Process.GetProcessesByName("vlc"))
+            vlcControl.Stop();
+            /*foreach (var _process in Process.GetProcessesByName("vlc"))
             {
                 _process.Kill();
-            }
+            }*/
         }
 
         private void btnStopRec_Click(object sender, EventArgs e)
