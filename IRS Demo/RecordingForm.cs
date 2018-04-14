@@ -14,6 +14,8 @@ using Emgu;
 using Emgu.CV;
 using Emgu.CV.Structure;
 using Emgu.CV.CvEnum;
+using System.Reflection;
+using System.IO;
 
 //using IRS_Demo;
 
@@ -28,12 +30,27 @@ namespace IRS_Demo
         Capture m_capture;
         bool m_bSession;
         Image<Bgr, Byte> m_frame;
+        private Vlc.DotNet.Forms.VlcControl vlcControl;
         public RecordingForm(NewSessionForm newSessionForm)
         {
             InitializeComponent();
             vlcControl = new Vlc.DotNet.Forms.VlcControl();
+            ((System.ComponentModel.ISupportInitialize)(this.vlcControl)).BeginInit();
+            // vlcControl
             
-
+            this.vlcControl.BackColor = System.Drawing.Color.Black;
+            this.vlcControl.Location = new System.Drawing.Point(0, 0);
+            this.vlcControl.Name = "vlcControl";
+            this.vlcControl.Size = new System.Drawing.Size(200, 179);
+            this.vlcControl.Spu = -1;
+            this.vlcControl.TabIndex = 0;
+            this.vlcControl.Text = "vlcControl1";
+            var currentAssembly = Assembly.GetEntryAssembly();
+            var currentDirectory = new FileInfo(currentAssembly.Location).DirectoryName;
+            this.vlcControl.VlcLibDirectory =  new DirectoryInfo(Path.Combine(currentDirectory, "libvlc", IntPtr.Size == 4 ? "win-x86" : "win-x64")); ;
+            this.vlcControl.VlcMediaplayerOptions = null;
+            ((System.ComponentModel.ISupportInitialize)(this.vlcControl)).EndInit();
+            /////////////////
             _newSessionForm = newSessionForm;
 
             this.StartPosition = FormStartPosition.CenterScreen;
@@ -130,9 +147,11 @@ namespace IRS_Demo
         private void btnStartRec_Click(object sender, EventArgs e)
         {
             
-            vlcControl.SetMedia("rtsp://root:root@192.168.1.218/axis-media/media.amp",
-                ":sout=#transcode{vcodec=theo,vb=1000,scale=1,acodec=flac,ab=128,channels=2,samplerate=44100}:std{access=file,mux=ogg,dst=D:\\123.mp4}");
+            vlcControl.SetMedia(CommonParam.mConfig.videoUrl,
+                ":sout=#transcode{vcodec=theo,vb=1000,scale=1,acodec=flac,ab=128,channels=2,samplerate=44100}:std{access=file,mux=ogg,dst="+CommonParam.ProgramPath + CommonParam.SessionFolderName + "\\video.ogg}");
             vlcControl.Play();
+            btnStartRec.Enabled = false;
+            btnStopRec.Enabled = true;
             /*
             String command =  "\"" 
                 + CommonParam.mConfig.videoUrl
