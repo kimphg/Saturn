@@ -30,26 +30,11 @@ namespace IRS_Demo
         Capture m_capture;
         bool m_bSession;
         Image<Bgr, Byte> m_frame;
-        private Vlc.DotNet.Forms.VlcControl vlcControl;
+        //string vlcLibPath = Path.Combine(new FileInfo(Assembly.GetEntryAssembly().Location).DirectoryName,"libvlc", IntPtr.Size == 4 ? "win-x86" : "win-x64");
         public RecordingForm(NewSessionForm newSessionForm)
         {
             InitializeComponent();
-            vlcControl = new Vlc.DotNet.Forms.VlcControl();
-            ((System.ComponentModel.ISupportInitialize)(this.vlcControl)).BeginInit();
-            // vlcControl
-            
-            this.vlcControl.BackColor = System.Drawing.Color.Black;
-            this.vlcControl.Location = new System.Drawing.Point(0, 0);
-            this.vlcControl.Name = "vlcControl";
-            this.vlcControl.Size = new System.Drawing.Size(200, 179);
-            this.vlcControl.Spu = -1;
-            this.vlcControl.TabIndex = 0;
-            this.vlcControl.Text = "vlcControl1";
-            var currentAssembly = Assembly.GetEntryAssembly();
-            var currentDirectory = new FileInfo(currentAssembly.Location).DirectoryName;
-            this.vlcControl.VlcLibDirectory =  new DirectoryInfo(Path.Combine(currentDirectory, "libvlc", IntPtr.Size == 4 ? "win-x86" : "win-x64")); ;
-            this.vlcControl.VlcMediaplayerOptions = null;
-            ((System.ComponentModel.ISupportInitialize)(this.vlcControl)).EndInit();
+            //this.vlcControl.VlcLibDirectory = new DirectoryInfo(vlcLibPath); 
             /////////////////
             _newSessionForm = newSessionForm;
 
@@ -103,7 +88,13 @@ namespace IRS_Demo
 
 
         }
-
+        private void vlcControl_VlcLibDirectoryNeeded(object sender, Vlc.DotNet.Forms.VlcLibDirectoryNeededEventArgs e)
+        {
+            var currentAssembly = Assembly.GetEntryAssembly();
+            var currentDirectory = new FileInfo(currentAssembly.Location).DirectoryName;
+            // Default installation path of VideoLAN.LibVLC.Windows
+            e.VlcLibDirectory = new DirectoryInfo(Path.Combine(currentDirectory, "libvlc", IntPtr.Size == 4 ? "win-x86" : "win-x64"));
+        }
         void tabControl1_Selecting(object sender, TabControlCancelEventArgs e)
         {
             //if (tabControl1.SelectedIndex == 0)
@@ -192,7 +183,10 @@ namespace IRS_Demo
                 btnStopRec.Enabled = false;
                 btnExport.Enabled = true;
                 btnFinish.Enabled = true;
-                MessageBox.Show("Dữ liệu video đã được ghi tại " + CommonParam.ProgramPath + CommonParam.SessionFolderName, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if(MessageBox.Show("Dữ liệu video đã được ghi tại " + CommonParam.ProgramPath + CommonParam.SessionFolderName + ". Mở thư mục ghi lưu?", 
+                "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
+                ==DialogResult.Yes)
+                    Process.Start("explorer.exe", CommonParam.ProgramPath + CommonParam.SessionFolderName);
             }
             else if (stopRecDialogResult == DialogResult.No)
             {
