@@ -1036,6 +1036,7 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblVideoPath;
+        private Vlc.DotNet.Forms.VlcControl vlcControl;
     }
 }
 

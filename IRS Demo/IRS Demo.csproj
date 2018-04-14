@@ -59,6 +59,7 @@
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -69,6 +70,18 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Serialization" />
+    <Reference Include="Vlc.DotNet.Core, Version=2.2.1.0, Culture=neutral, PublicKeyToken=84529da31f4eb963, processorArchitecture=MSIL">
+      <HintPath>..\packages\Vlc.DotNet.Core.2.2.1\lib\net45\Vlc.DotNet.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Vlc.DotNet.Core.Interops, Version=2.2.1.0, Culture=neutral, PublicKeyToken=84529da31f4eb963, processorArchitecture=MSIL">
+      <HintPath>..\packages\Vlc.DotNet.Core.Interops.2.2.1\lib\net45\Vlc.DotNet.Core.Interops.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Vlc.DotNet.Forms, Version=2.2.1.0, Culture=neutral, PublicKeyToken=84529da31f4eb963, processorArchitecture=MSIL">
+      <HintPath>..\packages\Vlc.DotNet.Forms.2.2.1\lib\net45\Vlc.DotNet.Forms.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
@@ -121,6 +134,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -179,6 +193,9 @@
     <Content Include="opencv_video240.dll" />
     <Content Include="opencv_videostab240.dll" />
     <Content Include="vcruntime140.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
