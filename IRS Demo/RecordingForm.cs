@@ -24,12 +24,12 @@ namespace IRS_Demo
     public partial class RecordingForm : Form
     {
         private NewSessionForm _newSessionForm;
-        //private Vlc.DotNet.Forms.VlcControl vlcControl;
+        private Vlc.DotNet.Forms.VlcControl vlcRecorder;
         // class attribute
-        MjpegDecoder m_mjpeg;
-        Capture m_capture;
+       // MjpegDecoder m_mjpeg;
+        //Capture m_capture;
         bool m_bSession;
-        Image<Bgr, Byte> m_frame;
+        //Image<Bgr, Byte> m_frame;
         //string vlcLibPath = Path.Combine(new FileInfo(Assembly.GetEntryAssembly().Location).DirectoryName,"libvlc", IntPtr.Size == 4 ? "win-x86" : "win-x64");
         public RecordingForm(NewSessionForm newSessionForm)
         {
@@ -47,11 +47,26 @@ namespace IRS_Demo
 
             CommonParam.LoadConfig();
                         
-            tabControl1.SelectedIndex = 1;
+            //tabControl1.SelectedIndex = 2;
 
             tabControl1.Selecting += tabControl1_Selecting;
-
-
+            //init vlc recorder
+            
+            vlcRecorder = new Vlc.DotNet.Forms.VlcControl();
+            ((System.ComponentModel.ISupportInitialize)(this.vlcRecorder)).BeginInit();
+            this.vlcRecorder.Name = "vlcRecorder";
+            this.vlcRecorder.Size = new System.Drawing.Size(813, 618);
+            this.vlcRecorder.Spu = -1;
+            this.vlcRecorder.TabIndex = 0;
+            this.vlcRecorder.Text = "vlcRecorder1";
+            var currentAssembly = Assembly.GetEntryAssembly();
+            var currentDirectory = new FileInfo(currentAssembly.Location).DirectoryName;
+            vlcRecorder.VlcLibDirectory = new DirectoryInfo(Path.Combine(currentDirectory, "libvlc", IntPtr.Size == 4 ? "win-x86" : "win-x64"));
+            ((System.ComponentModel.ISupportInitialize)(this.vlcRecorder)).EndInit();
+            //itnit vlc player
+            vlcPlayer.SetMedia(CommonParam.mConfig.videoUrl );
+            vlcPlayer.Play();
+            /*
             if (tabControl1.SelectedIndex == 0)
             {
                 m_mjpeg = new MjpegDecoder();
@@ -62,20 +77,14 @@ namespace IRS_Demo
 
             if (tabControl1.SelectedIndex == 1)
             {
-                axVLCPlugin21.playlist.add(new Uri(CommonParam.mConfig.videoUrl).AbsoluteUri);
-                axVLCPlugin21.playlist.play();
-            }
-
-            if (tabControl1.SelectedIndex == 2)
-            {
                 if (m_capture == null)
-                   // m_capture = new Emgu.CV.Capture("rtsp://admin:admin@192.168.1.2/live3.sdp");
-                    m_capture = new Emgu.CV.Capture("rtsp://root:root@192.168.1.218/axis-media/media.amp");
+                    m_capture = new Emgu.CV.Capture("rtsp://admin:admin@192.168.1.2/live3.sdp");
+                    //m_capture = new Emgu.CV.Capture("rtsp://root:root@192.168.1.218/axis-media/media.amp");
 
                 m_capture.ImageGrabbed += m_capture_ImageGrabbed;
                 m_capture.Start();
             }
-
+            */
             label23.Text = CommonParam.mSesData.caseCode;
             label24.Text = "Phòng 1";
             label25.Text = DateTime.Now.ToString("MM/dd/yyyy h:mm tt");
@@ -88,7 +97,7 @@ namespace IRS_Demo
 
 
         }
-        private void vlcControl_VlcLibDirectoryNeeded(object sender, Vlc.DotNet.Forms.VlcLibDirectoryNeededEventArgs e)
+        private void vlcPlayer_VlcLibDirectoryNeeded(object sender, Vlc.DotNet.Forms.VlcLibDirectoryNeededEventArgs e)
         {
             var currentAssembly = Assembly.GetEntryAssembly();
             var currentDirectory = new FileInfo(currentAssembly.Location).DirectoryName;
@@ -115,7 +124,7 @@ namespace IRS_Demo
         }
 
         private void m_capture_ImageGrabbed(object sender, EventArgs e)
-        {            
+        {     /*       
                 try
                 {
                     m_frame = m_capture.RetrieveBgrFrame();
@@ -129,18 +138,18 @@ namespace IRS_Demo
                 catch (Exception)
                 {
 
-                }                        
+                }  */                      
         }
         private void mjpeg_FrameReady(object sender, FrameReadyEventArgs e)
         {
-            if(tabControl1.SelectedIndex==0) pictureBoxVideo.Image = e.Bitmap;
+            //if(tabControl1.SelectedIndex==0) pictureBoxVideo.Image = e.Bitmap;
         }
         private void btnStartRec_Click(object sender, EventArgs e)
         {
-            
-            vlcControl.SetMedia(CommonParam.mConfig.videoUrl,
-                ":sout=#transcode{vcodec=theo,vb=1000,scale=1,acodec=flac,ab=128,channels=2,samplerate=44100}:std{access=file,mux=ogg,dst="+CommonParam.ProgramPath + CommonParam.SessionFolderName + "\\video.ogg}");
-            vlcControl.Play();
+            vlcRecorder.SetMedia(CommonParam.mConfig.videoUrl,
+                ":sout=#transcode{vcodec=theo,vb=1000,scale=1,acodec=flac,ab=128,channels=2,samplerate=44100}:std{access=file,mux=ogg,dst="
+                +CommonParam.ProgramPath + CommonParam.SessionFolderName + "\\video.ogg}");
+            vlcRecorder.Play();
             btnStartRec.Enabled = false;
             btnStopRec.Enabled = true;
             /*
@@ -166,7 +175,7 @@ namespace IRS_Demo
         
         private void stopRecording()
         {
-            vlcControl.Stop();
+            vlcRecorder.Stop();
             /*foreach (var _process in Process.GetProcessesByName("vlc"))
             {
                 _process.Kill();
@@ -225,8 +234,8 @@ namespace IRS_Demo
             if (stopRecDialogResult == DialogResult.Yes)
             {
                 stopRecording();
-                axVLCPlugin21.playlist.stop();
-                axVLCPlugin21.playlist.items.clear();
+                //axVLCPlugin21.playlist.stop();
+                //axVLCPlugin21.playlist.items.clear();
                 m_bSession = false;                
             }
             else if (stopRecDialogResult == DialogResult.No)
@@ -238,15 +247,78 @@ namespace IRS_Demo
 
         private void btnFinish_Click(object sender, EventArgs e)
         {            
-            axVLCPlugin21.playlist.stop();
+            //axVLCPlugin21.playlist.stop();
             btnPlay.Enabled = true;
         }
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
-            axVLCPlugin21.playlist.items.clear();
-            axVLCPlugin21.playlist.add(new Uri(CommonParam.ProgramPath + CommonParam.SessionFolderName + "\\video.ogg").AbsoluteUri);
-            axVLCPlugin21.playlist.play();
+            //axVLCPlugin21.playlist.items.clear();
+            //axVLCPlugin21.playlist.add(new Uri(CommonParam.ProgramPath + CommonParam.SessionFolderName + "\\video.ogg").AbsoluteUri);
+            //axVLCPlugin21.playlist.play();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            vlcPlayer.Pause();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            vlcPlayer.Play();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            //itnit vlc player
+            vlcPlayer.SetMedia(CommonParam.mConfig.videoUrl);
+            vlcPlayer.Play();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            vlcPlayer.Stop();
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
+        {
+            using (var fbd = new FolderBrowserDialog())
+            {
+                DialogResult result = fbd.ShowDialog();
+
+                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
+                {
+                    //string[] files = Directory.GetFiles(fbd.SelectedPath);
+                    
+                    //copy file ra folder da chon
+                    string[] originalFiles = Directory.GetFiles(CommonParam.ProgramPath+CommonParam.SessionFolderName, "*", SearchOption.AllDirectories);
+
+                    // Dealing with a string array, so let's use the actionable Array.ForEach() with a anonymous method
+                    Array.ForEach(originalFiles, (originalFileLocation) =>
+                    {
+                        // Get the FileInfo for both of our files
+                        FileInfo originalFile = new FileInfo(originalFileLocation);
+                        FileInfo destFile = new FileInfo(originalFileLocation.Replace(CommonParam.ProgramPath + CommonParam.SessionFolderName, fbd.SelectedPath));
+                        // ^^ We can fill the FileInfo() constructor with files that don't exist...
+
+                        // ... because we check it here
+                        if (destFile.Exists)
+                        {
+                            // Logic for files that exist applied here; if the original is larger, replace the updated files...
+                            if (originalFile.Length > destFile.Length)
+                            {
+                                originalFile.CopyTo(destFile.FullName, true);
+                            }
+                        }
+                        else // ... otherwise create any missing directories and copy the folder over
+                        {
+                            Directory.CreateDirectory(destFile.DirectoryName); // Does nothing on directories that already exist
+                            originalFile.CopyTo(destFile.FullName, false); // Copy but don't over-write  
+                        }
+
+                    });
+                }
+            }
         }
 
     }

@@ -300,3 +300,4 @@ __pycache__/
 *.dll
 IRS Demo/IRS Demo.csproj
 *.ini
+IRS Demo/RecordingForm.cs
