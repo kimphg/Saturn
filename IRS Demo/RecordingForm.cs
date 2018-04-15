@@ -46,11 +46,6 @@ namespace IRS_Demo
             btnStopRec.Enabled = false;
 
             CommonParam.LoadConfig();
-                        
-            //tabControl1.SelectedIndex = 2;
-
-            tabControl1.Selecting += tabControl1_Selecting;
-            //init vlc recorder
             
             vlcRecorder = new Vlc.DotNet.Forms.VlcControl();
             ((System.ComponentModel.ISupportInitialize)(this.vlcRecorder)).BeginInit();
@@ -103,25 +98,7 @@ namespace IRS_Demo
             var currentDirectory = new FileInfo(currentAssembly.Location).DirectoryName;
             // Default installation path of VideoLAN.LibVLC.Windows
             e.VlcLibDirectory = new DirectoryInfo(Path.Combine(currentDirectory, "libvlc", IntPtr.Size == 4 ? "win-x86" : "win-x64"));
-        }
-        void tabControl1_Selecting(object sender, TabControlCancelEventArgs e)
-        {
-            //if (tabControl1.SelectedIndex == 0)
-            //{
-            //    axVLCPlugin21.playlist.stop();
-            //    m_capture.Stop();
-            //}
-            //if (tabControl1.SelectedIndex == 1)
-            //{
-            //    m_capture.Stop();
-            //    axVLCPlugin21.playlist.play();
-            //}
-            //if (tabControl1.SelectedIndex == 2)
-            //{
-            //    axVLCPlugin21.playlist.stop();
-            //    m_capture.Start();
-            //}
-        }
+        }        
 
         private void m_capture_ImageGrabbed(object sender, EventArgs e)
         {     /*       

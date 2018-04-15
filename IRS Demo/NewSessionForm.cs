@@ -28,7 +28,7 @@ namespace IRS_Demo
             this.Hide();
             recform.ShowDialog();
             CommonParam.saveSession();            
-            //Application.Exit();            
+            Application.Exit();            
         }
 
         private void button1_Click(object sender, EventArgs e)//tra cuu du lieu
