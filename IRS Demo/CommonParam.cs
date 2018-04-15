@@ -25,7 +25,7 @@ namespace IRS_Demo
         public string supervisorName2;
         public string supervisorCode2;
         public string Notes;
-        public string SessionPath;
+        public string SessionPath {get;set;}
 
       
     }
@@ -95,7 +95,7 @@ namespace IRS_Demo
             try
             {
                 System.Xml.XmlDocument xmlDocument = new XmlDocument();
-                xmlDocument.Load(ProgramPath + "\\" + fileName);
+                xmlDocument.Load( fileName);
                 string xmlString = xmlDocument.OuterXml;
 
                 using (StringReader read = new StringReader(xmlString))

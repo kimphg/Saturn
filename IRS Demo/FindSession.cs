@@ -39,7 +39,7 @@ namespace IRS_Demo
                 if(File.Exists(subDir+ "\\" + CommonParam.SessionFileName))
                 {
                     SessionData data = CommonParam.LoadObject<SessionData>(subDir + "\\" + CommonParam.SessionFileName);
-                    data.SessionPath = subDir + "\\" + CommonParam.SessionFileName;
+                    data.SessionPath = subDir;
 
                     SessionHistory.Add(data);
                     
@@ -56,8 +56,10 @@ namespace IRS_Demo
 
         private void UpdateSearchResults()
         {
-            
-            this.listBoxSearchResults.DataSource = SearchResults;
+            var bindingSource = new BindingSource();
+            // Bind BindingSource1 to the list of states.
+            bindingSource.DataSource = SearchResults;
+            this.listBoxSearchResults.DataSource = bindingSource;
             listBoxSearchResults.BindingContext = this.BindingContext;
             listBoxSearchResults.DisplayMember = "SessionPath";
             //listBoxSearchResults.ValueMember = "suspectName";
@@ -106,29 +108,35 @@ namespace IRS_Demo
             {
                 if (!string.IsNullOrEmpty(searchParam.inspectorName))
                 {
-                    if (searchParam.inspectorName != session.inspectorName) continue;
+                    if (!string.IsNullOrEmpty(session.inspectorName))
+                        if (!session.inspectorName.Contains(searchParam.inspectorName)) { SearchResults.Add(session); continue; }
                 }
                 if (!string.IsNullOrEmpty(searchParam.caseCode))
                 {
-                    if (searchParam.caseCode != session.caseCode) continue;
+                    if (!string.IsNullOrEmpty(session.caseCode))
+                        if (!session.caseCode.Contains(searchParam.caseCode)) { SearchResults.Add(session); continue; }
                 }
                 if (!string.IsNullOrEmpty(searchParam.suspectName))
                 {
-                    if (searchParam.suspectName != session.suspectName) continue;
+                    if (!string.IsNullOrEmpty(session.suspectName))
+                        if (!session.suspectName.Contains(searchParam.suspectName)) { SearchResults.Add(session); continue; }
                 }
                 if (!string.IsNullOrEmpty(searchParam.supervisorName1))
                 {
-                    if (searchParam.supervisorName1 != session.supervisorName) continue;
+                    if (!string.IsNullOrEmpty(session.supervisorName))
+                        if (!session.supervisorName.Contains(searchParam.supervisorName1)) { SearchResults.Add(session); continue; }
                 }
                 if (!string.IsNullOrEmpty(searchParam.supervisorName2))
                 {
-                    if (searchParam.supervisorName2 != session.supervisorName2) continue;
+                    if (!string.IsNullOrEmpty(session.supervisorName2))
+                        if (!session.supervisorName2.Contains(searchParam.supervisorName2)) { SearchResults.Add(session); continue; }
                 }
                 if (!string.IsNullOrEmpty(searchParam.notes))
                 {
-                    if (session.Notes.Contains( searchParam.notes)) continue;
+                    if (!string.IsNullOrEmpty(session.Notes))
+                        if (session.Notes.Contains(searchParam.notes)) { SearchResults.Add(session); continue; }
                 }
-                SearchResults.Add(session);
+                
             }
             UpdateSearchResults();
         }
