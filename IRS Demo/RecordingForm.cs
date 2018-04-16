@@ -301,5 +301,12 @@ namespace IRS_Demo
                 
         }
 
+        private void btnAddNotes_Click(object sender, EventArgs e)
+        {
+            CommonParam.mSesData.Notes += "\r\n";
+            CommonParam.mSesData.Notes += txtAddNotes.Text;
+            textBox19.Text = CommonParam.mSesData.Notes;
+        }
+
     }
 }

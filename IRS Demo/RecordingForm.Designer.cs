@@ -37,7 +37,7 @@ namespace IRS_Demo
             this.btnStopRec = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnPause = new System.Windows.Forms.Button();
-            this.textBox20 = new System.Windows.Forms.TextBox();
+            this.txtAddNotes = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -59,7 +59,7 @@ namespace IRS_Demo
             this.label9 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAddNotes = new System.Windows.Forms.Button();
             this.textBox19 = new System.Windows.Forms.TextBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
@@ -145,7 +145,7 @@ namespace IRS_Demo
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox2.Controls.Add(this.btnPause);
-            this.groupBox2.Controls.Add(this.textBox20);
+            this.groupBox2.Controls.Add(this.txtAddNotes);
             this.groupBox2.Controls.Add(this.btnStartRec);
             this.groupBox2.Controls.Add(this.label21);
             this.groupBox2.Controls.Add(this.label20);
@@ -155,7 +155,7 @@ namespace IRS_Demo
             this.groupBox2.Controls.Add(this.btnExport);
             this.groupBox2.Controls.Add(this.btnStopRec);
             this.groupBox2.Controls.Add(this.groupBox4);
-            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.btnAddNotes);
             this.groupBox2.Controls.Add(this.textBox19);
             this.groupBox2.Controls.Add(this.groupBox6);
             this.groupBox2.Controls.Add(this.groupBox3);
@@ -178,14 +178,14 @@ namespace IRS_Demo
             this.btnPause.UseVisualStyleBackColor = true;
             this.btnPause.Click += new System.EventHandler(this.btnPause_Click);
             // 
-            // textBox20
+            // txtAddNotes
             // 
-            this.textBox20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox20.Location = new System.Drawing.Point(292, 480);
-            this.textBox20.Multiline = true;
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(195, 105);
-            this.textBox20.TabIndex = 8;
+            this.txtAddNotes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddNotes.Location = new System.Drawing.Point(292, 480);
+            this.txtAddNotes.Multiline = true;
+            this.txtAddNotes.Name = "txtAddNotes";
+            this.txtAddNotes.Size = new System.Drawing.Size(195, 105);
+            this.txtAddNotes.TabIndex = 8;
             // 
             // label21
             // 
@@ -222,7 +222,7 @@ namespace IRS_Demo
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.83051F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.16949F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 96F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 133F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 134F));
             this.tableLayoutPanel3.Controls.Add(this.label10, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.label11, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.label12, 0, 1);
@@ -253,7 +253,7 @@ namespace IRS_Demo
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(241, 0);
+            this.label11.Location = new System.Drawing.Point(240, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(83, 13);
             this.label11.TabIndex = 6;
@@ -273,7 +273,7 @@ namespace IRS_Demo
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(241, 27);
+            this.label13.Location = new System.Drawing.Point(240, 27);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(83, 13);
             this.label13.TabIndex = 6;
@@ -284,7 +284,7 @@ namespace IRS_Demo
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label32.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label32.Location = new System.Drawing.Point(98, 0);
+            this.label32.Location = new System.Drawing.Point(97, 0);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(95, 13);
             this.label32.TabIndex = 3;
@@ -295,7 +295,7 @@ namespace IRS_Demo
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label33.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label33.Location = new System.Drawing.Point(98, 27);
+            this.label33.Location = new System.Drawing.Point(97, 27);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(95, 13);
             this.label33.TabIndex = 3;
@@ -306,7 +306,7 @@ namespace IRS_Demo
             this.label34.AutoSize = true;
             this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label34.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label34.Location = new System.Drawing.Point(337, 0);
+            this.label34.Location = new System.Drawing.Point(336, 0);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(98, 13);
             this.label34.TabIndex = 6;
@@ -317,7 +317,7 @@ namespace IRS_Demo
             this.label35.AutoSize = true;
             this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label35.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label35.Location = new System.Drawing.Point(337, 27);
+            this.label35.Location = new System.Drawing.Point(336, 27);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(98, 13);
             this.label35.TabIndex = 6;
@@ -371,7 +371,7 @@ namespace IRS_Demo
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.83051F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.16949F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 98F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 131F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 132F));
             this.tableLayoutPanel2.Controls.Add(this.label8, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.label9, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.label30, 1, 0);
@@ -397,7 +397,7 @@ namespace IRS_Demo
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(241, 0);
+            this.label9.Location = new System.Drawing.Point(240, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(83, 13);
             this.label9.TabIndex = 6;
@@ -408,7 +408,7 @@ namespace IRS_Demo
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label30.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label30.Location = new System.Drawing.Point(98, 0);
+            this.label30.Location = new System.Drawing.Point(97, 0);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(80, 13);
             this.label30.TabIndex = 3;
@@ -419,21 +419,22 @@ namespace IRS_Demo
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label31.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label31.Location = new System.Drawing.Point(339, 0);
+            this.label31.Location = new System.Drawing.Point(338, 0);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(98, 13);
             this.label31.TabIndex = 6;
             this.label31.Text = "Đơn vị công tác";
             // 
-            // button1
+            // btnAddNotes
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(292, 591);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(88, 29);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Thêm ghi chú";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnAddNotes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddNotes.Location = new System.Drawing.Point(292, 591);
+            this.btnAddNotes.Name = "btnAddNotes";
+            this.btnAddNotes.Size = new System.Drawing.Size(88, 29);
+            this.btnAddNotes.TabIndex = 1;
+            this.btnAddNotes.Text = "Thêm ghi chú";
+            this.btnAddNotes.UseVisualStyleBackColor = true;
+            this.btnAddNotes.Click += new System.EventHandler(this.btnAddNotes_Click);
             // 
             // textBox19
             // 
@@ -464,7 +465,7 @@ namespace IRS_Demo
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.57447F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.42553F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 94F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 135F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 136F));
             this.tableLayoutPanel4.Controls.Add(this.label14, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.label15, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.label16, 0, 2);
@@ -531,7 +532,7 @@ namespace IRS_Demo
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(242, 0);
+            this.label18.Location = new System.Drawing.Point(241, 0);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(47, 13);
             this.label18.TabIndex = 4;
@@ -541,7 +542,7 @@ namespace IRS_Demo
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(242, 26);
+            this.label19.Location = new System.Drawing.Point(241, 26);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(54, 13);
             this.label19.TabIndex = 5;
@@ -596,7 +597,7 @@ namespace IRS_Demo
             this.label40.AutoSize = true;
             this.label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label40.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label40.Location = new System.Drawing.Point(336, 0);
+            this.label40.Location = new System.Drawing.Point(335, 0);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(56, 13);
             this.label40.TabIndex = 4;
@@ -607,7 +608,7 @@ namespace IRS_Demo
             this.label41.AutoSize = true;
             this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label41.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label41.Location = new System.Drawing.Point(336, 26);
+            this.label41.Location = new System.Drawing.Point(335, 26);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(63, 13);
             this.label41.TabIndex = 5;
@@ -630,7 +631,7 @@ namespace IRS_Demo
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.57447F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.42553F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 105F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 131F));
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
@@ -699,7 +700,7 @@ namespace IRS_Demo
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(236, 0);
+            this.label5.Location = new System.Drawing.Point(235, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(89, 13);
             this.label5.TabIndex = 4;
@@ -709,7 +710,7 @@ namespace IRS_Demo
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(236, 26);
+            this.label6.Location = new System.Drawing.Point(235, 26);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(51, 13);
             this.label6.TabIndex = 5;
@@ -719,7 +720,7 @@ namespace IRS_Demo
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(236, 52);
+            this.label7.Location = new System.Drawing.Point(235, 52);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(98, 13);
             this.label7.TabIndex = 6;
@@ -774,7 +775,7 @@ namespace IRS_Demo
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label27.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label27.Location = new System.Drawing.Point(341, 0);
+            this.label27.Location = new System.Drawing.Point(340, 0);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(106, 13);
             this.label27.TabIndex = 4;
@@ -785,7 +786,7 @@ namespace IRS_Demo
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label28.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label28.Location = new System.Drawing.Point(341, 26);
+            this.label28.Location = new System.Drawing.Point(340, 26);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(59, 13);
             this.label28.TabIndex = 5;
@@ -796,7 +797,7 @@ namespace IRS_Demo
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label29.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label29.Location = new System.Drawing.Point(341, 52);
+            this.label29.Location = new System.Drawing.Point(340, 52);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(117, 13);
             this.label29.TabIndex = 6;
@@ -1007,7 +1008,7 @@ namespace IRS_Demo
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox20;
+        private System.Windows.Forms.TextBox txtAddNotes;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.GroupBox groupBox5;
@@ -1017,7 +1018,7 @@ namespace IRS_Demo
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAddNotes;
         private System.Windows.Forms.TextBox textBox19;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;

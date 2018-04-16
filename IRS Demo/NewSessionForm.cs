@@ -88,7 +88,7 @@ namespace IRS_Demo
 
         private void textBox19_TextChanged(object sender, EventArgs e)
         {
-            CommonParam.mSesData.Notes = textBox10.Text;
+            CommonParam.mSesData.Notes = txtNotes.Text;
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -103,6 +103,11 @@ namespace IRS_Demo
         private void NewSessionForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void txtNotes_TextChanged(object sender, EventArgs e)
+        {            
+            CommonParam.mSesData.Notes = txtNotes.Text;
         }
 
     }
