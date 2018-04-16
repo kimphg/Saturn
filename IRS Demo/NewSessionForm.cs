@@ -27,8 +27,9 @@ namespace IRS_Demo
             recform = new RecordingForm(this);
             this.Hide();
             recform.ShowDialog();
-            CommonParam.saveSession();            
-            Application.Exit();            
+            CommonParam.saveSession();
+            this.Show();
+            //Application.Exit();            
         }
 
         private void button1_Click(object sender, EventArgs e)//tra cuu du lieu
@@ -102,7 +103,13 @@ namespace IRS_Demo
 
         private void NewSessionForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Application.Exit();
+            DialogResult exitAppResult = MessageBox.Show("Bạn có muốn thoát khỏi chương trình?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            
+            if (exitAppResult == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+            
         }
 
         private void txtNotes_TextChanged(object sender, EventArgs e)

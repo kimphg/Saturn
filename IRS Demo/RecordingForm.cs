@@ -146,11 +146,14 @@ namespace IRS_Demo
                 "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
                 ==DialogResult.Yes)
                     Process.Start("explorer.exe", CommonParam.ProgramPath + CommonParam.SessionFolderName);
+
+                lblVideoPath.Text = CommonParam.ProgramPath + CommonParam.SessionFolderName;                
             }
             else if (stopRecDialogResult == DialogResult.No)
             {
                 //do something else
             }
+            
             
         }
                 
@@ -180,7 +183,7 @@ namespace IRS_Demo
         private void RecordingForm_FormClosing(object sender, FormClosingEventArgs e)
         {            
             if (!m_bSession) return; 
-            DialogResult stopRecDialogResult = MessageBox.Show("Bạn có muốn thoát chương trình?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult stopRecDialogResult = MessageBox.Show("Bạn có muốn thoát khỏi giao diện phiên hỏi cung?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (stopRecDialogResult == DialogResult.Yes)
             {
                 vlcRecorder.Stop();
@@ -199,14 +202,14 @@ namespace IRS_Demo
         private void btnFinish_Click(object sender, EventArgs e)
         {
             vlcPlayer.Stop();
+            label42.Text = "00:00:00";
             btnPlay.Enabled = true;
         }
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
-            //axVLCPlugin21.playlist.items.clear();
-            //axVLCPlugin21.playlist.add(new Uri(CommonParam.ProgramPath + CommonParam.SessionFolderName + "\\video.ogg").AbsoluteUri);
-            //axVLCPlugin21.playlist.play();
+            vlcPlayer.SetMedia(new Uri(CommonParam.ProgramPath + CommonParam.SessionFolderName + "\\video.mp4"));
+            vlcPlayer.Play();            
         }
 
         private void button3_Click(object sender, EventArgs e)
