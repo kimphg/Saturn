@@ -17,7 +17,7 @@ namespace IRS_Demo
         public NewSessionForm()
         {
             InitializeComponent();
-            this.StartPosition = FormStartPosition.CenterScreen;
+            this.StartPosition = FormStartPosition.CenterScreen;            
         }
 
         private void btnNewSession_Click(object sender, EventArgs e)

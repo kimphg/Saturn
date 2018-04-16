@@ -51,7 +51,12 @@ namespace IRS_Demo
             btnStartRec.Enabled = true;
             btnStopRec.Enabled = false;
 
-            //this.vlcPlayer.VlcLibDirectoryNeeded += vlcPlayer_VlcLibDirectoryNeeded;
+            
+            var path = new System.Drawing.Drawing2D.GraphicsPath();
+            path.AddEllipse(0, 0, label43.Width, label43.Height);
+            label43.Region = new Region(path);
+            label43.Visible = false;
+
 
             CommonParam.LoadConfig();
 
@@ -100,6 +105,9 @@ namespace IRS_Demo
             label29.Text = ""; // Thoi gian thuc hien
             label30.Text = CommonParam.mSesData.inspectorName;
             label31.Text = CommonParam.mSesData.inspectorCode;
+            label32.Text = CommonParam.mSesData.supervisorName;
+            label33.Text = CommonParam.mSesData.supervisorName2;
+            label36.Text = CommonParam.mSesData.suspectName;
 
             textBox19.Text = CommonParam.mSesData.Notes;
 
@@ -124,6 +132,8 @@ namespace IRS_Demo
             timer1.Interval = 1000;
             nRecTimeInSecond = 0;
 
+            label43.Visible = true;
+
             btnStartRec.Enabled = false;
             btnStopRec.Enabled = true;
             btnPause.Enabled = true;
@@ -137,6 +147,7 @@ namespace IRS_Demo
             {
                 vlcRecorder.Stop();
                 timer1.Stop();
+                label43.Visible = false;
                 //btnStartRec.Enabled = true;
                 btnStopRec.Enabled = false;
                 btnPause.Enabled = false;
@@ -282,7 +293,11 @@ namespace IRS_Demo
             TimeSpan time = TimeSpan.FromSeconds(nRecTimeInSecond);
             string recordTime = time.ToString(@"hh\:mm\:ss");
             
-            label42.Text = recordTime;            
+            label42.Text = recordTime;
+            if ((nRecTimeInSecond % 2) == 0)
+                label43.Visible = false;
+            else
+                label43.Visible = true;
             
         }
 
