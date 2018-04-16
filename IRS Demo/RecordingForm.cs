@@ -16,6 +16,8 @@ using Emgu.CV.Structure;
 using Emgu.CV.CvEnum;
 using System.Reflection;
 using System.IO;
+using System.Threading;
+
 
 //using IRS_Demo;
 
@@ -29,11 +31,15 @@ namespace IRS_Demo
        // MjpegDecoder m_mjpeg;
         //Capture m_capture;
         bool m_bSession;
+        Int32 nRecTimeInSecond;
+        
+        
+        
         //Image<Bgr, Byte> m_frame;
         //string vlcLibPath = Path.Combine(new FileInfo(Assembly.GetEntryAssembly().Location).DirectoryName,"libvlc", IntPtr.Size == 4 ? "win-x86" : "win-x64");
         public RecordingForm(NewSessionForm newSessionForm)
         {
-            InitializeComponent();
+            InitializeComponent();            
             //this.vlcControl.VlcLibDirectory = new DirectoryInfo(vlcLibPath); 
             /////////////////
             _newSessionForm = newSessionForm;
@@ -45,7 +51,10 @@ namespace IRS_Demo
             btnStartRec.Enabled = true;
             btnStopRec.Enabled = false;
 
+            //this.vlcPlayer.VlcLibDirectoryNeeded += vlcPlayer_VlcLibDirectoryNeeded;
+
             CommonParam.LoadConfig();
+
             
             vlcRecorder = new Vlc.DotNet.Forms.VlcControl();
             ((System.ComponentModel.ISupportInitialize)(this.vlcRecorder)).BeginInit();
@@ -60,6 +69,8 @@ namespace IRS_Demo
             ((System.ComponentModel.ISupportInitialize)(this.vlcRecorder)).EndInit();
             //itnit vlc player
             vlcPlayer.SetMedia(CommonParam.mConfig.videoUrl );
+            //label42.Parent = vlcPlayer;            
+            label42.BackColor = Color.Transparent;
             vlcPlayer.Play();
             /*
             if (tabControl1.SelectedIndex == 0)
@@ -82,7 +93,7 @@ namespace IRS_Demo
             */
             label23.Text = CommonParam.mSesData.caseCode;
             label24.Text = "Phòng 1";
-            label25.Text = DateTime.Now.ToString("MM/dd/yyyy h:mm tt");
+            label25.Text = DateTime.Now.ToString("dd/MM/yyyy h:mm tt");
             label26.Text = ""; // time ket thuc
             label27.Text = ""; // Thoi diem dien ra
             label28.Text = ""; // Ma phien
@@ -90,6 +101,7 @@ namespace IRS_Demo
             label30.Text = CommonParam.mSesData.inspectorName;
             label31.Text = CommonParam.mSesData.inspectorCode;
 
+            textBox19.Text = CommonParam.mSesData.Notes;
 
         }
         private void vlcPlayer_VlcLibDirectoryNeeded(object sender, Vlc.DotNet.Forms.VlcLibDirectoryNeededEventArgs e)
@@ -98,75 +110,36 @@ namespace IRS_Demo
             var currentDirectory = new FileInfo(currentAssembly.Location).DirectoryName;
             // Default installation path of VideoLAN.LibVLC.Windows
             e.VlcLibDirectory = new DirectoryInfo(Path.Combine(currentDirectory, "libvlc", IntPtr.Size == 4 ? "win-x86" : "win-x64"));
-        }        
+        }       
 
-        private void m_capture_ImageGrabbed(object sender, EventArgs e)
-        {     /*       
-                try
-                {
-                    m_frame = m_capture.RetrieveBgrFrame();
-
-                    m_frame = m_frame.Resize(pictureBox1.Width, pictureBox1.Height, Emgu.CV.CvEnum.INTER.CV_INTER_LINEAR);
-
-                    //pictureBox1.Image = m_frame.ToBitmap(pictureBox1.Width, pictureBox1.Height);
-                    pictureBox1.Image = m_frame.ToBitmap();
-
-                }
-                catch (Exception)
-                {
-
-                }  */                      
-        }
-        private void mjpeg_FrameReady(object sender, FrameReadyEventArgs e)
-        {
-            //if(tabControl1.SelectedIndex==0) pictureBoxVideo.Image = e.Bitmap;
-        }
         private void btnStartRec_Click(object sender, EventArgs e)
         {
             vlcRecorder.SetMedia(CommonParam.mConfig.videoUrl,
                 ":sout=#transcode{vcodec=theo,vb=1000,scale=1,acodec=flac,ab=128,channels=2,samplerate=44100}:std{access=file,mux=ogg,dst="
-                +CommonParam.ProgramPath + CommonParam.SessionFolderName + "\\video.ogg}");
+                + CommonParam.ProgramPath + CommonParam.SessionFolderName + "\\video.mp4}");
             vlcRecorder.Play();
-            btnStartRec.Enabled = false;
-            btnStopRec.Enabled = true;
-            /*
-            String command =  "\"" 
-                + CommonParam.mConfig.videoUrl
-                + "\" --qt-start-minimized --sout=#transcode{vcodec=theo,vb=800,acodec=flac,ab=128,channels=2,samplerate=44100}:file{dst="
-                + CommonParam.ProgramPath 
-                + CommonParam.SessionFolderName 
-                + "\\video.ogg"
-                + ",overwrite"
-                + "}\"";
 
-            //"C://Program Files (x86)//VideoLAN//VLC//vlc.exe", "\"rtsp://admin:admin@192.168.1.2/live3.sdp\" --qt-start-minimized --sout=#transcode{vcodec=theo,vb=800,acodec=flac,ab=128,channels=2,samplerate=44100}:file{dst=D:\\abc.ogg,no-overwrite}"
-            Process.Start(CommonParam.mConfig.recCommand, command);  
-            //Process.Start("C://Program Files (x86)//VideoLAN//VLC//vlc.exe", textBox20.Text);//vcodec=theo,vb=800,
-            //Process.Start("C://Program Files (x86)//VideoLAN//VLC//vlc.exe", "\"rtsp://root:root@192.168.1.218/axis-media/media.amp\" --sout=#std{access=file,mux=mpeg1,vcodec=theo, acodec=vorb, dst=d:/go.ogg}");
-            //rtsp://root:root@192.168.1.218/axis-media/media.amp --sout="#std{access=file,mux=mpeg1,dst=d:/go.mpg}" --ghi duoc hinh chua co tieng
-            //C://Program Files (x86)//VideoLAN//VLC//vlc.exe "rtsp://root:root@192.168.1.218/axis-media/media.amp" --sout=#std{access=file,mux=mpeg1,vcodec=theo, acodec=vorb, dst=d:/go.ogg}
+
+            timer1.Start();
+            timer1.Interval = 1000;
+            nRecTimeInSecond = 0;
+
             btnStartRec.Enabled = false;
             btnStopRec.Enabled = true;
-            lblVideoPath.Text = CommonParam.ProgramPath + CommonParam.SessionFolderName + "\\video.ogg";*/
+            btnPause.Enabled = true;
         }
-        
-        private void stopRecording()
-        {
-            vlcRecorder.Stop();
-            /*foreach (var _process in Process.GetProcessesByName("vlc"))
-            {
-                _process.Kill();
-            }*/
-        }
+
 
         private void btnStopRec_Click(object sender, EventArgs e)
         {
             DialogResult stopRecDialogResult = MessageBox.Show("Bạn có muốn dừng ghi lại phiên hỏi cung?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (stopRecDialogResult == DialogResult.Yes)
             {
-                stopRecording();                
+                vlcRecorder.Stop();
+                timer1.Stop();
                 //btnStartRec.Enabled = true;
                 btnStopRec.Enabled = false;
+                btnPause.Enabled = false;
                 btnExport.Enabled = true;
                 btnFinish.Enabled = true;
                 if(MessageBox.Show("Dữ liệu video đã được ghi tại " + CommonParam.ProgramPath + CommonParam.SessionFolderName + ". Mở thư mục ghi lưu?", 
@@ -210,7 +183,8 @@ namespace IRS_Demo
             DialogResult stopRecDialogResult = MessageBox.Show("Bạn có muốn thoát chương trình?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (stopRecDialogResult == DialogResult.Yes)
             {
-                stopRecording();
+                vlcRecorder.Stop();
+                vlcPlayer.Stop();
                 //axVLCPlugin21.playlist.stop();
                 //axVLCPlugin21.playlist.items.clear();
                 m_bSession = false;                
@@ -223,8 +197,8 @@ namespace IRS_Demo
         }
 
         private void btnFinish_Click(object sender, EventArgs e)
-        {            
-            //axVLCPlugin21.playlist.stop();
+        {
+            vlcPlayer.Stop();
             btnPlay.Enabled = true;
         }
 
@@ -296,6 +270,35 @@ namespace IRS_Demo
                     });
                 }
             }
+        }
+
+         
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            nRecTimeInSecond++;
+            TimeSpan time = TimeSpan.FromSeconds(nRecTimeInSecond);
+            string recordTime = time.ToString(@"hh\:mm\:ss");
+            
+            label42.Text = recordTime;            
+            
+        }
+
+        private void btnPause_Click(object sender, EventArgs e)
+        {
+            if (btnPause.Text == "Tạm dừng")
+            {
+                btnPause.Text = "Tiếp tục ghi";
+                timer1.Stop();                
+                vlcRecorder.Pause();
+            }
+                
+            else if (btnPause.Text == "Tiếp tục ghi")
+            {
+                btnPause.Text = "Tạm dừng";
+                timer1.Start();
+                vlcRecorder.Play();
+            }
+                
         }
 
     }
