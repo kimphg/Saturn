@@ -23,6 +23,7 @@ namespace IRS_Demo
             public static string supervisorName1;
             public static string supervisorName2;
             public static string notes;
+            public static string inspectorCode;
         }
         
         
@@ -39,8 +40,16 @@ namespace IRS_Demo
                 if(File.Exists(subDir+ "\\" + CommonParam.SessionFileName))
                 {
                     SessionData data = CommonParam.LoadObject<SessionData>(subDir + "\\" + CommonParam.SessionFileName);
-                    data.SessionPath = subDir;
-
+                    data.SessionPath = subDir + "\\";
+                    data.SessionKeyText = data.inspectorName + " "
+                                            + data.inspectorCode + " "
+                                            + data.suspectName + " "
+                                            + data.suspectCode + " "
+                                            + data.supervisorName + " "
+                                            + data.supervisorCode + " "
+                                            + data.supervisorName2 + " "
+                                            + data.supervisorCode2 + " "
+                                            + data.Notes;
                     SessionHistory.Add(data);
                     
                 }
@@ -98,7 +107,7 @@ namespace IRS_Demo
 
         private void textBox7_TextChanged(object sender, EventArgs e)
         {
-            searchParam.supervisorName2 = textBox7.Text;
+            searchParam.inspectorCode = textBox7.Text;
         }
 
         private void button1_Click(object sender, EventArgs e)//tim kiem
@@ -109,37 +118,76 @@ namespace IRS_Demo
                 if (!string.IsNullOrEmpty(searchParam.inspectorName))
                 {
                     if (!string.IsNullOrEmpty(session.inspectorName))
-                        if (!session.inspectorName.Contains(searchParam.inspectorName)) { SearchResults.Add(session); continue; }
+                        if (session.inspectorName.Contains(searchParam.inspectorName)) { SearchResults.Add(session); continue; }
                 }
                 if (!string.IsNullOrEmpty(searchParam.caseCode))
                 {
                     if (!string.IsNullOrEmpty(session.caseCode))
-                        if (!session.caseCode.Contains(searchParam.caseCode)) { SearchResults.Add(session); continue; }
+                        if (session.caseCode.Contains(searchParam.caseCode)) { SearchResults.Add(session); continue; }
                 }
                 if (!string.IsNullOrEmpty(searchParam.suspectName))
                 {
                     if (!string.IsNullOrEmpty(session.suspectName))
-                        if (!session.suspectName.Contains(searchParam.suspectName)) { SearchResults.Add(session); continue; }
+                        if (session.suspectName.Contains(searchParam.suspectName)) { SearchResults.Add(session); continue; }
                 }
                 if (!string.IsNullOrEmpty(searchParam.supervisorName1))
                 {
                     if (!string.IsNullOrEmpty(session.supervisorName))
-                        if (!session.supervisorName.Contains(searchParam.supervisorName1)) { SearchResults.Add(session); continue; }
+                        if (session.supervisorName.Contains(searchParam.supervisorName1)) { SearchResults.Add(session); continue; }
                 }
                 if (!string.IsNullOrEmpty(searchParam.supervisorName2))
                 {
                     if (!string.IsNullOrEmpty(session.supervisorName2))
-                        if (!session.supervisorName2.Contains(searchParam.supervisorName2)) { SearchResults.Add(session); continue; }
+                        if (session.supervisorName2.Contains(searchParam.supervisorName2)) { SearchResults.Add(session); continue; }
                 }
                 if (!string.IsNullOrEmpty(searchParam.notes))
                 {
                     if (!string.IsNullOrEmpty(session.Notes))
                         if (session.Notes.Contains(searchParam.notes)) { SearchResults.Add(session); continue; }
                 }
+                if (!string.IsNullOrEmpty(searchParam.inspectorCode))
+                {
+                    if (!string.IsNullOrEmpty(session.inspectorCode))
+                        if (session.inspectorCode.Contains(searchParam.inspectorCode)) { SearchResults.Add(session); continue; }
+                }
                 
             }
             UpdateSearchResults();
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            string keyWord = textBox9.Text;
+            SearchResults.Clear();
+            foreach (SessionData session in SessionHistory)
+            {
+                if (session.SessionKeyText.Contains(keyWord)) SearchResults.Add(session);
+            }
+            UpdateSearchResults();
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+            searchParam.notes = textBox4.Text;
+        }
+
+        private void textBox8_TextChanged(object sender, EventArgs e)
+        {
+            searchParam.supervisorName2 = textBox8.Text;
+        }
+
+        private void listBoxSearchResults_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string pathToData= listBoxSearchResults.GetItemText(listBoxSearchResults.SelectedItem);
+            SessionData data = CommonParam.LoadObject<SessionData>(pathToData+CommonParam.SessionFileName);
+            this.textBoxInspectorCode.Text = data.inspectorCode;
+            this.textBoxInsptectorName.Text = data.inspectorName;
+            this.textBoxSuspectName.Text = data.suspectName;
+            this.textBoxSupervisorName1.Text = data.supervisorName;
+            this.textBoxSupervisorName2.Text = data.supervisorName2;
+            this.textBoxCaseCode.Text = data.caseCode;
+        }
+
         
     }
 }
