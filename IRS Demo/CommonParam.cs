@@ -17,13 +17,17 @@ namespace IRS_Demo
     }
     public struct SessionData
     {
-        public string caseName,caseCode;
+        public string caseName, caseCode;
+
         public string suspectName, suspectCode;
         public string inspectorName, inspectorCode;
         public string supervisorName, supervisorCode;
         public string supervisorName2;
         public string supervisorCode2;
         public string Notes;
+        public string SessionPath {get;set;}
+
+      
     }
     class CommonParam
     {
@@ -40,7 +44,7 @@ namespace IRS_Demo
         
         public static void LoadConfig()
         {            
-            mConfig = LoadObject<Config>(ConfigFileName);
+            mConfig = LoadObject<Config>(ProgramPath + "\\" + ConfigFileName);
             if (mConfig.recCommand == null) LoadDefault();
         }
 
@@ -84,14 +88,14 @@ namespace IRS_Demo
         }
         public static T LoadObject<T>(string fileName)
         {
-            if (string.IsNullOrEmpty(ProgramPath + "\\" + fileName)) { return default(T); }
+            if (string.IsNullOrEmpty(fileName)) { return default(T); }
 
             T objectOut = default(T);
 
             try
             {
                 System.Xml.XmlDocument xmlDocument = new XmlDocument();
-                xmlDocument.Load(ProgramPath + "\\" + fileName);
+                xmlDocument.Load( fileName);
                 string xmlString = xmlDocument.OuterXml;
 
                 using (StringReader read = new StringReader(xmlString))
