@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using Novacode;
 using System.Diagnostics;
 using MjpegProcessor;
 
@@ -17,6 +19,12 @@ using Emgu.CV.CvEnum;
 using System.Reflection;
 using System.IO;
 using System.Threading;
+using Microsoft.Office.Interop.Word;
+using System.Reflection;
+
+
+
+
 
 
 //using IRS_Demo;
@@ -129,7 +137,7 @@ namespace IRS_Demo
 
 
             timer1.Start();
-            timer1.Interval = 1000;
+            timer1.Interval = 500;
             nRecTimeInSecond = 0;
 
             label43.Visible = true;
@@ -247,6 +255,26 @@ namespace IRS_Demo
 
         private void btnExport_Click(object sender, EventArgs e)
         {
+            DocX gDoc;
+
+            try
+            {
+                if (File.Exists(@"Template.docx"))
+                {
+                    gDoc = CreateInvoiceFromTemplate(DocX.Load(@"Template.docx"));
+                    gDoc.SaveAs(@"BienBan.docx");
+                }
+                else
+                {
+                    MessageBox.Show("Không có file Template.docx");
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }  
+            /*
             using (var fbd = new FolderBrowserDialog())
             {
                 DialogResult result = fbd.ShowDialog();
@@ -284,18 +312,33 @@ namespace IRS_Demo
                     });
                 }
             }
+            */
+        }
+
+        private DocX CreateInvoiceFromTemplate(DocX template)
+        {
+            
+            template.AddCustomProperty(new Novacode.CustomProperty("DieuTraVien", CommonParam.mSesData.inspectorName));
+            template.AddCustomProperty(new Novacode.CustomProperty("GiamSatVien1", CommonParam.mSesData.supervisorName));
+            template.AddCustomProperty(new Novacode.CustomProperty("GiamSatVien2", CommonParam.mSesData.supervisorName2));
+            template.AddCustomProperty(new Novacode.CustomProperty("DoiTuong", CommonParam.mSesData.suspectName));
+            
+            return template;
         }
 
          
         private void timer1_Tick(object sender, EventArgs e)
         {
-            nRecTimeInSecond++;
-            TimeSpan time = TimeSpan.FromSeconds(nRecTimeInSecond);
-            string recordTime = time.ToString(@"hh\:mm\:ss");
-            
-            label42.Text = recordTime;
+            nRecTimeInSecond++;            
+
             if ((nRecTimeInSecond % 2) == 0)
+            {
                 label43.Visible = false;
+                TimeSpan time = TimeSpan.FromSeconds(nRecTimeInSecond/2);
+                string recordTime = time.ToString(@"hh\:mm\:ss");
+                label42.Text = recordTime;
+            }
+                
             else
                 label43.Visible = true;
             
