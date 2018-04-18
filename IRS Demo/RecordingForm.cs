@@ -31,8 +31,7 @@ namespace IRS_Demo
         private Vlc.DotNet.Forms.VlcControl vlcRecorder;
         // class attribute
        // MjpegDecoder m_mjpeg;
-        //Capture m_capture;
-        bool m_bSession;
+        //Capture m_capture;        
         Int32 nRecTimeInSecond;
         
         
@@ -48,7 +47,7 @@ namespace IRS_Demo
 
             this.StartPosition = FormStartPosition.CenterScreen;
 
-            m_bSession = true;
+            
 
             btnStartRec.Enabled = true;
             btnStopRec.Enabled = false;
@@ -195,14 +194,15 @@ namespace IRS_Demo
 
         private void RecordingForm_FormClosing(object sender, FormClosingEventArgs e)
         {            
-            if (!m_bSession) return; 
+            
             DialogResult stopRecDialogResult = MessageBox.Show("Bạn có muốn thoát khỏi giao diện phiên hỏi cung?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (stopRecDialogResult == DialogResult.Yes)
             {                
                 vlcRecorder.Stop();
                 vlcPlayer.Stop();
-                
-                m_bSession = false;                
+               
+
+                e.Cancel = false;                            
             }
             else if (stopRecDialogResult == DialogResult.No)
             {

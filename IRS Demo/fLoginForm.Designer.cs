@@ -51,7 +51,7 @@
             this.panel4.Controls.Add(this.btnLogin);
             this.panel4.Controls.Add(this.label2);
             this.panel4.Controls.Add(this.btnExit);
-            this.panel4.Location = new System.Drawing.Point(172, 124);
+            this.panel4.Location = new System.Drawing.Point(2, 2);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(386, 147);
             this.panel4.TabIndex = 3;
@@ -63,7 +63,7 @@
             this.cmbNameLogin.Items.AddRange(new object[] {
             "Admin",
             "User"});
-            this.cmbNameLogin.Location = new System.Drawing.Point(191, 41);
+            this.cmbNameLogin.Location = new System.Drawing.Point(191, 23);
             this.cmbNameLogin.Name = "cmbNameLogin";
             this.cmbNameLogin.Size = new System.Drawing.Size(139, 24);
             this.cmbNameLogin.TabIndex = 0;
@@ -72,7 +72,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(29, 41);
+            this.label1.Location = new System.Drawing.Point(29, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(116, 20);
             this.label1.TabIndex = 1;
@@ -80,7 +80,7 @@
             // 
             // txbPassWord
             // 
-            this.txbPassWord.Location = new System.Drawing.Point(191, 82);
+            this.txbPassWord.Location = new System.Drawing.Point(191, 59);
             this.txbPassWord.Name = "txbPassWord";
             this.txbPassWord.PasswordChar = '*';
             this.txbPassWord.Size = new System.Drawing.Size(139, 22);
@@ -88,7 +88,7 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(29, 110);
+            this.btnLogin.Location = new System.Drawing.Point(29, 97);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(139, 25);
             this.btnLogin.TabIndex = 3;
@@ -100,7 +100,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(29, 82);
+            this.label2.Location = new System.Drawing.Point(29, 59);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(79, 20);
             this.label2.TabIndex = 1;
@@ -109,7 +109,7 @@
             // btnExit
             // 
             this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnExit.Location = new System.Drawing.Point(191, 110);
+            this.btnExit.Location = new System.Drawing.Point(191, 97);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(139, 25);
             this.btnExit.TabIndex = 3;
@@ -123,7 +123,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(708, 382);
+            this.panel5.Size = new System.Drawing.Size(386, 146);
             this.panel5.TabIndex = 4;
             // 
             // fLoginForm
@@ -133,12 +133,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.btnExit;
-            this.ClientSize = new System.Drawing.Size(708, 382);
+            this.ClientSize = new System.Drawing.Size(386, 146);
             this.Controls.Add(this.panel5);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "fLoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập";
