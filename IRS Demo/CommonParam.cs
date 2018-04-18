@@ -26,7 +26,7 @@ namespace IRS_Demo
         public string supervisorCode2;
         public string Notes;
         public string SessionPath {get;set;}
-
+        public string SessionKeyText { get; set; }
       
     }
     class CommonParam
