@@ -17,14 +17,8 @@ using Emgu.CV;
 using Emgu.CV.Structure;
 using Emgu.CV.CvEnum;
 using System.Reflection;
-using System.IO;
 using System.Threading;
 using Microsoft.Office.Interop.Word;
-using System.Reflection;
-
-
-
-
 
 
 //using IRS_Demo;
@@ -204,11 +198,10 @@ namespace IRS_Demo
             if (!m_bSession) return; 
             DialogResult stopRecDialogResult = MessageBox.Show("Bạn có muốn thoát khỏi giao diện phiên hỏi cung?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (stopRecDialogResult == DialogResult.Yes)
-            {
+            {                
                 vlcRecorder.Stop();
                 vlcPlayer.Stop();
-                //axVLCPlugin21.playlist.stop();
-                //axVLCPlugin21.playlist.items.clear();
+                
                 m_bSession = false;                
             }
             else if (stopRecDialogResult == DialogResult.No)
@@ -261,8 +254,12 @@ namespace IRS_Demo
             {
                 if (File.Exists(@"Template.docx"))
                 {
-                    gDoc = CreateInvoiceFromTemplate(DocX.Load(@"Template.docx"));
-                    gDoc.SaveAs(@"BienBan.docx");
+                    gDoc = CreateInvoiceFromTemplate(DocX.Load(@"Template.docx"));                    
+                    gDoc.SaveAs(CommonParam.ProgramPath + CommonParam.SessionFolderName + "\\BienBan.docx");                    
+                    ProcessStartInfo startInfo = new ProcessStartInfo();
+                    startInfo.FileName = "WINWORD.EXE";
+                    startInfo.Arguments = CommonParam.ProgramPath + CommonParam.SessionFolderName + "\\BienBan.docx";
+                    Process.Start(startInfo);
                 }
                 else
                 {

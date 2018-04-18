@@ -28,8 +28,7 @@ namespace IRS_Demo
             this.Hide();
             recform.ShowDialog();
             CommonParam.saveSession();
-            this.Show();
-            //Application.Exit();            
+            this.Show();            
         }
 
         private void button1_Click(object sender, EventArgs e)//tra cuu du lieu
@@ -108,13 +107,18 @@ namespace IRS_Demo
             if (exitAppResult == DialogResult.No)
             {
                 e.Cancel = true;
-            }
+            }            
             
         }
 
         private void txtNotes_TextChanged(object sender, EventArgs e)
         {            
             CommonParam.mSesData.Notes = txtNotes.Text;
+        }
+
+        private void NewSessionForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
 
     }
