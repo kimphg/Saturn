@@ -318,7 +318,10 @@ namespace IRS_Demo
             template.AddCustomProperty(new Novacode.CustomProperty("DieuTraVien", CommonParam.mSesData.inspectorName));
             template.AddCustomProperty(new Novacode.CustomProperty("GiamSatVien1", CommonParam.mSesData.supervisorName));
             template.AddCustomProperty(new Novacode.CustomProperty("GiamSatVien2", CommonParam.mSesData.supervisorName2));
-            template.AddCustomProperty(new Novacode.CustomProperty("DoiTuong", CommonParam.mSesData.suspectName));
+            template.AddCustomProperty(new Novacode.CustomProperty("BC_Ten", CommonParam.mSesData.suspectName));
+            template.AddCustomProperty(new Novacode.CustomProperty("BC_GioiTinh", CommonParam.mSesData.suspectSex));
+            template.AddCustomProperty(new Novacode.CustomProperty("BC_QuocTich", CommonParam.mSesData.suspectNation));
+            template.AddCustomProperty(new Novacode.CustomProperty("BC_TenGoiKhac", CommonParam.mSesData.suspectOtherName));
             
             return template;
         }

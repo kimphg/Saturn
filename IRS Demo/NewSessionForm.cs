@@ -25,6 +25,7 @@ namespace IRS_Demo
             CommonParam.SessionFolderName = "SS_" + DateTime.Now.ToString(@"MM_dd_yyyy.h_mm_tt");
             System.IO.Directory.CreateDirectory(CommonParam.ProgramPath + "\\" + CommonParam.SessionFolderName);
             recform = new RecordingForm(this);
+            CommonParam.GetSuspectInfo();
             this.Hide();
             recform.ShowDialog();
             CommonParam.saveSession();

@@ -15,16 +15,22 @@ namespace IRS_Demo
         public string recCommand;
         public string videoUrl;
     }
+    
+
     public struct SessionData
     {
         public string caseName, caseCode;
 
-        public string suspectName, suspectCode;
+        public string suspectName, suspectCode, suspectSex, suspectOtherName, suspectBirthday, suspectPlaceOfBirth, suspectNation;
         public string inspectorName, inspectorCode;
         public string supervisorName, supervisorCode;
         public string supervisorName2;
         public string supervisorCode2;
         public string Notes;
+
+        public string beginSessTime;
+        public string endSessTime;
+
         public string SessionPath {get;set;}
         public string SessionKeyText { get; set; }
       
@@ -42,6 +48,14 @@ namespace IRS_Demo
         //public static string videoUrl = "rtsp://root:root@192.168.1.218/axis-media/media.amp";
         public static string MjpegUrl = "http://root:root@192.168.1.212/mjpg/video.mjpg";
         
+
+        public static void GetSuspectInfo()
+        {
+            mSesData.suspectNation = "Việt Nam";
+            mSesData.suspectOtherName = "Không có";
+            mSesData.suspectSex = "Nam";   
+         
+        }
         public static void LoadConfig()
         {            
             mConfig = LoadObject<Config>(ProgramPath + "\\" + ConfigFileName);
