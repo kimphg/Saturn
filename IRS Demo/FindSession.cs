@@ -186,6 +186,8 @@ namespace IRS_Demo
             this.textBoxSupervisorName1.Text = data.supervisorName;
             this.textBoxSupervisorName2.Text = data.supervisorName2;
             this.textBoxCaseCode.Text = data.caseCode;
+            this.txtNote_View.Text = data.Notes;
+
         }
 
         

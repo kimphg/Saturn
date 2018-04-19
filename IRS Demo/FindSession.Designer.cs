@@ -72,7 +72,7 @@
             this.label20 = new System.Windows.Forms.Label();
             this.textBoxSuspectName = new System.Windows.Forms.TextBox();
             this.textBoxSupervisorName2 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.txtNote_View = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -85,14 +85,11 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button6);
             this.groupBox1.Controls.Add(this.tableLayoutPanel1);
-            this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.textBox9);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(17, 48);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(755, 221);
+            this.groupBox1.Size = new System.Drawing.Size(755, 185);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tìm kiếm theo mục thông tin";
@@ -100,7 +97,7 @@
             // button6
             // 
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(475, 189);
+            this.button6.Location = new System.Drawing.Point(506, 240);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(103, 23);
             this.button6.TabIndex = 3;
@@ -148,10 +145,11 @@
             // 
             // button2
             // 
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(483, 131);
+            this.button2.Location = new System.Drawing.Point(483, 133);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(110, 23);
+            this.button2.Size = new System.Drawing.Size(103, 23);
             this.button2.TabIndex = 1;
             this.button2.Text = "Đặt lại";
             this.button2.UseVisualStyleBackColor = true;
@@ -333,8 +331,9 @@
             // 
             // button1
             // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(374, 131);
+            this.button1.Location = new System.Drawing.Point(374, 133);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(103, 23);
             this.button1.TabIndex = 1;
@@ -367,20 +366,20 @@
             // 
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(8, 196);
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(23, 244);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(115, 13);
+            this.label11.Size = new System.Drawing.Size(107, 13);
             this.label11.TabIndex = 0;
-            this.label11.Text = "Tìm kiếm theo từ khóa:";
+            this.label11.Text = "Tìm theo từ khóa:";
             // 
             // textBox9
             // 
             this.textBox9.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.textBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox9.Location = new System.Drawing.Point(126, 191);
+            this.textBox9.Location = new System.Drawing.Point(136, 241);
             this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(343, 20);
+            this.textBox9.Size = new System.Drawing.Size(364, 20);
             this.textBox9.TabIndex = 2;
             // 
             // label1
@@ -397,9 +396,9 @@
             // 
             this.groupBox2.Controls.Add(this.listBoxSearchResults);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(17, 275);
+            this.groupBox2.Location = new System.Drawing.Point(17, 267);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(755, 137);
+            this.groupBox2.Size = new System.Drawing.Size(755, 145);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Kết quả tìm kiếm";
@@ -411,13 +410,15 @@
             this.listBoxSearchResults.FormattingEnabled = true;
             this.listBoxSearchResults.Location = new System.Drawing.Point(3, 16);
             this.listBoxSearchResults.Name = "listBoxSearchResults";
-            this.listBoxSearchResults.Size = new System.Drawing.Size(749, 118);
+            this.listBoxSearchResults.Size = new System.Drawing.Size(749, 126);
             this.listBoxSearchResults.TabIndex = 0;
             this.listBoxSearchResults.SelectedIndexChanged += new System.EventHandler(this.listBoxSearchResults_SelectedIndexChanged);
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.tableLayoutPanel2);
+            this.groupBox3.Controls.Add(this.txtNote_View);
+            this.groupBox3.Controls.Add(this.label15);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(17, 418);
             this.groupBox3.Name = "groupBox3";
@@ -433,36 +434,34 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 261F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 109F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 263F));
-            this.tableLayoutPanel2.Controls.Add(this.textBoxInspectorCode, 3, 2);
             this.tableLayoutPanel2.Controls.Add(this.label12, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.label13, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.label14, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.label15, 0, 3);
             this.tableLayoutPanel2.Controls.Add(this.textBoxCaseCode, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.textBoxInsptectorName, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.textBoxSupervisorName1, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.label18, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label19, 2, 1);
-            this.tableLayoutPanel2.Controls.Add(this.label20, 2, 2);
             this.tableLayoutPanel2.Controls.Add(this.textBoxSuspectName, 3, 0);
-            this.tableLayoutPanel2.Controls.Add(this.textBoxSupervisorName2, 3, 1);
-            this.tableLayoutPanel2.Controls.Add(this.textBox14, 1, 3);
+            this.tableLayoutPanel2.Controls.Add(this.label20, 2, 1);
+            this.tableLayoutPanel2.Controls.Add(this.label19, 2, 2);
+            this.tableLayoutPanel2.Controls.Add(this.textBoxInspectorCode, 3, 1);
+            this.tableLayoutPanel2.Controls.Add(this.textBoxSupervisorName2, 3, 2);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(6, 19);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 4;
+            this.tableLayoutPanel2.RowCount = 3;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(743, 153);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(743, 100);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // textBoxInspectorCode
             // 
             this.textBoxInspectorCode.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.textBoxInspectorCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxInspectorCode.Location = new System.Drawing.Point(483, 85);
+            this.textBoxInspectorCode.Location = new System.Drawing.Point(483, 39);
             this.textBoxInspectorCode.Name = "textBoxInspectorCode";
+            this.textBoxInspectorCode.ReadOnly = true;
             this.textBoxInspectorCode.Size = new System.Drawing.Size(227, 20);
             this.textBoxInspectorCode.TabIndex = 2;
             // 
@@ -471,7 +470,7 @@
             this.label12.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(3, 12);
+            this.label12.Location = new System.Drawing.Point(3, 10);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(55, 13);
             this.label12.TabIndex = 0;
@@ -482,7 +481,7 @@
             this.label13.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(3, 50);
+            this.label13.Location = new System.Drawing.Point(3, 43);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(91, 13);
             this.label13.TabIndex = 0;
@@ -493,7 +492,7 @@
             this.label14.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(3, 88);
+            this.label14.Location = new System.Drawing.Point(3, 76);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(103, 13);
             this.label14.TabIndex = 0;
@@ -504,7 +503,7 @@
             this.label15.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(3, 127);
+            this.label15.Location = new System.Drawing.Point(9, 144);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(47, 13);
             this.label15.TabIndex = 0;
@@ -514,8 +513,9 @@
             // 
             this.textBoxCaseCode.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.textBoxCaseCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCaseCode.Location = new System.Drawing.Point(113, 9);
+            this.textBoxCaseCode.Location = new System.Drawing.Point(113, 6);
             this.textBoxCaseCode.Name = "textBoxCaseCode";
+            this.textBoxCaseCode.ReadOnly = true;
             this.textBoxCaseCode.Size = new System.Drawing.Size(227, 20);
             this.textBoxCaseCode.TabIndex = 2;
             // 
@@ -523,8 +523,9 @@
             // 
             this.textBoxInsptectorName.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.textBoxInsptectorName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxInsptectorName.Location = new System.Drawing.Point(113, 47);
+            this.textBoxInsptectorName.Location = new System.Drawing.Point(113, 39);
             this.textBoxInsptectorName.Name = "textBoxInsptectorName";
+            this.textBoxInsptectorName.ReadOnly = true;
             this.textBoxInsptectorName.Size = new System.Drawing.Size(227, 20);
             this.textBoxInsptectorName.TabIndex = 2;
             // 
@@ -532,8 +533,9 @@
             // 
             this.textBoxSupervisorName1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.textBoxSupervisorName1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSupervisorName1.Location = new System.Drawing.Point(113, 85);
+            this.textBoxSupervisorName1.Location = new System.Drawing.Point(113, 73);
             this.textBoxSupervisorName1.Name = "textBoxSupervisorName1";
+            this.textBoxSupervisorName1.ReadOnly = true;
             this.textBoxSupervisorName1.Size = new System.Drawing.Size(227, 20);
             this.textBoxSupervisorName1.TabIndex = 2;
             // 
@@ -542,7 +544,7 @@
             this.label18.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(374, 12);
+            this.label18.Location = new System.Drawing.Point(374, 10);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(77, 13);
             this.label18.TabIndex = 0;
@@ -553,7 +555,7 @@
             this.label19.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(374, 50);
+            this.label19.Location = new System.Drawing.Point(374, 76);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(103, 13);
             this.label19.TabIndex = 0;
@@ -564,7 +566,7 @@
             this.label20.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(374, 88);
+            this.label20.Location = new System.Drawing.Point(374, 43);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(87, 13);
             this.label20.TabIndex = 0;
@@ -574,8 +576,9 @@
             // 
             this.textBoxSuspectName.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.textBoxSuspectName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSuspectName.Location = new System.Drawing.Point(483, 9);
+            this.textBoxSuspectName.Location = new System.Drawing.Point(483, 6);
             this.textBoxSuspectName.Name = "textBoxSuspectName";
+            this.textBoxSuspectName.ReadOnly = true;
             this.textBoxSuspectName.Size = new System.Drawing.Size(227, 20);
             this.textBoxSuspectName.TabIndex = 2;
             // 
@@ -583,20 +586,22 @@
             // 
             this.textBoxSupervisorName2.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.textBoxSupervisorName2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSupervisorName2.Location = new System.Drawing.Point(483, 47);
+            this.textBoxSupervisorName2.Location = new System.Drawing.Point(483, 73);
             this.textBoxSupervisorName2.Name = "textBoxSupervisorName2";
+            this.textBoxSupervisorName2.ReadOnly = true;
             this.textBoxSupervisorName2.Size = new System.Drawing.Size(227, 20);
             this.textBoxSupervisorName2.TabIndex = 2;
             // 
-            // textBox14
+            // txtNote_View
             // 
-            this.textBox14.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox14.Location = new System.Drawing.Point(113, 117);
-            this.textBox14.Multiline = true;
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(255, 33);
-            this.textBox14.TabIndex = 2;
+            this.txtNote_View.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtNote_View.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNote_View.Location = new System.Drawing.Point(119, 125);
+            this.txtNote_View.Multiline = true;
+            this.txtNote_View.Name = "txtNote_View";
+            this.txtNote_View.ReadOnly = true;
+            this.txtNote_View.Size = new System.Drawing.Size(597, 51);
+            this.txtNote_View.TabIndex = 2;
             // 
             // button3
             // 
@@ -633,11 +638,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 641);
+            this.Controls.Add(this.button6);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.textBox9);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -647,11 +655,11 @@
             this.Text = "IRS - Tìm kiếm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FindSession_FormClosing);
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
@@ -702,7 +710,7 @@
         private System.Windows.Forms.TextBox textBoxCaseCode;
         private System.Windows.Forms.TextBox textBoxInsptectorName;
         private System.Windows.Forms.TextBox textBoxSupervisorName1;
-        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.TextBox txtNote_View;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox textBoxSuspectName;

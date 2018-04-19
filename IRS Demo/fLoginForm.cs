@@ -49,12 +49,6 @@ namespace IRS_Demo
             
 		}
 
-
-		private void btnExit_Click(object sender, EventArgs e)
-		{
-            this.DialogResult = DialogResult.Cancel;
-		}
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
             User Employees = (cmbNameLogin.SelectedItem as User);
