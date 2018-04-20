@@ -15,13 +15,20 @@ namespace IRS_Demo
         public string recCommand;
         public string videoUrl;
     }
+
+    public struct SuspectData
+    {
+        public string _Ten, _MaDT;
+        public string _GioiTinh, _TenGoiKhac, _NgaySinh, _NoiSinh, _QuocTich, _DanToc, _TonGiao, _NgheNghiep;
+        public string _CMND, _NgayCapCMND, _NoiCapCMND;
+        public string _DiaChi;
+    }
     
 
     public struct SessionData
     {
         public string caseName, caseCode;
-
-        public string suspectName, suspectCode, suspectSex, suspectOtherName, suspectBirthday, suspectPlaceOfBirth, suspectNation;
+        
         public string inspectorName, inspectorCode;
         public string supervisorName, supervisorCode;
         public string supervisorName2;
@@ -31,8 +38,15 @@ namespace IRS_Demo
         public string beginSessTime;
         public string endSessTime;
 
+        public string currentPlace;
+        public string currentDate;
+
+        public SuspectData suspectData;
+
         public string SessionPath {get;set;}
         public string SessionKeyText { get; set; }
+
+        
       
     }
     class CommonParam
@@ -50,11 +64,19 @@ namespace IRS_Demo
         
 
         public static void GetSuspectInfo()
-        {
-            mSesData.suspectNation = "Việt Nam";
-            mSesData.suspectOtherName = "Không có";
-            mSesData.suspectSex = "Nam";   
-         
+        {   
+            mSesData.suspectData._GioiTinh = "Nam"; 
+            mSesData.suspectData._TenGoiKhac = "Không có";
+            mSesData.suspectData._NgaySinh = "30/06/1985";
+            mSesData.suspectData._NoiSinh = "Hưng Yên";            
+            mSesData.suspectData._QuocTich = "Việt Nam";
+            mSesData.suspectData._DanToc = "Kinh";
+            mSesData.suspectData._TonGiao = "Không";
+            mSesData.suspectData._NgheNghiep = "Tự do";
+            mSesData.suspectData._CMND = "123456789";
+            mSesData.suspectData._NgayCapCMND = "28/2/2005";
+            mSesData.suspectData._NoiCapCMND = "Công an tỉnh Hưng Yên";
+            mSesData.suspectData._DiaChi = "Đống Đa - Hà Nội";            
         }
         public static void LoadConfig()
         {            

@@ -26,6 +26,7 @@ namespace IRS_Demo
             System.IO.Directory.CreateDirectory(CommonParam.ProgramPath + "\\" + CommonParam.SessionFolderName);
             recform = new RecordingForm(this);
             CommonParam.GetSuspectInfo();
+            CommonParam.mSesData.beginSessTime = DateTime.Now.Hour.ToString() + " giờ " + DateTime.Now.Minute.ToString() + " phút";            
             this.Hide();
             recform.ShowDialog();
             CommonParam.saveSession();
@@ -43,8 +44,8 @@ namespace IRS_Demo
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            CommonParam.mSesData.suspectName = textBox1.Text;
+        {            
+            CommonParam.mSesData.suspectData._Ten = textBox1.Text;
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -64,12 +65,12 @@ namespace IRS_Demo
 
         private void textBox6_TextChanged(object sender, EventArgs e)
         {
-            CommonParam.mSesData.caseCode = textBox6.Text;
+            CommonParam.mSesData.caseCode = textBox6.Text;            
         }
 
         private void textBox8_TextChanged(object sender, EventArgs e)
         {
-            CommonParam.mSesData.suspectCode = textBox8.Text;
+            CommonParam.mSesData.suspectData._MaDT = textBox8.Text;
         }
 
         private void textBox5_TextChanged(object sender, EventArgs e)
@@ -85,6 +86,11 @@ namespace IRS_Demo
         private void textBox9_TextChanged(object sender, EventArgs e)
         {
             CommonParam.mSesData.supervisorCode2 = textBox9.Text;
+        }
+
+        private void textBox10_TextChanged(object sender, EventArgs e)
+        {
+            CommonParam.mSesData.currentPlace = textBox10.Text;
         }
 
         private void textBox19_TextChanged(object sender, EventArgs e)
@@ -121,6 +127,8 @@ namespace IRS_Demo
         {
             Application.Exit();
         }
+
+        
 
     }
 }

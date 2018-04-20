@@ -223,7 +223,7 @@ namespace IRS_Demo
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.83051F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.16949F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 96F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 141F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 142F));
             this.tableLayoutPanel3.Controls.Add(this.label10, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.label11, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.label12, 0, 1);
@@ -254,7 +254,7 @@ namespace IRS_Demo
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(233, 0);
+            this.label11.Location = new System.Drawing.Point(232, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(83, 13);
             this.label11.TabIndex = 6;
@@ -274,7 +274,7 @@ namespace IRS_Demo
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(233, 27);
+            this.label13.Location = new System.Drawing.Point(232, 27);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(83, 13);
             this.label13.TabIndex = 6;
@@ -285,7 +285,7 @@ namespace IRS_Demo
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label32.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label32.Location = new System.Drawing.Point(95, 0);
+            this.label32.Location = new System.Drawing.Point(94, 0);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(95, 13);
             this.label32.TabIndex = 3;
@@ -296,7 +296,7 @@ namespace IRS_Demo
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label33.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label33.Location = new System.Drawing.Point(95, 27);
+            this.label33.Location = new System.Drawing.Point(94, 27);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(95, 13);
             this.label33.TabIndex = 3;
@@ -307,7 +307,7 @@ namespace IRS_Demo
             this.label34.AutoSize = true;
             this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label34.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label34.Location = new System.Drawing.Point(329, 0);
+            this.label34.Location = new System.Drawing.Point(328, 0);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(30, 13);
             this.label34.TabIndex = 6;
@@ -318,7 +318,7 @@ namespace IRS_Demo
             this.label35.AutoSize = true;
             this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label35.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label35.Location = new System.Drawing.Point(329, 27);
+            this.label35.Location = new System.Drawing.Point(328, 27);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(30, 13);
             this.label35.TabIndex = 6;
@@ -338,7 +338,7 @@ namespace IRS_Demo
             // btnFinish
             // 
             this.btnFinish.Enabled = false;
-            this.btnFinish.Location = new System.Drawing.Point(396, 423);
+            this.btnFinish.Location = new System.Drawing.Point(299, 423);
             this.btnFinish.Name = "btnFinish";
             this.btnFinish.Size = new System.Drawing.Size(91, 29);
             this.btnFinish.TabIndex = 2;
@@ -349,7 +349,7 @@ namespace IRS_Demo
             // btnExport
             // 
             this.btnExport.Enabled = false;
-            this.btnExport.Location = new System.Drawing.Point(299, 423);
+            this.btnExport.Location = new System.Drawing.Point(396, 423);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(91, 29);
             this.btnExport.TabIndex = 2;
@@ -372,7 +372,7 @@ namespace IRS_Demo
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.83051F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.16949F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 98F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 139F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 140F));
             this.tableLayoutPanel2.Controls.Add(this.label8, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.label9, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.label30, 1, 0);
@@ -398,7 +398,7 @@ namespace IRS_Demo
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(233, 0);
+            this.label9.Location = new System.Drawing.Point(232, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(83, 13);
             this.label9.TabIndex = 6;
@@ -409,7 +409,7 @@ namespace IRS_Demo
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label30.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label30.Location = new System.Drawing.Point(95, 0);
+            this.label30.Location = new System.Drawing.Point(94, 0);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(80, 13);
             this.label30.TabIndex = 3;
@@ -420,7 +420,7 @@ namespace IRS_Demo
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label31.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label31.Location = new System.Drawing.Point(331, 0);
+            this.label31.Location = new System.Drawing.Point(330, 0);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(30, 13);
             this.label31.TabIndex = 6;
@@ -466,7 +466,7 @@ namespace IRS_Demo
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.57447F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.42553F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 94F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 143F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 144F));
             this.tableLayoutPanel4.Controls.Add(this.label14, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.label15, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.label16, 0, 2);
@@ -533,7 +533,7 @@ namespace IRS_Demo
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(234, 0);
+            this.label18.Location = new System.Drawing.Point(233, 0);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(47, 13);
             this.label18.TabIndex = 4;
@@ -543,7 +543,7 @@ namespace IRS_Demo
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(234, 26);
+            this.label19.Location = new System.Drawing.Point(233, 26);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(54, 13);
             this.label19.TabIndex = 5;
@@ -598,7 +598,7 @@ namespace IRS_Demo
             this.label40.AutoSize = true;
             this.label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label40.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label40.Location = new System.Drawing.Point(328, 0);
+            this.label40.Location = new System.Drawing.Point(327, 0);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(28, 13);
             this.label40.TabIndex = 4;
@@ -609,7 +609,7 @@ namespace IRS_Demo
             this.label41.AutoSize = true;
             this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label41.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label41.Location = new System.Drawing.Point(328, 26);
+            this.label41.Location = new System.Drawing.Point(327, 26);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(55, 13);
             this.label41.TabIndex = 5;
@@ -632,7 +632,7 @@ namespace IRS_Demo
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.57447F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.42553F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 105F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 138F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 139F));
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
@@ -701,7 +701,7 @@ namespace IRS_Demo
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(228, 0);
+            this.label5.Location = new System.Drawing.Point(227, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(89, 13);
             this.label5.TabIndex = 4;
@@ -711,7 +711,7 @@ namespace IRS_Demo
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(228, 26);
+            this.label6.Location = new System.Drawing.Point(227, 26);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(51, 13);
             this.label6.TabIndex = 5;
@@ -721,7 +721,7 @@ namespace IRS_Demo
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(228, 52);
+            this.label7.Location = new System.Drawing.Point(227, 52);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(98, 13);
             this.label7.TabIndex = 6;
@@ -776,7 +776,7 @@ namespace IRS_Demo
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label27.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label27.Location = new System.Drawing.Point(333, 0);
+            this.label27.Location = new System.Drawing.Point(332, 0);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(106, 13);
             this.label27.TabIndex = 4;
@@ -787,7 +787,7 @@ namespace IRS_Demo
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label28.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label28.Location = new System.Drawing.Point(333, 26);
+            this.label28.Location = new System.Drawing.Point(332, 26);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(59, 13);
             this.label28.TabIndex = 5;
@@ -798,7 +798,7 @@ namespace IRS_Demo
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label29.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label29.Location = new System.Drawing.Point(333, 52);
+            this.label29.Location = new System.Drawing.Point(332, 52);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(117, 13);
             this.label29.TabIndex = 6;

@@ -107,8 +107,8 @@ namespace IRS_Demo
             label30.Text = CommonParam.mSesData.inspectorName;
             label31.Text = CommonParam.mSesData.inspectorCode;
             label32.Text = CommonParam.mSesData.supervisorName;
-            label33.Text = CommonParam.mSesData.supervisorName2;
-            label36.Text = CommonParam.mSesData.suspectName;
+            label33.Text = CommonParam.mSesData.supervisorName2;            
+            label36.Text = CommonParam.mSesData.suspectData._Ten;
 
             textBox19.Text = CommonParam.mSesData.Notes;
 
@@ -151,8 +151,7 @@ namespace IRS_Demo
                 label43.Visible = false;
                 //btnStartRec.Enabled = true;
                 btnStopRec.Enabled = false;
-                btnPause.Enabled = false;
-                btnExport.Enabled = true;
+                btnPause.Enabled = false;                
                 btnFinish.Enabled = true;
                 if(MessageBox.Show("Dữ liệu video đã được ghi tại " + CommonParam.ProgramPath + CommonParam.SessionFolderName + ". Mở thư mục ghi lưu?", 
                 "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information)
@@ -216,6 +215,10 @@ namespace IRS_Demo
             vlcPlayer.Stop();
             label42.Text = "00:00:00";
             btnPlay.Enabled = true;
+            btnExport.Enabled = true;
+            CommonParam.mSesData.endSessTime = DateTime.Now.Hour.ToString() + " giờ " + DateTime.Now.Minute.ToString() + " phút";
+            CommonParam.mSesData.currentDate = DateTime.Now.ToString("dd/MM/yyyy");
+            CommonParam.saveSession();
         }
 
         private void btnPlay_Click(object sender, EventArgs e)
@@ -318,10 +321,24 @@ namespace IRS_Demo
             template.AddCustomProperty(new Novacode.CustomProperty("DieuTraVien", CommonParam.mSesData.inspectorName));
             template.AddCustomProperty(new Novacode.CustomProperty("GiamSatVien1", CommonParam.mSesData.supervisorName));
             template.AddCustomProperty(new Novacode.CustomProperty("GiamSatVien2", CommonParam.mSesData.supervisorName2));
-            template.AddCustomProperty(new Novacode.CustomProperty("BC_Ten", CommonParam.mSesData.suspectName));
-            template.AddCustomProperty(new Novacode.CustomProperty("BC_GioiTinh", CommonParam.mSesData.suspectSex));
-            template.AddCustomProperty(new Novacode.CustomProperty("BC_QuocTich", CommonParam.mSesData.suspectNation));
-            template.AddCustomProperty(new Novacode.CustomProperty("BC_TenGoiKhac", CommonParam.mSesData.suspectOtherName));
+            template.AddCustomProperty(new Novacode.CustomProperty("ThoiGianDienRa", CommonParam.mSesData.beginSessTime));
+            template.AddCustomProperty(new Novacode.CustomProperty("BC_Ten", CommonParam.mSesData.suspectData._Ten));
+            template.AddCustomProperty(new Novacode.CustomProperty("BC_GioiTinh", CommonParam.mSesData.suspectData._GioiTinh));
+            template.AddCustomProperty(new Novacode.CustomProperty("BC_QuocTich", CommonParam.mSesData.suspectData._QuocTich));
+            template.AddCustomProperty(new Novacode.CustomProperty("BC_TenGoiKhac", CommonParam.mSesData.suspectData._TenGoiKhac));
+            template.AddCustomProperty(new Novacode.CustomProperty("BC_NgaySinh", CommonParam.mSesData.suspectData._NgaySinh));
+            template.AddCustomProperty(new Novacode.CustomProperty("BC_NoiSinh", CommonParam.mSesData.suspectData._NoiSinh));
+            template.AddCustomProperty(new Novacode.CustomProperty("BC_DanToc", CommonParam.mSesData.suspectData._DanToc));
+            template.AddCustomProperty(new Novacode.CustomProperty("BC_TonGiao", CommonParam.mSesData.suspectData._TonGiao));
+            template.AddCustomProperty(new Novacode.CustomProperty("BC_NgheNghiep", CommonParam.mSesData.suspectData._NgheNghiep));
+            template.AddCustomProperty(new Novacode.CustomProperty("BC_SoCMND", CommonParam.mSesData.suspectData._CMND));
+            template.AddCustomProperty(new Novacode.CustomProperty("BC_NgayCapCMND", CommonParam.mSesData.suspectData._NgayCapCMND));
+            template.AddCustomProperty(new Novacode.CustomProperty("BC_NoiCuTru", CommonParam.mSesData.suspectData._DiaChi));
+            template.AddCustomProperty(new Novacode.CustomProperty("BC_NoiCapCMND", CommonParam.mSesData.suspectData._NoiCapCMND));
+            template.AddCustomProperty(new Novacode.CustomProperty("DiaDiemHoiCung", CommonParam.mSesData.currentPlace));
+            template.AddCustomProperty(new Novacode.CustomProperty("ThoiGianKetThuc", CommonParam.mSesData.endSessTime));
+            template.AddCustomProperty(new Novacode.CustomProperty("NgayHoiCung", CommonParam.mSesData.currentDate));
+            template.AddCustomProperty(new Novacode.CustomProperty("DiaDiemHoiCung", CommonParam.mSesData.currentPlace));
             
             return template;
         }
