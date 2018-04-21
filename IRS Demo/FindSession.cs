@@ -29,6 +29,7 @@ namespace IRS_Demo
         
         List<SessionData> SessionHistory = new List<SessionData>();
         List<SessionData> SearchResults ;
+        string selectedDataPath;
         public FindSession( Form parent)
         {
             InitializeComponent();
@@ -178,8 +179,8 @@ namespace IRS_Demo
 
         private void listBoxSearchResults_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string pathToData= listBoxSearchResults.GetItemText(listBoxSearchResults.SelectedItem);
-            SessionData data = CommonParam.LoadObject<SessionData>(pathToData+CommonParam.SessionFileName);
+            selectedDataPath = listBoxSearchResults.GetItemText(listBoxSearchResults.SelectedItem);
+            SessionData data = CommonParam.LoadObject<SessionData>(selectedDataPath + CommonParam.SessionFileName);
             this.textBoxInspectorCode.Text = data.inspectorCode;
             this.textBoxInsptectorName.Text = data.inspectorName;
             this.textBoxSuspectName.Text = data.suspectData._Ten;
@@ -187,6 +188,31 @@ namespace IRS_Demo
             this.textBoxSupervisorName2.Text = data.supervisorName2;
             this.textBoxCaseCode.Text = data.caseCode;
             this.txtNote_View.Text = data.Notes;
+           
+        }
+
+        private void CopyUSB_Click(object sender, EventArgs e)
+        {
+            if (comboBox2.Text == "")
+            {
+                MessageBox.Show("Chưa chọn ổ đĩa USB để lưu!");
+                return;
+            }
+            string destPath = selectedDataPath.Replace("C:\\", comboBox2.Text);
+            CommonParam.DirectoryCopy(selectedDataPath, destPath, true);
+        }
+
+        private void comboBox2_DropDown(object sender, EventArgs e)
+        {
+            comboBox2.Items.Clear();
+            foreach (DriveInfo drive in DriveInfo.GetDrives())
+            {
+                if (drive.DriveType == DriveType.Removable)
+                {
+                    comboBox2.Items.Add(drive.Name);
+                    //drive.Name                  
+                }                
+            }
 
         }
 

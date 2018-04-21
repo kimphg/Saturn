@@ -12,10 +12,7 @@ using Novacode;
 using System.Diagnostics;
 using MjpegProcessor;
 
-using Emgu;
-using Emgu.CV;
-using Emgu.CV.Structure;
-using Emgu.CV.CvEnum;
+
 using System.Reflection;
 using System.Threading;
 using Microsoft.Office.Interop.Word;
@@ -339,6 +336,7 @@ namespace IRS_Demo
             template.AddCustomProperty(new Novacode.CustomProperty("ThoiGianKetThuc", CommonParam.mSesData.endSessTime));
             template.AddCustomProperty(new Novacode.CustomProperty("NgayHoiCung", CommonParam.mSesData.currentDate));
             template.AddCustomProperty(new Novacode.CustomProperty("DiaDiemHoiCung", CommonParam.mSesData.currentPlace));
+            template.AddCustomProperty(new Novacode.CustomProperty("GhiChu", CommonParam.mSesData.Notes));
             
             return template;
         }
@@ -383,6 +381,7 @@ namespace IRS_Demo
         {
             CommonParam.mSesData.Notes += "\r\n";
             CommonParam.mSesData.Notes += txtAddNotes.Text;
+            txtAddNotes.Clear();
             textBox19.Text = CommonParam.mSesData.Notes;
         }
 

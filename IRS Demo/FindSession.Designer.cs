@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FindSession));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button6 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.button2 = new System.Windows.Forms.Button();
             this.textBox7 = new System.Windows.Forms.TextBox();
@@ -52,6 +51,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.button6 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -59,23 +59,24 @@
             this.listBoxSearchResults = new System.Windows.Forms.ListBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.textBoxInspectorCode = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.textBoxCaseCode = new System.Windows.Forms.TextBox();
             this.textBoxInsptectorName = new System.Windows.Forms.TextBox();
             this.textBoxSupervisorName1 = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
             this.textBoxSuspectName = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.textBoxInspectorCode = new System.Windows.Forms.TextBox();
             this.textBoxSupervisorName2 = new System.Windows.Forms.TextBox();
             this.txtNote_View = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.CopyUSB = new System.Windows.Forms.Button();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -93,17 +94,6 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tìm kiếm theo mục thông tin";
-            // 
-            // button6
-            // 
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(506, 240);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(103, 23);
-            this.button6.TabIndex = 3;
-            this.button6.Text = "Tìm kiếm";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -362,6 +352,17 @@
             this.label8.TabIndex = 0;
             this.label8.Text = "Tên giám sát viên 2:";
             // 
+            // button6
+            // 
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.Location = new System.Drawing.Point(506, 240);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(103, 23);
+            this.button6.TabIndex = 3;
+            this.button6.Text = "Tìm kiếm";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
             // label11
             // 
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -455,16 +456,6 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(743, 100);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
-            // textBoxInspectorCode
-            // 
-            this.textBoxInspectorCode.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBoxInspectorCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxInspectorCode.Location = new System.Drawing.Point(483, 39);
-            this.textBoxInspectorCode.Name = "textBoxInspectorCode";
-            this.textBoxInspectorCode.ReadOnly = true;
-            this.textBoxInspectorCode.Size = new System.Drawing.Size(227, 20);
-            this.textBoxInspectorCode.TabIndex = 2;
-            // 
             // label12
             // 
             this.label12.Anchor = System.Windows.Forms.AnchorStyles.Left;
@@ -497,17 +488,6 @@
             this.label14.Size = new System.Drawing.Size(103, 13);
             this.label14.TabIndex = 0;
             this.label14.Text = "Tên giám sát viên 1:";
-            // 
-            // label15
-            // 
-            this.label15.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(9, 144);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(47, 13);
-            this.label15.TabIndex = 0;
-            this.label15.Text = "Ghi chú:";
             // 
             // textBoxCaseCode
             // 
@@ -550,16 +530,15 @@
             this.label18.TabIndex = 0;
             this.label18.Text = "Tên đối tượng:";
             // 
-            // label19
+            // textBoxSuspectName
             // 
-            this.label19.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(374, 76);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(103, 13);
-            this.label19.TabIndex = 0;
-            this.label19.Text = "Tên giám sát viên 2:";
+            this.textBoxSuspectName.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBoxSuspectName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSuspectName.Location = new System.Drawing.Point(483, 6);
+            this.textBoxSuspectName.Name = "textBoxSuspectName";
+            this.textBoxSuspectName.ReadOnly = true;
+            this.textBoxSuspectName.Size = new System.Drawing.Size(227, 20);
+            this.textBoxSuspectName.TabIndex = 2;
             // 
             // label20
             // 
@@ -572,15 +551,26 @@
             this.label20.TabIndex = 0;
             this.label20.Text = "Mã điều tra viên:";
             // 
-            // textBoxSuspectName
+            // label19
             // 
-            this.textBoxSuspectName.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBoxSuspectName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSuspectName.Location = new System.Drawing.Point(483, 6);
-            this.textBoxSuspectName.Name = "textBoxSuspectName";
-            this.textBoxSuspectName.ReadOnly = true;
-            this.textBoxSuspectName.Size = new System.Drawing.Size(227, 20);
-            this.textBoxSuspectName.TabIndex = 2;
+            this.label19.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(374, 76);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(103, 13);
+            this.label19.TabIndex = 0;
+            this.label19.Text = "Tên giám sát viên 2:";
+            // 
+            // textBoxInspectorCode
+            // 
+            this.textBoxInspectorCode.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.textBoxInspectorCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxInspectorCode.Location = new System.Drawing.Point(483, 39);
+            this.textBoxInspectorCode.Name = "textBoxInspectorCode";
+            this.textBoxInspectorCode.ReadOnly = true;
+            this.textBoxInspectorCode.Size = new System.Drawing.Size(227, 20);
+            this.textBoxInspectorCode.TabIndex = 2;
             // 
             // textBoxSupervisorName2
             // 
@@ -603,10 +593,21 @@
             this.txtNote_View.Size = new System.Drawing.Size(597, 51);
             this.txtNote_View.TabIndex = 2;
             // 
+            // label15
+            // 
+            this.label15.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(9, 144);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(47, 13);
+            this.label15.TabIndex = 0;
+            this.label15.Text = "Ghi chú:";
+            // 
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(430, 606);
+            this.button3.Location = new System.Drawing.Point(368, 606);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(110, 23);
             this.button3.TabIndex = 1;
@@ -616,31 +617,42 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(546, 606);
+            this.button4.Location = new System.Drawing.Point(484, 606);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(110, 23);
             this.button4.TabIndex = 1;
             this.button4.Text = "Ghi dữ liệu";
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // CopyUSB
             // 
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(662, 606);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(110, 23);
-            this.button5.TabIndex = 1;
-            this.button5.Text = "Copy USB";
-            this.button5.UseVisualStyleBackColor = true;
+            this.CopyUSB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CopyUSB.Location = new System.Drawing.Point(600, 606);
+            this.CopyUSB.Name = "CopyUSB";
+            this.CopyUSB.Size = new System.Drawing.Size(110, 23);
+            this.CopyUSB.TabIndex = 1;
+            this.CopyUSB.Text = "Copy USB -->";
+            this.CopyUSB.UseVisualStyleBackColor = true;
+            this.CopyUSB.Click += new System.EventHandler(this.CopyUSB_Click);
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(718, 607);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(54, 21);
+            this.comboBox2.TabIndex = 4;
+            this.comboBox2.DropDown += new System.EventHandler(this.comboBox2_DropDown);
             // 
             // FindSession
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 641);
+            this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.CopyUSB);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label11);
@@ -696,7 +708,7 @@
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button CopyUSB;
         private System.Windows.Forms.ListBox listBoxSearchResults;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox textBox9;
@@ -716,5 +728,6 @@
         private System.Windows.Forms.TextBox textBoxSuspectName;
         private System.Windows.Forms.TextBox textBoxSupervisorName2;
         private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.ComboBox comboBox2;
     }
 }
