@@ -93,7 +93,16 @@ namespace IRS_Demo
 
             if (!Directory.Exists(destDirName))
             {
-                Directory.CreateDirectory(destDirName);
+                try
+                {
+                    Directory.CreateDirectory(destDirName);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show(e.ToString());
+                    return;
+                }
+                
             }
 
             FileInfo[] files = dir.GetFiles();

@@ -60,6 +60,10 @@ namespace IRS_Demo
             this.StartPosition = FormStartPosition.CenterScreen;
             comboBox1.SelectedIndex = 0;
             SearchResults = new List<SessionData>(SessionHistory);
+
+            GetUSBRemovable();
+            if(comboBox2.Items.Count != 0)
+                comboBox2.SelectedIndex = 0;
             
             UpdateSearchResults();
         }
@@ -205,15 +209,21 @@ namespace IRS_Demo
         private void comboBox2_DropDown(object sender, EventArgs e)
         {
             comboBox2.Items.Clear();
+            GetUSBRemovable();
+
+        }
+
+        private void GetUSBRemovable()
+        {
+            
             foreach (DriveInfo drive in DriveInfo.GetDrives())
             {
                 if (drive.DriveType == DriveType.Removable)
                 {
-                    comboBox2.Items.Add(drive.Name);
-                    //drive.Name                  
-                }                
+                    comboBox2.Items.Add(drive.Name);                                     
+                }
             }
-
+            
         }
 
         
