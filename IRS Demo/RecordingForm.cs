@@ -48,13 +48,10 @@ namespace IRS_Demo
 
             btnStartRec.Enabled = true;
             btnStopRec.Enabled = false;
-
-            
             var path = new System.Drawing.Drawing2D.GraphicsPath();
             path.AddEllipse(0, 0, label43.Width, label43.Height);
             label43.Region = new Region(path);
             label43.Visible = false;
-
 
             CommonParam.LoadConfig();
 
@@ -75,25 +72,7 @@ namespace IRS_Demo
             //label42.Parent = vlcPlayer;            
             label42.BackColor = Color.Transparent;
             vlcPlayer.Play();
-            /*
-            if (tabControl1.SelectedIndex == 0)
-            {
-                m_mjpeg = new MjpegDecoder();
-                m_mjpeg.imageSizeBytes = 1024 * 1024;
-                m_mjpeg.FrameReady += mjpeg_FrameReady;
-                m_mjpeg.ParseStream(new Uri(CommonParam.MjpegUrl));
-            }
-
-            if (tabControl1.SelectedIndex == 1)
-            {
-                if (m_capture == null)
-                    m_capture = new Emgu.CV.Capture("rtsp://admin:admin@192.168.1.2/live3.sdp");
-                    //m_capture = new Emgu.CV.Capture("rtsp://root:root@192.168.1.218/axis-media/media.amp");
-
-                m_capture.ImageGrabbed += m_capture_ImageGrabbed;
-                m_capture.Start();
-            }
-            */
+            
             label23.Text = CommonParam.mSesData.caseCode;
             label24.Text = "Phòng 1";
             label25.Text = DateTime.Now.ToString("dd/MM/yyyy h:mm tt");
@@ -108,7 +87,6 @@ namespace IRS_Demo
             label36.Text = CommonParam.mSesData.suspectData._Ten;
 
             textBox19.Text = CommonParam.mSesData.Notes;
-
         }
         private void vlcPlayer_VlcLibDirectoryNeeded(object sender, Vlc.DotNet.Forms.VlcLibDirectoryNeededEventArgs e)
         {

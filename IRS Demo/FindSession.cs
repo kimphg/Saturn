@@ -226,6 +226,11 @@ namespace IRS_Demo
             
         }
 
+        private void btnReplay_Click(object sender, EventArgs e)
+        {
+
+        }
+
         
     }
 }
