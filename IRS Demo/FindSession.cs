@@ -29,7 +29,9 @@ namespace IRS_Demo
         
         List<SessionData> SessionHistory = new List<SessionData>();
         List<SessionData> SearchResults ;
-        string selectedDataPath;
+        public string selectedDataPath;
+
+        public RecordingForm replayForm;
         public FindSession( Form parent)
         {
             InitializeComponent();
@@ -185,6 +187,7 @@ namespace IRS_Demo
         {
             selectedDataPath = listBoxSearchResults.GetItemText(listBoxSearchResults.SelectedItem);
             SessionData data = CommonParam.LoadObject<SessionData>(selectedDataPath + CommonParam.SessionFileName);
+            
             this.textBoxInspectorCode.Text = data.inspectorCode;
             this.textBoxInsptectorName.Text = data.inspectorName;
             this.textBoxSuspectName.Text = data.suspectData._Ten;
@@ -192,6 +195,8 @@ namespace IRS_Demo
             this.textBoxSupervisorName2.Text = data.supervisorName2;
             this.textBoxCaseCode.Text = data.caseCode;
             this.txtNote_View.Text = data.Notes;
+
+            GetReplayInfo(data);
            
         }
 
@@ -213,6 +218,22 @@ namespace IRS_Demo
 
         }
 
+        private void GetReplayInfo(SessionData sessData)
+        {
+            CommonParam.mSesData.caseName = sessData.caseName;
+            CommonParam.mSesData.suspectData._Ten = sessData.suspectData._Ten;
+            CommonParam.mSesData.inspectorName = sessData.inspectorName;
+            CommonParam.mSesData.supervisorName = sessData.supervisorName;
+            CommonParam.mSesData.supervisorName2 = sessData.supervisorName2;
+            CommonParam.mSesData.caseCode = sessData.caseCode;
+            CommonParam.mSesData.suspectData._MaDT = sessData.suspectData._MaDT;
+            CommonParam.mSesData.inspectorCode = sessData.inspectorCode;
+            CommonParam.mSesData.supervisorCode = sessData.supervisorCode;
+            CommonParam.mSesData.supervisorCode2 = sessData.supervisorCode2;
+            CommonParam.mSesData.currentPlace = sessData.currentPlace;
+            CommonParam.mSesData.Notes = sessData.Notes;
+        }
+
         private void GetUSBRemovable()
         {
             
@@ -227,8 +248,13 @@ namespace IRS_Demo
         }
 
         private void btnReplay_Click(object sender, EventArgs e)
-        {
-
+        {            
+            replayForm = new RecordingForm(this);
+            
+            this.Hide();
+            replayForm.ShowDialog();
+            
+            this.Show();            
         }
 
         

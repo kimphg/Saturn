@@ -61,7 +61,7 @@ namespace IRS_Demo
         //public static string videoUrl = "rtsp://admin:admin@192.168.1.2/live3.sdp";
         //public static string videoUrl = "rtsp://root:root@192.168.1.218/axis-media/media.amp";
         public static string MjpegUrl = "http://root:root@192.168.1.212/mjpg/video.mjpg";
-        public static bool PlayMode = true;
+                
 
         public static void GetSuspectInfo()
         {   

@@ -74,7 +74,6 @@
             this.txtNote_View = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.btnReplay = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.CopyUSB = new System.Windows.Forms.Button();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
@@ -607,23 +606,13 @@
             // btnReplay
             // 
             this.btnReplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReplay.Location = new System.Drawing.Point(368, 606);
+            this.btnReplay.Location = new System.Drawing.Point(484, 607);
             this.btnReplay.Name = "btnReplay";
             this.btnReplay.Size = new System.Drawing.Size(110, 23);
             this.btnReplay.TabIndex = 1;
             this.btnReplay.Text = "Xem lại phiên";
             this.btnReplay.UseVisualStyleBackColor = true;
             this.btnReplay.Click += new System.EventHandler(this.btnReplay_Click);
-            // 
-            // button4
-            // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(484, 606);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(110, 23);
-            this.button4.TabIndex = 1;
-            this.button4.Text = "Ghi dữ liệu";
-            this.button4.UseVisualStyleBackColor = true;
             // 
             // CopyUSB
             // 
@@ -654,7 +643,6 @@
             this.Controls.Add(this.button6);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.CopyUSB);
-            this.Controls.Add(this.button4);
             this.Controls.Add(this.btnReplay);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.groupBox2);
@@ -708,7 +696,6 @@
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Button btnReplay;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button CopyUSB;
         private System.Windows.Forms.ListBox listBoxSearchResults;
         private System.Windows.Forms.Label label11;

@@ -25,6 +25,7 @@ namespace IRS_Demo
     public partial class RecordingForm : Form
     {
         private NewSessionForm _newSessionForm;
+        private FindSession _findSession;
         private Vlc.DotNet.Forms.VlcControl vlcRecorder;
         // class attribute
        // MjpegDecoder m_mjpeg;
@@ -72,10 +73,40 @@ namespace IRS_Demo
             //label42.Parent = vlcPlayer;            
             label42.BackColor = Color.Transparent;
             vlcPlayer.Play();
+
+            setViewSessionInfo();            
             
+        }
+
+        public RecordingForm(FindSession findSession)
+        {
+            InitializeComponent();
+            _findSession = findSession;
+
+            this.StartPosition = FormStartPosition.CenterScreen;
+
+            btnStartRec.Enabled = false;
+            btnStopRec.Enabled = false;            
+            label43.Visible = false;
+            linkLabel1.Visible = false;
+            btnAddNotes.Enabled = false;
+            btnPlay.Visible = false;
+            label42.Visible = false;
+            setViewSessionInfo();
+
+            vlcPlayer.SetMedia(new Uri(_findSession.selectedDataPath + "\\video.mp4"));
+            label42.BackColor = Color.Transparent;
+            vlcPlayer.Play();
+
+            lblVideoPath.Text = _findSession.selectedDataPath + "video.mp4"; 
+            
+        }
+
+        public void setViewSessionInfo()
+        {
             label23.Text = CommonParam.mSesData.caseCode;
             label24.Text = "Phòng 1";
-            label25.Text = DateTime.Now.ToString("dd/MM/yyyy h:mm tt");
+            //label25.Text = DateTime.Now.ToString("dd/MM/yyyy h:mm tt");
             label26.Text = ""; // time ket thuc
             label27.Text = ""; // Thoi diem dien ra
             label28.Text = ""; // Ma phien
@@ -83,11 +114,12 @@ namespace IRS_Demo
             label30.Text = CommonParam.mSesData.inspectorName;
             label31.Text = CommonParam.mSesData.inspectorCode;
             label32.Text = CommonParam.mSesData.supervisorName;
-            label33.Text = CommonParam.mSesData.supervisorName2;            
+            label33.Text = CommonParam.mSesData.supervisorName2;
             label36.Text = CommonParam.mSesData.suspectData._Ten;
 
-            textBox19.Text = CommonParam.mSesData.Notes;
+            textBox19.Text = CommonParam.mSesData.Notes;           
         }
+
         private void vlcPlayer_VlcLibDirectoryNeeded(object sender, Vlc.DotNet.Forms.VlcLibDirectoryNeededEventArgs e)
         {
             var currentAssembly = Assembly.GetEntryAssembly();
@@ -171,9 +203,16 @@ namespace IRS_Demo
             
             DialogResult stopRecDialogResult = MessageBox.Show("Bạn có muốn thoát khỏi giao diện phiên hỏi cung?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (stopRecDialogResult == DialogResult.Yes)
-            {                
-                vlcRecorder.Stop();
-                vlcPlayer.Stop();
+            { 
+                try
+                {
+                    vlcPlayer.Stop();
+                    vlcRecorder.Stop();                    
+                }
+                catch(Exception exp)
+                {
+                   // MessageBox.Show(exp.ToString());
+                }          
                
 
                 e.Cancel = false;                            
