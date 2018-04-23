@@ -18,9 +18,12 @@ namespace IRS_Demo
             Application.SetCompatibleTextRenderingDefault(false);
             fLoginForm loginForm = new fLoginForm();
             if (loginForm.ShowDialog() == DialogResult.OK)
-            {
-                //Application.Run(new RecordingForm());
-                Application.Run(new NewSessionForm());
+            {                
+                if (CommonParam.UserName == "Admin")                
+                    Application.Run(new SystemDataForm());                
+                else                
+                    Application.Run(new NewSessionForm());
+                
             }
             
         }

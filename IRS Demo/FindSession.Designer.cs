@@ -74,8 +74,9 @@
             this.txtNote_View = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.btnReplay = new System.Windows.Forms.Button();
-            this.CopyUSB = new System.Windows.Forms.Button();
+            this.btnCopyUSB = new System.Windows.Forms.Button();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.btnCopyDVD = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -151,7 +152,6 @@
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(227, 20);
             this.textBox7.TabIndex = 2;
-            this.textBox7.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
             // 
             // label3
             // 
@@ -244,7 +244,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(227, 20);
             this.textBox1.TabIndex = 2;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // textBox2
             // 
@@ -254,7 +253,6 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(227, 20);
             this.textBox2.TabIndex = 2;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // textBox3
             // 
@@ -264,7 +262,6 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(227, 20);
             this.textBox3.TabIndex = 2;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // textBox4
             // 
@@ -274,7 +271,6 @@
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(227, 20);
             this.textBox4.TabIndex = 2;
-            this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // label2
             // 
@@ -306,7 +302,6 @@
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(227, 20);
             this.textBox5.TabIndex = 2;
-            this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // textBox6
             // 
@@ -316,7 +311,6 @@
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(227, 20);
             this.textBox6.TabIndex = 2;
-            this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
             // button1
             // 
@@ -338,7 +332,6 @@
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(227, 20);
             this.textBox8.TabIndex = 2;
-            this.textBox8.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
             // 
             // label8
             // 
@@ -606,7 +599,7 @@
             // btnReplay
             // 
             this.btnReplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReplay.Location = new System.Drawing.Point(484, 607);
+            this.btnReplay.Location = new System.Drawing.Point(368, 607);
             this.btnReplay.Name = "btnReplay";
             this.btnReplay.Size = new System.Drawing.Size(110, 23);
             this.btnReplay.TabIndex = 1;
@@ -614,16 +607,16 @@
             this.btnReplay.UseVisualStyleBackColor = true;
             this.btnReplay.Click += new System.EventHandler(this.btnReplay_Click);
             // 
-            // CopyUSB
+            // btnCopyUSB
             // 
-            this.CopyUSB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CopyUSB.Location = new System.Drawing.Point(600, 606);
-            this.CopyUSB.Name = "CopyUSB";
-            this.CopyUSB.Size = new System.Drawing.Size(110, 23);
-            this.CopyUSB.TabIndex = 1;
-            this.CopyUSB.Text = "Copy USB -->";
-            this.CopyUSB.UseVisualStyleBackColor = true;
-            this.CopyUSB.Click += new System.EventHandler(this.CopyUSB_Click);
+            this.btnCopyUSB.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCopyUSB.Location = new System.Drawing.Point(600, 606);
+            this.btnCopyUSB.Name = "btnCopyUSB";
+            this.btnCopyUSB.Size = new System.Drawing.Size(110, 23);
+            this.btnCopyUSB.TabIndex = 1;
+            this.btnCopyUSB.Text = "Copy USB -->";
+            this.btnCopyUSB.UseVisualStyleBackColor = true;
+            this.btnCopyUSB.Click += new System.EventHandler(this.btnCopyUSB_Click);
             // 
             // comboBox2
             // 
@@ -634,6 +627,17 @@
             this.comboBox2.TabIndex = 4;
             this.comboBox2.DropDown += new System.EventHandler(this.comboBox2_DropDown);
             // 
+            // btnCopyDVD
+            // 
+            this.btnCopyDVD.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCopyDVD.Location = new System.Drawing.Point(484, 607);
+            this.btnCopyDVD.Name = "btnCopyDVD";
+            this.btnCopyDVD.Size = new System.Drawing.Size(110, 23);
+            this.btnCopyDVD.TabIndex = 1;
+            this.btnCopyDVD.Text = "Ghi dữ liệu";
+            this.btnCopyDVD.UseVisualStyleBackColor = true;
+            this.btnCopyDVD.Click += new System.EventHandler(this.btnCopyDVD_Click);
+            // 
             // FindSession
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -642,7 +646,8 @@
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.CopyUSB);
+            this.Controls.Add(this.btnCopyUSB);
+            this.Controls.Add(this.btnCopyDVD);
             this.Controls.Add(this.btnReplay);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.groupBox2);
@@ -696,7 +701,7 @@
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Button btnReplay;
-        private System.Windows.Forms.Button CopyUSB;
+        private System.Windows.Forms.Button btnCopyUSB;
         private System.Windows.Forms.ListBox listBoxSearchResults;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox textBox9;
@@ -717,5 +722,6 @@
         private System.Windows.Forms.TextBox textBoxSupervisorName2;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Button btnCopyDVD;
     }
 }

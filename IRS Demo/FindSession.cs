@@ -29,7 +29,7 @@ namespace IRS_Demo
         
         List<SessionData> SessionHistory = new List<SessionData>();
         List<SessionData> SearchResults ;
-        public string selectedDataPath;
+        public string selectedDataPath = "";
 
         public RecordingForm replayForm;
         public FindSession( Form parent)
@@ -87,39 +87,25 @@ namespace IRS_Demo
             this.Hide();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void getSearchInfo()
         {
             searchParam.caseCode = textBox1.Text;
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
             searchParam.inspectorName = textBox2.Text;
-        }
-
-        private void textBox6_TextChanged(object sender, EventArgs e)
-        {
             searchParam.suspectName = textBox6.Text;
-        }
-
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
             searchParam.sessionCode = textBox5.Text;
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
             searchParam.supervisorName1 = textBox3.Text;
-        }
-
-        private void textBox7_TextChanged(object sender, EventArgs e)
-        {
             searchParam.inspectorCode = textBox7.Text;
+            searchParam.notes = textBox4.Text;
+            searchParam.supervisorName2 = textBox8.Text;
+
         }
 
         private void button1_Click(object sender, EventArgs e)//tim kiem
         {
             SearchResults.Clear();
+
+            getSearchInfo();
+
             foreach (SessionData session in SessionHistory)
             {
                 if (!string.IsNullOrEmpty(searchParam.inspectorName))
@@ -172,16 +158,7 @@ namespace IRS_Demo
             }
             UpdateSearchResults();
         }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-            searchParam.notes = textBox4.Text;
-        }
-
-        private void textBox8_TextChanged(object sender, EventArgs e)
-        {
-            searchParam.supervisorName2 = textBox8.Text;
-        }
+        
 
         private void listBoxSearchResults_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -196,11 +173,11 @@ namespace IRS_Demo
             this.textBoxCaseCode.Text = data.caseCode;
             this.txtNote_View.Text = data.Notes;
 
-            GetReplayInfo(data);
+            getReplayInfo(data);
            
         }
 
-        private void CopyUSB_Click(object sender, EventArgs e)
+        private void btnCopyUSB_Click(object sender, EventArgs e)
         {
             if (comboBox2.Text == "")
             {
@@ -218,7 +195,7 @@ namespace IRS_Demo
 
         }
 
-        private void GetReplayInfo(SessionData sessData)
+        private void getReplayInfo(SessionData sessData)
         {
             CommonParam.mSesData.caseName = sessData.caseName;
             CommonParam.mSesData.suspectData._Ten = sessData.suspectData._Ten;
@@ -235,8 +212,7 @@ namespace IRS_Demo
         }
 
         private void GetUSBRemovable()
-        {
-            
+        {            
             foreach (DriveInfo drive in DriveInfo.GetDrives())
             {
                 if (drive.DriveType == DriveType.Removable)
@@ -248,13 +224,33 @@ namespace IRS_Demo
         }
 
         private void btnReplay_Click(object sender, EventArgs e)
-        {            
+        {
+            if (selectedDataPath == "")
+            {
+                MessageBox.Show("Chưa chọn phiên hỏi cung!");
+                return;
+            }
+                
             replayForm = new RecordingForm(this);
             
             this.Hide();
             replayForm.ShowDialog();
             
             this.Show();            
+        }
+
+        private void btnCopyDVD_Click(object sender, EventArgs e)
+        {
+            string driveNameCD = ""; 
+            foreach (DriveInfo drive in DriveInfo.GetDrives())
+            {
+                if (drive.DriveType == DriveType.CDRom)
+                {
+                    driveNameCD = drive.Name;
+                }
+            }
+            string destPath = selectedDataPath.Replace("C:\\", driveNameCD);
+            CommonParam.DirectoryCopy(selectedDataPath, destPath, true);
         }
 
         

@@ -36,7 +36,7 @@ namespace IRS_Demo
 		{
             Employees = new List<User>() { 
                 new User(){EmployeeId = "001", EmployeeName = "Operator",EmployeePass = ""},
-                new User(){EmployeeId = "002", EmployeeName = "Admin",EmployeePass ="123456"}
+                new User(){EmployeeId = "002", EmployeeName = "Admin",EmployeePass =""}
             };
 
             cmbNameLogin.SelectedIndexChanged += cmbNameLogin_SelectedIndexChanged;
