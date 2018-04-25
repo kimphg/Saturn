@@ -14,13 +14,13 @@ namespace IRS_Demo
     public partial class SystemDataForm : Form
     {
         // We use these three SQLite objects:
-        private SQLiteConnection sql_con;
-        private SQLiteCommand sql_cmd;
-        private SQLiteDataAdapter DB;
-        private DataSet DS = new DataSet();
-        private DataTable DT = new DataTable();
+        private SQLiteConnection sql_Conn;
+        private SQLiteCommand sql_Cmd;
+        private SQLiteDataAdapter sql_DataAdapt;
+        private DataSet m_DataSet = new DataSet();
+        private DataTable m_DataTable = new DataTable();
 
-        private SQLiteDataReader sql_datareader;
+        private SQLiteDataReader sql_DataReader;
 
         public SystemDataForm()
         {
@@ -66,21 +66,27 @@ namespace IRS_Demo
         private void loadData()
         {
             setConnection();
-            sql_con.Open();
+            sql_Conn.Open();
 
-            sql_cmd = sql_con.CreateCommand();
+            sql_Cmd = sql_Conn.CreateCommand();
             string CommandText = "select id, userName, role from  userTbl";
-            DB = new SQLiteDataAdapter(CommandText, sql_con);
-            DS.Reset();
-            DB.Fill(DS);
-            DT = DS.Tables[0];
-            dataGridView1.DataSource = DT;
-            sql_con.Close();
+            sql_DataAdapt = new SQLiteDataAdapter(CommandText, sql_Conn);
+            m_DataSet.Reset();
+            sql_DataAdapt.Fill(m_DataSet);
+            m_DataTable = m_DataSet.Tables[0];
+            dataGridView1.DataSource = m_DataTable;            
+            dataGridView1.Columns[1].HeaderText = "Tên người dùng";
+            dataGridView1.Columns[2].HeaderText = "Vai trò";
+            dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridView1.Columns[1].Width = 300;            
+            dataGridView1.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            
+            sql_Conn.Close();
         }
 
         private void setConnection()
         {
-            sql_con = new SQLiteConnection("Data Source=IRS.db;Version=3;New=False;Compress=True;");
+            sql_Conn = new SQLiteConnection("Data Source=IRS.db;Version=3;New=False;Compress=True;");
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
