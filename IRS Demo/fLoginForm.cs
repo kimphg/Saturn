@@ -31,35 +31,35 @@ namespace IRS_Demo
 			InitializeComponent();
             LoadDataForConbobox();
 		}
+                
+        private DataTable m_DataTable = new DataTable();
 
 		void LoadDataForConbobox()
 		{
-            Employees = new List<User>() { 
-                new User(){EmployeeId = "001", EmployeeName = "Operator",EmployeePass = ""},
-                new User(){EmployeeId = "002", EmployeeName = "Admin",EmployeePass =""}
-            };
-
-            cmbNameLogin.SelectedIndexChanged += cmbNameLogin_SelectedIndexChanged;
-            cmbNameLogin.DataSource = Employees;
-            cmbNameLogin.DisplayMember = "EmployeeName";
-		}
-
-		void cmbNameLogin_SelectedIndexChanged(object sender, EventArgs e)
-		{
-            
+            DataSet dataSet = new DataSet();
+            CommonParam.GetUsersInfo();
+            dataSet.Reset();
+            CommonParam.sql_DataAdaptUser.Fill(dataSet);
+            m_DataTable = dataSet.Tables[0];
+            cmbNameLogin.DataSource = m_DataTable;
+            cmbNameLogin.DisplayMember = m_DataTable.Columns[1].ToString();            
 		}
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            User Employees = (cmbNameLogin.SelectedItem as User);
-            if (Employees.EmployeePass != txbPassWord.Text)
+            string strUser = cmbNameLogin.GetItemText(cmbNameLogin.SelectedItem);
+            string filterExpression = "";
+            filterExpression = "userName=" + "'" + strUser + "'";
+            DataRow[] rows = m_DataTable.Select(filterExpression);
+            string strPass = rows[0].ItemArray[3].ToString();
+
+            if (txbPassWord.Text != strPass)
             {
                 MessageBox.Show("Mật khẩu không đúng, hãy thử lại.");
                 return;
             }
-            CommonParam.UserName = Employees.EmployeeName;//Common.isAdmin = true;
+            CommonParam.UserName = strUser;
             this.DialogResult = DialogResult.OK;
-
 
             this.Close();
         }

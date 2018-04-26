@@ -12,90 +12,129 @@ using Finisar.SQLite;
 namespace IRS_Demo
 {
     public partial class SystemDataForm : Form
-    {
-        // We use these three SQLite objects:
-        private SQLiteConnection sql_Conn;
-        private SQLiteCommand sql_Cmd;
-        private SQLiteDataAdapter sql_DataAdapt;
-        private DataSet m_DataSet = new DataSet();
-        private DataTable m_DataTable = new DataTable();
-
-        private SQLiteDataReader sql_DataReader;
+    {                
+        
 
         public SystemDataForm()
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
-            loadData();
-            /*
-            // create a new database connection:
-            sql_con = new SQLiteConnection("Data Source=IRS.db;Version=3;New=True;Compress=True;");
-            // open the connection:
-            sql_con.Open();
-            // create a new SQL command:
-            sql_cmd = sql_con.CreateCommand();
-            // Let the SQLiteCommand object know our SQL-Query:
-            sql_cmd.CommandText = "CREATE TABLE userTbl (id integer primary key, userName varchar(100), role varchar(100));";
-            // Now lets execute the SQL ;D
-            sql_cmd.ExecuteNonQuery();
-            // Lets insert something into our new table:
-            sql_cmd.CommandText = "INSERT INTO userTbl (id, userName, role) VALUES (1, 'Admin', 'Quan tri vien');";
-            // And execute this again ;D
-            sql_cmd.ExecuteNonQuery();
-            // ...and inserting another line:
-            sql_cmd.CommandText = "INSERT INTO userTbl (id, userName, role) VALUES (2, 'Operator', 'Nguoi dung');";
-            // And execute this again ;D
-            sql_cmd.ExecuteNonQuery();
-            */
-            //// First lets build a SQL-Query again:
-            //sqlite_cmd.CommandText = "SELECT * FROM userTbl";
-            //// Now the SQLiteCommand object can give us a DataReader-Object:
-            //sqlite_datareader = sqlite_cmd.ExecuteReader();
 
-            //while (sqlite_datareader.Read())
-            //{
-            //    dataGridView1.Rows.Add(new object[] { 
-            //sqlite_datareader.GetValue(0),  // U can use column index
-            //sqlite_datareader.GetValue(sqlite_datareader.GetOrdinal("id")),  // Or column name like this
-            //sqlite_datareader.GetValue(sqlite_datareader.GetOrdinal("userName")),
-            //sqlite_datareader.GetValue(sqlite_datareader.GetOrdinal("role"))
-            //});
-            //}
+            tabControl1.SelectedIndex = 0;
+            loadDataUsers();
+            CommonParam.GetInspectorsInfo();
+            CommonParam.GetSupervisorsInfo();
+            CommonParam.GetSuspectsInfo();
         }
 
-        private void loadData()
-        {
-            setConnection();
-            sql_Conn.Open();
-
-            sql_Cmd = sql_Conn.CreateCommand();
-            string CommandText = "select id, userName, role from  userTbl";
-            sql_DataAdapt = new SQLiteDataAdapter(CommandText, sql_Conn);
-            m_DataSet.Reset();
-            sql_DataAdapt.Fill(m_DataSet);
-            m_DataTable = m_DataSet.Tables[0];
-            dataGridView1.DataSource = m_DataTable;            
-            dataGridView1.Columns[1].HeaderText = "Tên người dùng";
-            dataGridView1.Columns[2].HeaderText = "Vai trò";
-            dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridView1.Columns[1].Width = 300;            
-            dataGridView1.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            
-            sql_Conn.Close();
+        private void loadDataUsers()
+        {     
+            DataSet dataSet = new DataSet();
+            DataTable dataTable = new DataTable();
+            dataSet.Reset();
+            CommonParam.sql_DataAdaptUser.Fill(dataSet);
+            dataTable = dataSet.Tables[0];
+            dataGridViewUser.DataSource = dataTable;            
+            dataGridViewUser.Columns[1].HeaderText = "Tên người dùng";
+            dataGridViewUser.Columns[2].HeaderText = "Vai trò";
+            dataGridViewUser.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewUser.Columns[1].Width = 300;            
+            dataGridViewUser.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewUser.Columns[3].Visible = false;
         }
 
-        private void setConnection()
+        private void loadDataInspectors()
         {
-            sql_Conn = new SQLiteConnection("Data Source=IRS.db;Version=3;New=False;Compress=True;");
+            DataSet dataSet = new DataSet();
+            DataTable dataTable = new DataTable();
+            dataSet.Reset();
+            CommonParam.sql_DataAdaptInspector.Fill(dataSet);
+            dataTable = dataSet.Tables[0];
+            dataGridViewInspector.DataSource = dataTable;
+            dataGridViewInspector.Columns[1].HeaderText = "Tên điều tra viên";
+            dataGridViewInspector.Columns[2].HeaderText = "Mã số điều tra viên";
+            dataGridViewInspector.Columns[3].HeaderText = "Đơn vị công tác";
+
+            dataGridViewInspector.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewInspector.Columns[1].Width = 200;
+            dataGridViewInspector.Columns[2].Width = 200;
+            dataGridViewInspector.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        }
+        private void loadDataSupervisors()
+        {
+            DataSet dataSet = new DataSet();
+            DataTable dataTable = new DataTable();
+            dataSet.Reset();
+            CommonParam.sql_DataAdaptSupervisor.Fill(dataSet);
+            dataTable = dataSet.Tables[0];
+            dataGridViewSupervisor.DataSource = dataTable;
+            dataGridViewSupervisor.Columns[1].HeaderText = "Tên giám sát viên";
+            dataGridViewSupervisor.Columns[2].HeaderText = "Mã số giám sát viên";
+            dataGridViewSupervisor.Columns[3].HeaderText = "Đơn vị công tác";
+
+            dataGridViewSupervisor.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewSupervisor.Columns[1].Width = 200;
+            dataGridViewSupervisor.Columns[2].Width = 200;
+            dataGridViewSupervisor.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        }
+
+        private void loadDataSuspects()
+        {
+            DataSet dataSet = new DataSet();
+            DataTable dataTable = new DataTable();
+            dataSet.Reset();
+            CommonParam.sql_DataAdaptSuspect.Fill(dataSet);
+            dataTable = dataSet.Tables[0];
+            dataGridViewSuspect.DataSource = dataTable;
+            dataGridViewSuspect.Columns[1].HeaderText = "Họ tên đối tượng";
+            dataGridViewSuspect.Columns[2].HeaderText = "Tên gọi khác";
+            dataGridViewSuspect.Columns[3].HeaderText = "Giới tính";
+            dataGridViewSuspect.Columns[4].HeaderText = "Ngày sinh";
+            dataGridViewSuspect.Columns[5].HeaderText = "Địa chỉ";
+
+            dataGridViewSuspect.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewSuspect.Columns[1].Width = 150;
+            dataGridViewSuspect.Columns[2].Width = 100;
+            dataGridViewSuspect.Columns[3].Width = 100;
+            dataGridViewSuspect.Columns[4].Width = 100;
+            dataGridViewSuspect.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        }
+
+        private void ExecuteQuery(string txtQuery)
+        {
+            CommonParam.sql_Conn.Open();
+		    SQLiteCommand sql_cmd = CommonParam.sql_Conn.CreateCommand();
+            sql_cmd.CommandText = txtQuery;
+            sql_cmd.ExecuteNonQuery();
+            CommonParam.sql_Conn.Close();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-
+            //string txtSQLQuery = "insert into  inspTbl (id, inspName, inspCode) values (4, 'Hoàng Minh Thái', 'DTV123')";
+            //ExecuteQuery(txtSQLQuery);
         }
 
-        
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tabControl1.SelectedIndex == 0)
+            {
+                loadDataUsers();
+            }
+            if (tabControl1.SelectedIndex == 1)
+            {                
+                loadDataInspectors();
+            }
+            if (tabControl1.SelectedIndex == 2)
+            {
+                loadDataSupervisors();
+            }
+            if (tabControl1.SelectedIndex == 3)
+            {
+                loadDataSuspects();
+            }
+        }
 
-        
+       
     }
 }

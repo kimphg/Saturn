@@ -34,18 +34,24 @@
             this.button1 = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.dataGridViewInspector = new System.Windows.Forms.DataGridView();
+            this.dataGridViewUser = new System.Windows.Forms.DataGridView();
+            this.dataGridViewSupervisor = new System.Windows.Forms.DataGridView();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dataGridViewSuspect = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
+            this.tabPage6.SuspendLayout();
+            this.tabPage7.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInspector)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUser)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSupervisor)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSuspect)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -66,9 +72,9 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(506, 587);
+            this.button3.Location = new System.Drawing.Point(505, 569);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(117, 23);
+            this.button3.Size = new System.Drawing.Size(117, 35);
             this.button3.TabIndex = 1;
             this.button3.Text = "Thoát";
             this.button3.UseVisualStyleBackColor = true;
@@ -76,9 +82,9 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(375, 587);
+            this.button2.Location = new System.Drawing.Point(382, 569);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(117, 23);
+            this.button2.Size = new System.Drawing.Size(117, 35);
             this.button2.TabIndex = 1;
             this.button2.Text = "Xóa";
             this.button2.UseVisualStyleBackColor = true;
@@ -86,9 +92,9 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(244, 587);
+            this.button1.Location = new System.Drawing.Point(259, 569);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(117, 23);
+            this.button1.Size = new System.Drawing.Size(117, 35);
             this.button1.TabIndex = 1;
             this.button1.Text = "Sửa";
             this.button1.UseVisualStyleBackColor = true;
@@ -96,9 +102,9 @@
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.Location = new System.Drawing.Point(113, 587);
+            this.btnAdd.Location = new System.Drawing.Point(136, 569);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(117, 23);
+            this.btnAdd.Size = new System.Drawing.Size(117, 35);
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "Thêm";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -107,80 +113,20 @@
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Controls.Add(this.tabPage7);
+            this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(7, 22);
+            this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(750, 559);
             this.tabControl1.TabIndex = 0;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.dataGridView1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 24);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(742, 531);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Người dùng";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(736, 525);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 24);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(742, 531);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Phiên hỏi cung";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 24);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(742, 531);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Danh mục vụ án";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.AutoScroll = true;
-            this.tabPage4.Location = new System.Drawing.Point(4, 24);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(742, 531);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Thông tin bị can";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // tabPage5
-            // 
-            this.tabPage5.Location = new System.Drawing.Point(4, 24);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(742, 531);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "Phòng hỏi cung";
-            this.tabPage5.UseVisualStyleBackColor = true;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.dataGridViewInspector);
             this.tabPage6.Location = new System.Drawing.Point(4, 24);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Size = new System.Drawing.Size(742, 531);
@@ -190,12 +136,69 @@
             // 
             // tabPage7
             // 
+            this.tabPage7.Controls.Add(this.dataGridViewSupervisor);
             this.tabPage7.Location = new System.Drawing.Point(4, 24);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Size = new System.Drawing.Size(742, 531);
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "Giám sát viên";
             this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.dataGridViewUser);
+            this.tabPage1.Location = new System.Drawing.Point(4, 24);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Size = new System.Drawing.Size(742, 531);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Người dùng";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewInspector
+            // 
+            this.dataGridViewInspector.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewInspector.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewInspector.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewInspector.Name = "dataGridViewInspector";
+            this.dataGridViewInspector.Size = new System.Drawing.Size(742, 531);
+            this.dataGridViewInspector.TabIndex = 0;
+            // 
+            // dataGridViewUser
+            // 
+            this.dataGridViewUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewUser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewUser.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewUser.Name = "dataGridViewUser";
+            this.dataGridViewUser.Size = new System.Drawing.Size(742, 531);
+            this.dataGridViewUser.TabIndex = 0;
+            // 
+            // dataGridViewSupervisor
+            // 
+            this.dataGridViewSupervisor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewSupervisor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewSupervisor.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewSupervisor.Name = "dataGridViewSupervisor";
+            this.dataGridViewSupervisor.Size = new System.Drawing.Size(742, 531);
+            this.dataGridViewSupervisor.TabIndex = 0;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.dataGridViewSuspect);
+            this.tabPage2.Location = new System.Drawing.Point(4, 24);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Size = new System.Drawing.Size(742, 531);
+            this.tabPage2.TabIndex = 7;
+            this.tabPage2.Text = "Đối tượng bị can";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewSuspect
+            // 
+            this.dataGridViewSuspect.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewSuspect.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewSuspect.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewSuspect.Name = "dataGridViewSuspect";
+            this.dataGridViewSuspect.Size = new System.Drawing.Size(742, 531);
+            this.dataGridViewSuspect.TabIndex = 0;
             // 
             // SystemDataForm
             // 
@@ -207,8 +210,14 @@
             this.Text = "System Data Administration";
             this.groupBox1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
+            this.tabPage6.ResumeLayout(false);
+            this.tabPage7.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInspector)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUser)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSupervisor)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSuspect)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -221,13 +230,13 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.TabPage tabPage6;
         private System.Windows.Forms.TabPage tabPage7;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.DataGridView dataGridViewInspector;
+        private System.Windows.Forms.DataGridView dataGridViewUser;
+        private System.Windows.Forms.DataGridView dataGridViewSupervisor;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.DataGridView dataGridViewSuspect;
     }
 }

@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Serialization;
+using System.Data;
+using Finisar.SQLite;
 
 namespace IRS_Demo
 {
@@ -23,7 +25,7 @@ namespace IRS_Demo
         public string _CMND, _NgayCapCMND, _NoiCapCMND;
         public string _DiaChi;
     }
-    
+
 
     public struct SessionData
     {
@@ -45,8 +47,6 @@ namespace IRS_Demo
 
         public string SessionPath {get;set;}
         public string SessionKeyText { get; set; }
-
-        
       
     }
     class CommonParam
@@ -61,9 +61,15 @@ namespace IRS_Demo
         //public static string videoUrl = "rtsp://admin:admin@192.168.1.2/live3.sdp";
         //public static string videoUrl = "rtsp://root:root@192.168.1.218/axis-media/media.amp";
         public static string MjpegUrl = "http://root:root@192.168.1.212/mjpg/video.mjpg";
-                
 
-        public static void GetSuspectInfo()
+        public  static SQLiteConnection sql_Conn;
+        private static SQLiteCommand sql_Cmd;
+        public static SQLiteDataAdapter sql_DataAdaptUser;
+        public static SQLiteDataAdapter sql_DataAdaptInspector;
+        public static SQLiteDataAdapter sql_DataAdaptSupervisor;
+        public static SQLiteDataAdapter sql_DataAdaptSuspect;
+
+        public static void GetSessSuspectInfo()
         {   
             mSesData.suspectData._GioiTinh = "Nam"; 
             mSesData.suspectData._TenGoiKhac = "Không có";
@@ -78,6 +84,55 @@ namespace IRS_Demo
             mSesData.suspectData._NoiCapCMND = "Công an tỉnh Hưng Yên";
             mSesData.suspectData._DiaChi = "Đống Đa - Hà Nội";            
         }
+
+        public static void GetSuspectsInfo()
+        {
+            setConnection();
+            sql_Conn.Open();
+
+            sql_Cmd = sql_Conn.CreateCommand();
+            string CommandText = "select id, suspName, suspOtherName, suspSex, suspBirthday, suspAddress from  suspTbl";
+            sql_DataAdaptSuspect = new SQLiteDataAdapter(CommandText, sql_Conn);
+            sql_Conn.Close();
+        }
+
+        private static void setConnection()
+        {
+            sql_Conn = new SQLiteConnection("Data Source=IRS.db;Version=3;New=False;Compress=True;");
+        }
+
+        public static void GetSupervisorsInfo()
+        {
+            setConnection();
+            sql_Conn.Open();
+
+            sql_Cmd = sql_Conn.CreateCommand();
+            string CommandText = "select id, supeName, supeCode, supeUnit from  supeTbl";
+            sql_DataAdaptSupervisor = new SQLiteDataAdapter(CommandText, sql_Conn);
+            sql_Conn.Close();
+        }
+
+        public static void GetInspectorsInfo()
+        {
+            setConnection();
+            sql_Conn.Open();
+
+            sql_Cmd = sql_Conn.CreateCommand();
+            string CommandText = "select id, inspName, inspCode, inspUnit from  inspTbl";
+            sql_DataAdaptInspector = new SQLiteDataAdapter(CommandText, sql_Conn);
+            sql_Conn.Close();
+        }
+
+        public static void GetUsersInfo()
+        {
+            setConnection();
+            sql_Conn.Open();
+
+            sql_Cmd = sql_Conn.CreateCommand();
+            string CommandText = "select id, userName, role, pwds from  userTbl";
+            sql_DataAdaptUser = new SQLiteDataAdapter(CommandText, sql_Conn);
+            sql_Conn.Close();
+        }        
 
         public static void DirectoryCopy(string sourceDirName, string destDirName, bool copySubDirs)
         {

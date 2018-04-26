@@ -39,7 +39,7 @@ namespace IRS_Demo
         private void btnNewSession_Click(object sender, EventArgs e)
         {
             getNewSessionInfo();
-            CommonParam.GetSuspectInfo();
+            CommonParam.GetSessSuspectInfo();
 
             CommonParam.SessionFolderName = "SS_" + DateTime.Now.ToString(@"MM_dd_yyyy.h_mm_tt");
             System.IO.Directory.CreateDirectory(CommonParam.ProgramPath + "\\" + CommonParam.SessionFolderName);
