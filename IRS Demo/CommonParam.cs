@@ -8,7 +8,8 @@ using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Serialization;
 using System.Data;
-using Finisar.SQLite;
+//using Finisar.SQLite;
+using System.Data.SQLite;
 
 namespace IRS_Demo
 {
