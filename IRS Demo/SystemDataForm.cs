@@ -125,7 +125,7 @@ namespace IRS_Demo
             txtSuspHKTT.DataBindings.Clear();
             txtSuspIdenNum.DataBindings.Clear();
             txtSuspJob.DataBindings.Clear();
-            txtSuspOtherName.DataBindings.Clear();
+            txtSuspCode.DataBindings.Clear();
             txtSuspSex.DataBindings.Clear();
             txtSuspNation.DataBindings.Clear();
             txtSuspAddress.DataBindings.Clear();
@@ -136,7 +136,7 @@ namespace IRS_Demo
             txtSuspHKTT.DataBindings.Add("text", dataTable, "suspHKTT");
             txtSuspIdenNum.DataBindings.Add("text", dataTable, "suspIdenNum");
             txtSuspJob.DataBindings.Add("text", dataTable, "suspJob");
-            txtSuspOtherName.DataBindings.Add("text", dataTable, "suspOtherName");
+            txtSuspCode.DataBindings.Add("text", dataTable, "suspCode");
             txtSuspSex.DataBindings.Add("text", dataTable, "suspSex");
             txtSuspNation.DataBindings.Add("text", dataTable, "suspNation");
             txtSuspAddress.DataBindings.Add("text", dataTable, "suspAddress");
@@ -363,7 +363,7 @@ namespace IRS_Demo
             txtSuspHKTT.Clear();
             txtSuspIdenNum.Clear();
             txtSuspJob.Clear();
-            txtSuspOtherName.Clear();
+            txtSuspCode.Clear();
             txtSuspSex.Clear();
             txtSuspNation.Clear();
             txtSuspAddress.Clear();
@@ -380,8 +380,8 @@ namespace IRS_Demo
                 MessageBox.Show("Lỗi! Tên không thể để trống!");
                 return;
             }
-            string strInsert = string.Format("INSERT INTO suspTbl(suspName, suspOtherName, suspSex, suspBirthday, suspAddress, suspHKTT, suspIdenNum, suspJob, suspNation) VALUES('{0}','{1}','{2}', '{3}','{4}','{5}', '{6}','{7}','{8}')",
-                txtSuspName.Text, txtSuspOtherName.Text, txtSuspSex.Text, txtSuspBirthday.Text, txtSuspAddress.Text, txtSuspHKTT.Text, txtSuspIdenNum.Text, txtSuspJob.Text, txtSuspNation.Text);
+            string strInsert = string.Format("INSERT INTO suspTbl(suspName, suspCode, suspSex, suspBirthday, suspAddress, suspHKTT, suspIdenNum, suspJob, suspNation) VALUES('{0}','{1}','{2}', '{3}','{4}','{5}', '{6}','{7}','{8}')",
+                txtSuspName.Text, txtSuspCode.Text, txtSuspSex.Text, txtSuspBirthday.Text, txtSuspAddress.Text, txtSuspHKTT.Text, txtSuspIdenNum.Text, txtSuspJob.Text, txtSuspNation.Text);
             ExecuteQuery(strInsert);
             loadDataSupervisors();
             btnSave3.Enabled = false;
@@ -391,8 +391,8 @@ namespace IRS_Demo
 
         private void btnUpd3_Click(object sender, EventArgs e)
         {            
-            string strInsert = string.Format("UPDATE suspTbl set suspName='{0}', suspOtherName='{1}', suspSex='{2}', suspBirthday={3}, suspAddress={4}, suspHKTT={5}, suspIdenNum={6}, suspJob={7}, suspNation={8} where id = {9}", 
-                txtSuspName.Text, txtSuspOtherName.Text, txtSuspSex.Text, txtSuspBirthday.Text, txtSuspAddress.Text, txtSuspHKTT.Text, txtSuspIdenNum.Text, txtSuspJob.Text, txtSuspNation.Text, txtId3.Text);
+            string strInsert = string.Format("UPDATE suspTbl set suspName='{0}', suspCode='{1}', suspSex='{2}', suspBirthday={3}, suspAddress={4}, suspHKTT={5}, suspIdenNum={6}, suspJob={7}, suspNation={8} where id = {9}", 
+                txtSuspName.Text, txtSuspCode.Text, txtSuspSex.Text, txtSuspBirthday.Text, txtSuspAddress.Text, txtSuspHKTT.Text, txtSuspIdenNum.Text, txtSuspJob.Text, txtSuspNation.Text, txtId3.Text);
             ExecuteQuery(strInsert);
             loadDataSuspects();
         }
