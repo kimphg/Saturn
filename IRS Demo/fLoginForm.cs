@@ -55,7 +55,7 @@ namespace IRS_Demo
 
             if (txbPassWord.Text != strPass)
             {
-                MessageBox.Show("Mật khẩu không đúng, hãy thử lại.");
+                MessageBox.Show("Mật khẩu không đúng, hãy thử lại!");
                 return;
             }
             CommonParam.UserName = strUser;

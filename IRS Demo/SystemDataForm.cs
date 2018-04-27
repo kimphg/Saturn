@@ -44,7 +44,7 @@ namespace IRS_Demo
             txtId0.DataBindings.Add("text", dataTable, "id");
             txtUserName.DataBindings.Add("text", dataTable, "userName");
             txtRole.DataBindings.Add("text", dataTable, "role");
-            txtPwds.DataBindings.Add("text", dataTable, "pwds");        
+            txtPwds.DataBindings.Add("text", dataTable, "pwds");
 
             dataGridViewUser.Columns[1].HeaderText = "Tên người dùng";
             dataGridViewUser.Columns[2].HeaderText = "Mô tả";
@@ -119,6 +119,30 @@ namespace IRS_Demo
             CommonParam.sql_DataAdaptSuspect.Fill(dataSet);
             dataTable = dataSet.Tables[0];
             dataGridViewSuspect.DataSource = dataTable;
+
+            txtId3.DataBindings.Clear();
+            txtSuspName.DataBindings.Clear();
+            txtSuspHKTT.DataBindings.Clear();
+            txtSuspIdenNum.DataBindings.Clear();
+            txtSuspJob.DataBindings.Clear();
+            txtSuspOtherName.DataBindings.Clear();
+            txtSuspSex.DataBindings.Clear();
+            txtSuspNation.DataBindings.Clear();
+            txtSuspAddress.DataBindings.Clear();
+            txtSuspBirthday.DataBindings.Clear();
+
+            txtId3.DataBindings.Add("text", dataTable, "id"); ;
+            txtSuspName.DataBindings.Add("text", dataTable, "suspName");
+            txtSuspHKTT.DataBindings.Add("text", dataTable, "suspHKTT");
+            txtSuspIdenNum.DataBindings.Add("text", dataTable, "suspIdenNum");
+            txtSuspJob.DataBindings.Add("text", dataTable, "suspJob");
+            txtSuspOtherName.DataBindings.Add("text", dataTable, "suspOtherName");
+            txtSuspSex.DataBindings.Add("text", dataTable, "suspSex");
+            txtSuspNation.DataBindings.Add("text", dataTable, "suspNation");
+            txtSuspAddress.DataBindings.Add("text", dataTable, "suspAddress");
+            txtSuspBirthday.DataBindings.Add("text", dataTable, "suspBirthday");
+
+
             dataGridViewSuspect.Columns[1].HeaderText = "Họ tên đối tượng";
             dataGridViewSuspect.Columns[2].HeaderText = "Tên gọi khác";
             dataGridViewSuspect.Columns[3].HeaderText = "Giới tính";
@@ -131,6 +155,11 @@ namespace IRS_Demo
             dataGridViewSuspect.Columns[3].Width = 100;
             dataGridViewSuspect.Columns[4].Width = 100;
             dataGridViewSuspect.Columns[5].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            dataGridViewSuspect.Columns[6].Visible = false;
+            dataGridViewSuspect.Columns[7].Visible = false;
+            dataGridViewSuspect.Columns[8].Visible = false;
+            dataGridViewSuspect.Columns[9].Visible = false;
         }
 
 
@@ -203,6 +232,7 @@ namespace IRS_Demo
             ExecuteQuery(strInsert);
             loadDataUsers();
             btnSave0.Enabled = false;
+            loadDataUsers();
         }
 
         private void btnSave1_Click(object sender, EventArgs e)
@@ -219,6 +249,7 @@ namespace IRS_Demo
             ExecuteQuery(strInsert);
             loadDataInspectors();
             btnSave1.Enabled = false;
+            loadDataInspectors();
         }
 
         private void btnUpd1_Click(object sender, EventArgs e)
@@ -298,7 +329,7 @@ namespace IRS_Demo
             ExecuteQuery(strInsert);
             loadDataSupervisors();
             btnSave2.Enabled = false;
-
+            loadDataSupervisors();
         }
 
         private void btnUpd2_Click(object sender, EventArgs e)
@@ -323,6 +354,54 @@ namespace IRS_Demo
         private void dataGridViewUser_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             loadDataUsers();
+        }
+
+        private void btnAdd3_Click(object sender, EventArgs e)
+        {
+            txtId3.Clear();
+            txtSuspName.Clear();
+            txtSuspHKTT.Clear();
+            txtSuspIdenNum.Clear();
+            txtSuspJob.Clear();
+            txtSuspOtherName.Clear();
+            txtSuspSex.Clear();
+            txtSuspNation.Clear();
+            txtSuspAddress.Clear();
+            txtSuspBirthday.Clear();
+            txtSuspName.Focus();
+
+            btnSave3.Enabled = true;
+        }
+
+        private void btnSave3_Click(object sender, EventArgs e)
+        {
+            if (txtSuspName.Text == "")
+            {
+                MessageBox.Show("Lỗi! Tên không thể để trống!");
+                return;
+            }
+            string strInsert = string.Format("INSERT INTO suspTbl(suspName, suspOtherName, suspSex, suspBirthday, suspAddress, suspHKTT, suspIdenNum, suspJob, suspNation) VALUES('{0}','{1}','{2}', '{3}','{4}','{5}', '{6}','{7}','{8}')",
+                txtSuspName.Text, txtSuspOtherName.Text, txtSuspSex.Text, txtSuspBirthday.Text, txtSuspAddress.Text, txtSuspHKTT.Text, txtSuspIdenNum.Text, txtSuspJob.Text, txtSuspNation.Text);
+            ExecuteQuery(strInsert);
+            loadDataSupervisors();
+            btnSave3.Enabled = false;
+            loadDataSuspects();
+
+        }
+
+        private void btnUpd3_Click(object sender, EventArgs e)
+        {            
+            string strInsert = string.Format("UPDATE suspTbl set suspName='{0}', suspOtherName='{1}', suspSex='{2}', suspBirthday={3}, suspAddress={4}, suspHKTT={5}, suspIdenNum={6}, suspJob={7}, suspNation={8} where id = {9}", 
+                txtSuspName.Text, txtSuspOtherName.Text, txtSuspSex.Text, txtSuspBirthday.Text, txtSuspAddress.Text, txtSuspHKTT.Text, txtSuspIdenNum.Text, txtSuspJob.Text, txtSuspNation.Text, txtId3.Text);
+            ExecuteQuery(strInsert);
+            loadDataSuspects();
+        }
+
+        private void btnDel3_Click(object sender, EventArgs e)
+        {
+            string strInsert = string.Format("DELETE FROM suspTbl where id='{0}'", txtId3.Text);
+            ExecuteQuery(strInsert);
+            loadDataSuspects();
         }
         
     }

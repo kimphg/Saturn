@@ -69,6 +69,7 @@ namespace IRS_Demo
         public static SQLiteDataAdapter sql_DataAdaptInspector;
         public static SQLiteDataAdapter sql_DataAdaptSupervisor;
         public static SQLiteDataAdapter sql_DataAdaptSuspect;
+        
 
         public static void GetSessSuspectInfo()
         {   
@@ -92,7 +93,7 @@ namespace IRS_Demo
             sql_Conn.Open();
 
             sql_Cmd = sql_Conn.CreateCommand();
-            string CommandText = "select id, suspName, suspOtherName, suspSex, suspBirthday, suspAddress from  suspTbl";
+            string CommandText = "select * from  suspTbl";
             sql_DataAdaptSuspect = new SQLiteDataAdapter(CommandText, sql_Conn);
             sql_Conn.Close();
         }
@@ -108,7 +109,7 @@ namespace IRS_Demo
             sql_Conn.Open();
 
             sql_Cmd = sql_Conn.CreateCommand();
-            string CommandText = "select id, supeName, supeCode, supeUnit from  supeTbl";
+            string CommandText = "select * from  supeTbl";
             sql_DataAdaptSupervisor = new SQLiteDataAdapter(CommandText, sql_Conn);
             sql_Conn.Close();
         }
@@ -119,7 +120,7 @@ namespace IRS_Demo
             sql_Conn.Open();
 
             sql_Cmd = sql_Conn.CreateCommand();
-            string CommandText = "select id, inspName, inspCode, inspUnit from  inspTbl";
+            string CommandText = "select * from  inspTbl";
             sql_DataAdaptInspector = new SQLiteDataAdapter(CommandText, sql_Conn);
             sql_Conn.Close();
         }
@@ -130,7 +131,7 @@ namespace IRS_Demo
             sql_Conn.Open();
 
             sql_Cmd = sql_Conn.CreateCommand();
-            string CommandText = "select id, userName, role, pwds from  userTbl";
+            string CommandText = "select * from  userTbl";
             sql_DataAdaptUser = new SQLiteDataAdapter(CommandText, sql_Conn);
             sql_Conn.Close();
         }        
