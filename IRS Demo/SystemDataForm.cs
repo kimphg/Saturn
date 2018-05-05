@@ -391,7 +391,7 @@ namespace IRS_Demo
 
         private void btnUpd3_Click(object sender, EventArgs e)
         {            
-            string strInsert = string.Format("UPDATE suspTbl set suspName='{0}', suspCode='{1}', suspSex='{2}', suspBirthday={3}, suspAddress={4}, suspHKTT={5}, suspIdenNum={6}, suspJob={7}, suspNation={8} where id = {9}", 
+            string strInsert = string.Format("UPDATE suspTbl set suspName='{0}', suspCode='{1}', suspSex='{2}', suspBirthday='{3}', suspAddress='{4}', suspHKTT='{5}', suspIdenNum='{6}', suspJob='{7}', suspNation='{8}' where id = '{9}'", 
                 txtSuspName.Text, txtSuspCode.Text, txtSuspSex.Text, txtSuspBirthday.Text, txtSuspAddress.Text, txtSuspHKTT.Text, txtSuspIdenNum.Text, txtSuspJob.Text, txtSuspNation.Text, txtId3.Text);
             ExecuteQuery(strInsert);
             loadDataSuspects();
