@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Intechco.ico</ApplicationIcon>
+    <ApplicationIcon>IRS.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DocX">
@@ -190,6 +190,7 @@
   <ItemGroup>
     <Content Include="cvextern_test.exe" />
     <Content Include="Intechco.ico" />
+    <Content Include="IRS.ico" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
