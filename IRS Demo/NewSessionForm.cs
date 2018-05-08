@@ -17,19 +17,20 @@ namespace IRS_Demo
         public NewSessionForm()
         {
             InitializeComponent();
-            this.StartPosition = FormStartPosition.CenterScreen;            
+            this.StartPosition = FormStartPosition.CenterScreen;
+            loadInspectorCbBox();
         }
 
         public void getNewSessionInfo()
         {
             CommonParam.mSesData.caseName = tbCaseName.Text;
             CommonParam.mSesData.suspectData._Ten = textBox1.Text;
-            CommonParam.mSesData.inspectorName = textBox2.Text;
+            CommonParam.mSesData.inspectorName = cbInspectorName.Text;
             CommonParam.mSesData.supervisorName = textBox3.Text;
             CommonParam.mSesData.supervisorName2 = textBox4.Text;
             CommonParam.mSesData.caseCode = textBox6.Text;
             CommonParam.mSesData.suspectData._MaDT = textBox8.Text;
-            CommonParam.mSesData.inspectorCode = textBox5.Text;
+            CommonParam.mSesData.inspectorCode = txtInspectCode.Text;
             CommonParam.mSesData.supervisorCode = textBox7.Text;
             CommonParam.mSesData.supervisorCode2 = textBox9.Text;
             CommonParam.mSesData.currentPlace = textBox10.Text;
@@ -72,9 +73,44 @@ namespace IRS_Demo
             
         }
 
+        private DataTable m_InspectDataTable = new DataTable();
+
+        void loadInspectorCbBox()
+        {
+            DataSet dataSet = new DataSet();
+            CommonParam.GetInspectorsInfo();
+            dataSet.Reset();
+            CommonParam.sql_DataAdaptInspector.Fill(dataSet);
+            m_InspectDataTable = dataSet.Tables[0];
+            cbInspectorName.DataSource = m_InspectDataTable;
+            cbInspectorName.DisplayMember = m_InspectDataTable.Columns[1].ToString();
+
+            loadInspecCodeTxtBox();
+        }
+
+        private string getInspectCode(string inspectName)
+        {
+            string filterExpression = "inspName=" + "'" + inspectName + "'";
+            DataRow[] rows = m_InspectDataTable.Select(filterExpression);
+            string strInspecCode = rows[0].ItemArray[2].ToString();
+            return strInspecCode;
+        }
+
+        private void loadInspecCodeTxtBox()
+        {
+            string strInspecName = cbInspectorName.GetItemText(cbInspectorName.SelectedItem);
+            string strInspecCode = getInspectCode(strInspecName);
+            txtInspectCode.Text = strInspecCode;
+        }
+
         private void NewSessionForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void cbInspectorName_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            loadInspecCodeTxtBox();
         }
 
 

@@ -43,10 +43,9 @@
             this.label5 = new System.Windows.Forms.Label();
             this.tbCaseName = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtInspectCode = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -55,6 +54,7 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label14 = new System.Windows.Forms.Label();
             this.textBox10 = new System.Windows.Forms.TextBox();
+            this.cbInspectorName = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.radioButton5 = new System.Windows.Forms.RadioButton();
@@ -142,7 +142,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.17949F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.82051F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 113F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 229F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 231F));
             this.tableLayoutPanel1.Controls.Add(this.label8, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.label7, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.label6, 2, 0);
@@ -155,10 +155,9 @@
             this.tableLayoutPanel1.Controls.Add(this.label5, 0, 4);
             this.tableLayoutPanel1.Controls.Add(this.tbCaseName, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.textBox1, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.textBox2, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.textBox3, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.textBox4, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.textBox5, 3, 2);
+            this.tableLayoutPanel1.Controls.Add(this.txtInspectCode, 3, 2);
             this.tableLayoutPanel1.Controls.Add(this.textBox7, 3, 3);
             this.tableLayoutPanel1.Controls.Add(this.textBox9, 3, 4);
             this.tableLayoutPanel1.Controls.Add(this.label9, 2, 3);
@@ -167,6 +166,7 @@
             this.tableLayoutPanel1.Controls.Add(this.dateTimePicker1, 1, 5);
             this.tableLayoutPanel1.Controls.Add(this.label14, 2, 5);
             this.tableLayoutPanel1.Controls.Add(this.textBox10, 3, 5);
+            this.tableLayoutPanel1.Controls.Add(this.cbInspectorName, 1, 2);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(28, 28);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 6;
@@ -186,7 +186,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(336, 70);
+            this.label8.Location = new System.Drawing.Point(334, 70);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(87, 35);
             this.label8.TabIndex = 17;
@@ -199,7 +199,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(336, 35);
+            this.label7.Location = new System.Drawing.Point(334, 35);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(73, 35);
             this.label7.TabIndex = 16;
@@ -212,7 +212,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(336, 0);
+            this.label6.Location = new System.Drawing.Point(334, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(55, 35);
             this.label6.TabIndex = 6;
@@ -223,7 +223,7 @@
             // 
             this.textBox6.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(449, 7);
+            this.textBox6.Location = new System.Drawing.Point(447, 7);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(193, 20);
             this.textBox6.TabIndex = 12;
@@ -232,7 +232,7 @@
             // 
             this.textBox8.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.Location = new System.Drawing.Point(449, 42);
+            this.textBox8.Location = new System.Drawing.Point(447, 42);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(193, 20);
             this.textBox8.TabIndex = 14;
@@ -254,7 +254,7 @@
             // 
             this.tbCaseName.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.tbCaseName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbCaseName.Location = new System.Drawing.Point(127, 7);
+            this.tbCaseName.Location = new System.Drawing.Point(126, 7);
             this.tbCaseName.Name = "tbCaseName";
             this.tbCaseName.Size = new System.Drawing.Size(193, 20);
             this.tbCaseName.TabIndex = 6;
@@ -263,25 +263,16 @@
             // 
             this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(127, 42);
+            this.textBox1.Location = new System.Drawing.Point(126, 42);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(193, 20);
             this.textBox1.TabIndex = 7;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(127, 77);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(193, 20);
-            this.textBox2.TabIndex = 8;
             // 
             // textBox3
             // 
             this.textBox3.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(127, 112);
+            this.textBox3.Location = new System.Drawing.Point(126, 112);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(193, 20);
             this.textBox3.TabIndex = 9;
@@ -290,25 +281,26 @@
             // 
             this.textBox4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(127, 147);
+            this.textBox4.Location = new System.Drawing.Point(126, 147);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(193, 20);
             this.textBox4.TabIndex = 10;
             // 
-            // textBox5
+            // txtInspectCode
             // 
-            this.textBox5.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(449, 77);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(193, 20);
-            this.textBox5.TabIndex = 11;
+            this.txtInspectCode.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtInspectCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txtInspectCode.Location = new System.Drawing.Point(447, 77);
+            this.txtInspectCode.Name = "txtInspectCode";
+            this.txtInspectCode.ReadOnly = true;
+            this.txtInspectCode.Size = new System.Drawing.Size(193, 20);
+            this.txtInspectCode.TabIndex = 11;
             // 
             // textBox7
             // 
             this.textBox7.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(449, 112);
+            this.textBox7.Location = new System.Drawing.Point(447, 112);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(193, 20);
             this.textBox7.TabIndex = 13;
@@ -317,7 +309,7 @@
             // 
             this.textBox9.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.textBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox9.Location = new System.Drawing.Point(449, 147);
+            this.textBox9.Location = new System.Drawing.Point(447, 147);
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(193, 20);
             this.textBox9.TabIndex = 15;
@@ -328,7 +320,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(336, 105);
+            this.label9.Location = new System.Drawing.Point(334, 105);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(99, 35);
             this.label9.TabIndex = 17;
@@ -341,7 +333,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(336, 140);
+            this.label10.Location = new System.Drawing.Point(334, 140);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(99, 35);
             this.label10.TabIndex = 17;
@@ -367,7 +359,7 @@
             this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(127, 184);
+            this.dateTimePicker1.Location = new System.Drawing.Point(126, 184);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(193, 20);
             this.dateTimePicker1.TabIndex = 18;
@@ -378,7 +370,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(336, 175);
+            this.label14.Location = new System.Drawing.Point(334, 175);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(96, 39);
             this.label14.TabIndex = 17;
@@ -389,10 +381,22 @@
             // 
             this.textBox10.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.textBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox10.Location = new System.Drawing.Point(449, 184);
+            this.textBox10.Location = new System.Drawing.Point(447, 184);
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(193, 20);
             this.textBox10.TabIndex = 15;
+            // 
+            // cbInspectorName
+            // 
+            this.cbInspectorName.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbInspectorName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbInspectorName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cbInspectorName.FormattingEnabled = true;
+            this.cbInspectorName.Location = new System.Drawing.Point(126, 77);
+            this.cbInspectorName.Name = "cbInspectorName";
+            this.cbInspectorName.Size = new System.Drawing.Size(193, 21);
+            this.cbInspectorName.TabIndex = 19;
+            this.cbInspectorName.SelectionChangeCommitted += new System.EventHandler(this.cbInspectorName_SelectionChangeCommitted);
             // 
             // groupBox1
             // 
@@ -582,10 +586,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tbCaseName;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtInspectCode;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Label label8;
@@ -610,5 +613,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.ComboBox cbInspectorName;
     }
 }

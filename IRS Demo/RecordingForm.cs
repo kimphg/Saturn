@@ -112,7 +112,7 @@ namespace IRS_Demo
             label28.Text = ""; // Ma phien
             label29.Text = ""; // Thoi gian thuc hien
             label30.Text = CommonParam.mSesData.inspectorName;
-            label31.Text = CommonParam.mSesData.inspectorCode;
+            label31.Text = "Unit";
             label32.Text = CommonParam.mSesData.supervisorName;
             label33.Text = CommonParam.mSesData.supervisorName2;
             label36.Text = CommonParam.mSesData.suspectData._Ten;
