@@ -144,7 +144,7 @@ namespace IRS_Demo
 
 
             dataGridViewSuspect.Columns[1].HeaderText = "Họ tên đối tượng";
-            dataGridViewSuspect.Columns[2].HeaderText = "Tên gọi khác";
+            dataGridViewSuspect.Columns[2].HeaderText = "Mã đ.tượng";
             dataGridViewSuspect.Columns[3].HeaderText = "Giới tính";
             dataGridViewSuspect.Columns[4].HeaderText = "Ngày sinh";
             dataGridViewSuspect.Columns[5].HeaderText = "Địa chỉ";

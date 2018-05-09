@@ -32,7 +32,7 @@ namespace IRS_Demo
             LoadDataForConbobox();
 		}
                 
-        private DataTable m_DataTable = new DataTable();
+        private DataTable m_UserDataTable = new DataTable();
 
 		void LoadDataForConbobox()
 		{
@@ -40,9 +40,9 @@ namespace IRS_Demo
             CommonParam.GetUsersInfo();
             dataSet.Reset();
             CommonParam.sql_DataAdaptUser.Fill(dataSet);
-            m_DataTable = dataSet.Tables[0];
-            cmbNameLogin.DataSource = m_DataTable;
-            cmbNameLogin.DisplayMember = m_DataTable.Columns[1].ToString();            
+            m_UserDataTable = dataSet.Tables[0];
+            cmbNameLogin.DataSource = m_UserDataTable;
+            cmbNameLogin.DisplayMember = m_UserDataTable.Columns[1].ToString();            
 		}
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -50,7 +50,7 @@ namespace IRS_Demo
             string strUser = cmbNameLogin.GetItemText(cmbNameLogin.SelectedItem);
             string filterExpression = "";
             filterExpression = "userName=" + "'" + strUser + "'";
-            DataRow[] rows = m_DataTable.Select(filterExpression);
+            DataRow[] rows = m_UserDataTable.Select(filterExpression);
             string strPass = rows[0].ItemArray[3].ToString();
 
             if (txbPassWord.Text != strPass)

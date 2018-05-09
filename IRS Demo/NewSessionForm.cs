@@ -18,18 +18,19 @@ namespace IRS_Demo
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
-            loadInspectorCbBox();
+            loadInspectCbBox();
+            loadSuspectCbBox();
         }
 
         public void getNewSessionInfo()
         {
             CommonParam.mSesData.caseName = tbCaseName.Text;
-            CommonParam.mSesData.suspectData._Ten = textBox1.Text;
-            CommonParam.mSesData.inspectorName = cbInspectorName.Text;
+            CommonParam.mSesData.suspectData._Ten = cbSuspectName.Text;
+            CommonParam.mSesData.inspectorName = cbInspectName.Text;
             CommonParam.mSesData.supervisorName = textBox3.Text;
             CommonParam.mSesData.supervisorName2 = textBox4.Text;
             CommonParam.mSesData.caseCode = textBox6.Text;
-            CommonParam.mSesData.suspectData._MaDT = textBox8.Text;
+            CommonParam.mSesData.suspectData._MaDT = txtSuspectCode.Text;
             CommonParam.mSesData.inspectorCode = txtInspectCode.Text;
             CommonParam.mSesData.supervisorCode = textBox7.Text;
             CommonParam.mSesData.supervisorCode2 = textBox9.Text;
@@ -40,7 +41,7 @@ namespace IRS_Demo
         private void btnNewSession_Click(object sender, EventArgs e)
         {
             getNewSessionInfo();
-            CommonParam.GetSessSuspectInfo();
+            getSuspectInfoByCode(txtSuspectCode.Text);
 
             CommonParam.SessionFolderName = "SS_" + DateTime.Now.ToString(@"MM_dd_yyyy.h_mm_tt");
             System.IO.Directory.CreateDirectory(CommonParam.ProgramPath + "\\" + CommonParam.SessionFolderName);
@@ -74,21 +75,35 @@ namespace IRS_Demo
         }
 
         private DataTable m_InspectDataTable = new DataTable();
+        private DataTable m_SuspectDataTable = new DataTable();
 
-        void loadInspectorCbBox()
+        void loadInspectCbBox()
         {
             DataSet dataSet = new DataSet();
             CommonParam.GetInspectorsInfo();
             dataSet.Reset();
             CommonParam.sql_DataAdaptInspector.Fill(dataSet);
             m_InspectDataTable = dataSet.Tables[0];
-            cbInspectorName.DataSource = m_InspectDataTable;
-            cbInspectorName.DisplayMember = m_InspectDataTable.Columns[1].ToString();
+            cbInspectName.DataSource = m_InspectDataTable;
+            cbInspectName.DisplayMember = m_InspectDataTable.Columns[1].ToString();
 
             loadInspecCodeTxtBox();
         }
 
-        private string getInspectCode(string inspectName)
+        void loadSuspectCbBox()
+        {
+            DataSet dataSet = new DataSet();
+            CommonParam.GetSuspectsInfo();
+            dataSet.Reset();
+            CommonParam.sql_DataAdaptSuspect.Fill(dataSet);
+            m_SuspectDataTable = dataSet.Tables[0];
+            cbSuspectName.DataSource = m_SuspectDataTable;
+            cbSuspectName.DisplayMember = m_SuspectDataTable.Columns[1].ToString();
+
+            loadSuspecCodeTxtBox();
+        }
+
+        private string getInspectCodeByName(string inspectName)
         {
             string filterExpression = "inspName=" + "'" + inspectName + "'";
             DataRow[] rows = m_InspectDataTable.Select(filterExpression);
@@ -96,11 +111,41 @@ namespace IRS_Demo
             return strInspecCode;
         }
 
+        private void getSuspectInfoByCode(string suspectCode)
+        {
+            string filterExpression = "";
+            filterExpression = "suspCode=" + "'" + suspectCode + "'";
+            DataRow[] rows = m_SuspectDataTable.Select(filterExpression);
+            CommonParam.mSesData.suspectData._GioiTinh = rows[0].ItemArray[3].ToString();
+            CommonParam.mSesData.suspectData._TenGoiKhac = "........................";
+            CommonParam.mSesData.suspectData._NgaySinh = rows[0].ItemArray[4].ToString();
+            CommonParam.mSesData.suspectData._NoiSinh = ".......................................";
+            CommonParam.mSesData.suspectData._QuocTich = rows[0].ItemArray[9].ToString();
+            CommonParam.mSesData.suspectData._DanToc = ".............";
+            CommonParam.mSesData.suspectData._TonGiao = ".............";
+            CommonParam.mSesData.suspectData._NgheNghiep = rows[0].ItemArray[8].ToString();
+            CommonParam.mSesData.suspectData._CMND = rows[0].ItemArray[7].ToString();
+            CommonParam.mSesData.suspectData._NgayCapCMND = ".................";
+            CommonParam.mSesData.suspectData._NoiCapCMND = ".................";
+            CommonParam.mSesData.suspectData._DiaChi = rows[0].ItemArray[5].ToString();   
+        }
+
         private void loadInspecCodeTxtBox()
         {
-            string strInspecName = cbInspectorName.GetItemText(cbInspectorName.SelectedItem);
-            string strInspecCode = getInspectCode(strInspecName);
+            string strInspecName = cbInspectName.GetItemText(cbInspectName.SelectedItem);
+            string filterExpression = "inspName=" + "'" + strInspecName + "'";
+            DataRow[] rows = m_InspectDataTable.Select(filterExpression);
+            string strInspecCode = rows[0].ItemArray[2].ToString();
             txtInspectCode.Text = strInspecCode;
+        }
+
+        private void loadSuspecCodeTxtBox()
+        {
+            string strSuspecName = cbSuspectName.GetItemText(cbSuspectName.SelectedItem);
+            string filterExpression = "suspName=" + "'" + strSuspecName + "'";
+            DataRow[] rows = m_SuspectDataTable.Select(filterExpression);
+            string strSuspecCode = rows[0].ItemArray[2].ToString();
+            txtSuspectCode.Text = strSuspecCode;
         }
 
         private void NewSessionForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -111,6 +156,11 @@ namespace IRS_Demo
         private void cbInspectorName_SelectionChangeCommitted(object sender, EventArgs e)
         {
             loadInspecCodeTxtBox();
+        }
+
+        private void cbSuspectName_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            loadSuspecCodeTxtBox();
         }
 
 

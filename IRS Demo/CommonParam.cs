@@ -71,7 +71,7 @@ namespace IRS_Demo
         public static SQLiteDataAdapter sql_DataAdaptSuspect;
         
 
-        public static void GetSessSuspectInfo()
+        public static void GetSessSuspectInfo(string strSuspectCode)
         {   
             mSesData.suspectData._GioiTinh = "Nam"; 
             mSesData.suspectData._TenGoiKhac = "Không có";
