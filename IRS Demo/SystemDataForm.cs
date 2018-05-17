@@ -25,8 +25,6 @@ namespace IRS_Demo
             CommonParam.GetInspectorsInfo();
             CommonParam.GetSupervisorsInfo();
             CommonParam.GetSuspectsInfo();
-
-            comboBox1.DataSource = Enum.GetValues(typeof(cameraType));
         }
 
         private void loadDataUsers()
@@ -404,12 +402,6 @@ namespace IRS_Demo
             string strInsert = string.Format("DELETE FROM suspTbl where id='{0}'", txtId3.Text);
             ExecuteQuery(strInsert);
             loadDataSuspects();
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            CommonParam.mConfig.camType = (cameraType)comboBox1.SelectedIndex;
-            CommonParam.saveConfig();
         }
         
     }
