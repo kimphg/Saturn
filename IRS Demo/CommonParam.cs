@@ -13,13 +13,10 @@ using System.Data.SQLite;
 
 namespace IRS_Demo
 {
-    public enum cameraType {IPAxis = 0,IPPanasonic = 1,Local1 = 2,Local2 = 3 };
-        
     public struct Config
     {
         public string recCommand;
         public string videoUrl;
-        public cameraType camType;
     }
 
     public struct SuspectData
@@ -62,7 +59,6 @@ namespace IRS_Demo
         public static string SessionFolderName;// thu muc ghi video va luu du lieu cua session
         public static Config mConfig;
         public static string UserName;
-        
         //public static string videoUrl = "rtsp://admin:admin@192.168.1.2/live3.sdp";
         //public static string videoUrl = "rtsp://root:root@192.168.1.218/axis-media/media.amp";
         public static string MjpegUrl = "http://root:root@192.168.1.212/mjpg/video.mjpg";
