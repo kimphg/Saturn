@@ -26,12 +26,12 @@ namespace IRS_Demo
 
         public bool getNewSessionInfo()
         {
-            CommonParam.mSesData.caseName = tbCaseName.Text;
+            CommonParam.mSesData.caseName = txtCaseName.Text;
             CommonParam.mSesData.suspectData._Ten = cbSuspectName.Text;
             CommonParam.mSesData.inspectorName = cbInspectName.Text;
             CommonParam.mSesData.supervisorName1 = cbSupevName1.Text;
             CommonParam.mSesData.supervisorName2 = cbSupevName2.Text;
-            CommonParam.mSesData.caseCode = textBox6.Text;
+            CommonParam.mSesData.caseCode = txtCaseCode.Text;
             CommonParam.mSesData.suspectData._MaDT = txtSuspectCode.Text;
             CommonParam.mSesData.inspectorCode = txtInspectCode.Text;
             CommonParam.mSesData.supervisorCode1 = txtSupeCode1.Text;

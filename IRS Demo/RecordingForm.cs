@@ -31,8 +31,8 @@ namespace IRS_Demo
        // MjpegDecoder m_mjpeg;
         //Capture m_capture;        
         Int32 nRecTimeInSecond;
-        
-        
+
+        // this.vlcPlayer.VlcLibDirectoryNeeded+=vlcPlayer_VlcLibDirectoryNeeded;
         
         //Image<Bgr, Byte> m_frame;
         //string vlcLibPath = Path.Combine(new FileInfo(Assembly.GetEntryAssembly().Location).DirectoryName,"libvlc", IntPtr.Size == 4 ? "win-x86" : "win-x64");
@@ -104,18 +104,18 @@ namespace IRS_Demo
 
         public void setViewSessionInfo()
         {
-            label23.Text = CommonParam.mSesData.caseCode;
-            label24.Text = "Phòng 1";
+            lblCaseCode.Text = CommonParam.mSesData.caseCode;
+            lblRoom.Text = "Phòng 1";
             //label25.Text = DateTime.Now.ToString("dd/MM/yyyy h:mm tt");
-            label26.Text = ""; // time ket thuc
-            label27.Text = ""; // Thoi diem dien ra
-            label28.Text = ""; // Ma phien
-            label29.Text = ""; // Thoi gian thuc hien
-            label30.Text = CommonParam.mSesData.inspectorName;
-            label31.Text = "Unit";
-            label32.Text = CommonParam.mSesData.supervisorName1;
-            label33.Text = CommonParam.mSesData.supervisorName2;
-            label36.Text = CommonParam.mSesData.suspectData._Ten;
+            lblTimeEnd.Text = ""; // time ket thuc
+            lblTimeCase.Text = ""; // Thoi diem dien ra
+            lblSessCode.Text = ""; // Ma phien
+            lblTimePerform.Text = ""; // Thoi gian thuc hien
+            lblInspectName.Text = CommonParam.mSesData.inspectorName;
+            lblInspectUnit.Text = "Unit";
+            lblSupevName1.Text = CommonParam.mSesData.supervisorName1;
+            lblSupevName2.Text = CommonParam.mSesData.supervisorName2;
+            lblSuspectName.Text = CommonParam.mSesData.suspectData._Ten;
 
             textBox19.Text = CommonParam.mSesData.Notes;           
         }
