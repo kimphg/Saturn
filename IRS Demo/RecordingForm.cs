@@ -113,7 +113,7 @@ namespace IRS_Demo
             label29.Text = ""; // Thoi gian thuc hien
             label30.Text = CommonParam.mSesData.inspectorName;
             label31.Text = "Unit";
-            label32.Text = CommonParam.mSesData.supervisorName;
+            label32.Text = CommonParam.mSesData.supervisorName1;
             label33.Text = CommonParam.mSesData.supervisorName2;
             label36.Text = CommonParam.mSesData.suspectData._Ten;
 
@@ -333,7 +333,7 @@ namespace IRS_Demo
         {
             
             template.AddCustomProperty(new Novacode.CustomProperty("DieuTraVien", CommonParam.mSesData.inspectorName));
-            template.AddCustomProperty(new Novacode.CustomProperty("GiamSatVien1", CommonParam.mSesData.supervisorName));
+            template.AddCustomProperty(new Novacode.CustomProperty("GiamSatVien1", CommonParam.mSesData.supervisorName1));
             template.AddCustomProperty(new Novacode.CustomProperty("GiamSatVien2", CommonParam.mSesData.supervisorName2));
             template.AddCustomProperty(new Novacode.CustomProperty("ThoiGianDienRa", CommonParam.mSesData.beginSessTime));
             template.AddCustomProperty(new Novacode.CustomProperty("BC_Ten", CommonParam.mSesData.suspectData._Ten));

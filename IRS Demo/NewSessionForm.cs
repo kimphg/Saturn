@@ -20,27 +20,38 @@ namespace IRS_Demo
             this.StartPosition = FormStartPosition.CenterScreen;
             loadInspectCbBox();
             loadSuspectCbBox();
+            loadSupevi1CbBox();
+            loadSupevi2CbBox();
         }
 
-        public void getNewSessionInfo()
+        public bool getNewSessionInfo()
         {
             CommonParam.mSesData.caseName = tbCaseName.Text;
             CommonParam.mSesData.suspectData._Ten = cbSuspectName.Text;
             CommonParam.mSesData.inspectorName = cbInspectName.Text;
-            CommonParam.mSesData.supervisorName = textBox3.Text;
-            CommonParam.mSesData.supervisorName2 = textBox4.Text;
+            CommonParam.mSesData.supervisorName1 = cbSupevName1.Text;
+            CommonParam.mSesData.supervisorName2 = cbSupevName2.Text;
             CommonParam.mSesData.caseCode = textBox6.Text;
             CommonParam.mSesData.suspectData._MaDT = txtSuspectCode.Text;
             CommonParam.mSesData.inspectorCode = txtInspectCode.Text;
-            CommonParam.mSesData.supervisorCode = textBox7.Text;
-            CommonParam.mSesData.supervisorCode2 = textBox9.Text;
+            CommonParam.mSesData.supervisorCode1 = txtSupeCode1.Text;
+            CommonParam.mSesData.supervisorCode2 = txtSupeCode2.Text;
             CommonParam.mSesData.currentPlace = textBox10.Text;
-            CommonParam.mSesData.Notes = txtNotes.Text;            
+            CommonParam.mSesData.Notes = txtNotes.Text;
+
+            if (CommonParam.mSesData.supervisorCode1 == CommonParam.mSesData.supervisorCode2)
+            {
+                MessageBox.Show("GSV1 và GSV2 có tên và mã số giống nhau, đề nghị kiểm tra lại!");
+                return false;
+            }                
+
+            return true;
         }
 
         private void btnNewSession_Click(object sender, EventArgs e)
         {
-            getNewSessionInfo();
+            if (!getNewSessionInfo())
+                return;
             getSuspectInfoByCode(txtSuspectCode.Text);
 
             CommonParam.SessionFolderName = "SS_" + DateTime.Now.ToString(@"MM_dd_yyyy.h_mm_tt");
@@ -76,6 +87,7 @@ namespace IRS_Demo
 
         private DataTable m_InspectDataTable = new DataTable();
         private DataTable m_SuspectDataTable = new DataTable();
+        private DataTable m_SuspeviDataTable = new DataTable();
 
         void loadInspectCbBox()
         {
@@ -101,6 +113,34 @@ namespace IRS_Demo
             cbSuspectName.DisplayMember = m_SuspectDataTable.Columns[1].ToString();
 
             loadSuspecCodeTxtBox();
+        }
+
+        void loadSupevi1CbBox()
+        {
+            DataSet dataSet = new DataSet();
+            CommonParam.GetSupervisorsInfo();
+            dataSet.Reset();
+            CommonParam.sql_DataAdaptSupervisor.Fill(dataSet);
+            m_SuspeviDataTable = dataSet.Tables[0];
+            cbSupevName1.DataSource = m_SuspeviDataTable;
+            cbSupevName1.DisplayMember = m_SuspeviDataTable.Columns[1].ToString();
+
+            loadSupevi1CodeTxtBox();
+        }
+
+        void loadSupevi2CbBox()
+        {
+            DataSet dataSet = new DataSet();
+            CommonParam.GetSupervisorsInfo();
+            dataSet.Reset();
+            CommonParam.sql_DataAdaptSupervisor.Fill(dataSet);
+            m_SuspeviDataTable = dataSet.Tables[0];
+            cbSupevName2.DataSource = m_SuspeviDataTable;
+            cbSupevName2.DisplayMember = m_SuspeviDataTable.Columns[1].ToString();
+
+            cbSupevName2.SelectedIndex = 1;
+
+            loadSupevi2CodeTxtBox();
         }
 
         private string getInspectCodeByName(string inspectName)
@@ -130,7 +170,7 @@ namespace IRS_Demo
             CommonParam.mSesData.suspectData._DiaChi = rows[0].ItemArray[5].ToString();   
         }
 
-        private void loadInspecCodeTxtBox()
+        private void loadInspecCodeTxtBox() 
         {
             string strInspecName = cbInspectName.GetItemText(cbInspectName.SelectedItem);
             string filterExpression = "inspName=" + "'" + strInspecName + "'";
@@ -148,6 +188,24 @@ namespace IRS_Demo
             txtSuspectCode.Text = strSuspecCode;
         }
 
+        private void loadSupevi1CodeTxtBox()
+        {
+            string strSupevi1Name = cbSupevName1.GetItemText(cbSupevName1.SelectedItem);
+            string filterExpression = "supeName=" + "'" + strSupevi1Name + "'";
+            DataRow[] rows = m_SuspeviDataTable.Select(filterExpression);
+            string strSupevi1Code = rows[0].ItemArray[2].ToString();
+            txtSupeCode1.Text = strSupevi1Code;
+        }
+
+        private void loadSupevi2CodeTxtBox()
+        {
+            string strSupevi2Name = cbSupevName2.GetItemText(cbSupevName2.SelectedItem);
+            string filterExpression = "supeName=" + "'" + strSupevi2Name + "'";
+            DataRow[] rows = m_SuspeviDataTable.Select(filterExpression);
+            string strSupevi2Code = rows[0].ItemArray[2].ToString();
+            txtSupeCode2.Text = strSupevi2Code;
+        }
+
         private void NewSessionForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
@@ -161,6 +219,16 @@ namespace IRS_Demo
         private void cbSuspectName_SelectionChangeCommitted(object sender, EventArgs e)
         {
             loadSuspecCodeTxtBox();
+        }
+
+        private void cbSupevName1_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            loadSupevi1CodeTxtBox();
+        }
+
+        private void cbSupevName2_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            loadSupevi2CodeTxtBox();
         }
 
 

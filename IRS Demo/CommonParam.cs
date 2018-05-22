@@ -33,9 +33,8 @@ namespace IRS_Demo
         public string caseName, caseCode;
         
         public string inspectorName, inspectorCode;
-        public string supervisorName, supervisorCode;
-        public string supervisorName2;
-        public string supervisorCode2;
+        public string supervisorName1, supervisorCode1;
+        public string supervisorName2, supervisorCode2;        
         public string Notes;
 
         public string beginSessTime;
