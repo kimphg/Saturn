@@ -22,9 +22,19 @@ namespace IRS_Demo
     public struct SuspectData
     {
         public string _Ten, _MaDT;
-        public string _GioiTinh, _TenGoiKhac, _NgaySinh, _NoiSinh, _QuocTich, _DanToc, _TonGiao, _NgheNghiep;
+        public string _GioiTinh, _TenGoiKhac, _NgaySinh, _NoiSinh, _QuocTich, _DanToc, _TonGiao, _NgheNghiep, _HKTT;
         public string _CMND, _NgayCapCMND, _NoiCapCMND;
         public string _DiaChi;
+    }
+
+    public struct InspectData
+    {
+        public string _Ten, _maDTV, _DonVi;
+    }
+
+    public struct SupervisorData
+    {
+        public string _Ten, _maGSV, _DonVi;
     }
 
 
@@ -32,8 +42,8 @@ namespace IRS_Demo
     {
         public string caseName, caseCode;
         
-        public string inspectorName, inspectorCode;
-        public string supervisorName1, supervisorCode1;
+        //public string inspectorName, inspectorCode;
+        //public string supervisorName1, supervisorCode1;
         public string supervisorName2, supervisorCode2;        
         public string Notes;
 
@@ -43,7 +53,9 @@ namespace IRS_Demo
         public string currentPlace;
         public string currentDate;
 
-        public SuspectData suspectData;
+        public SuspectData      suspectData;
+        public InspectData      inspectData;
+        public SupervisorData supervisorData1, supervisorData2;
 
         public string SessionPath {get;set;}
         public string SessionKeyText { get; set; }

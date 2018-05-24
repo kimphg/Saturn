@@ -111,11 +111,21 @@ namespace IRS_Demo
             lblTimeCase.Text = ""; // Thoi diem dien ra
             lblSessCode.Text = ""; // Ma phien
             lblTimePerform.Text = ""; // Thoi gian thuc hien
-            lblInspectName.Text = CommonParam.mSesData.inspectorName;
-            lblInspectUnit.Text = "Unit";
-            lblSupevName1.Text = CommonParam.mSesData.supervisorName1;
+
+            lblInspectName.Text = CommonParam.mSesData.inspectData._Ten;
+            lblInspectUnit.Text = CommonParam.mSesData.inspectData._DonVi;
+
+            lblSupevName1.Text = CommonParam.mSesData.supervisorData1._Ten;
             lblSupevName2.Text = CommonParam.mSesData.supervisorName2;
+
             lblSuspectName.Text = CommonParam.mSesData.suspectData._Ten;
+            lblSuspectSex.Text = CommonParam.mSesData.suspectData._GioiTinh;
+            lblSuspectOtherName.Text = CommonParam.mSesData.suspectData._TenGoiKhac;
+            lblSuspectBirthday.Text = CommonParam.mSesData.suspectData._NgaySinh;
+            lblSuspectHKTT.Text = CommonParam.mSesData.suspectData._HKTT;
+            lblSuspectAddr.Text = CommonParam.mSesData.suspectData._DiaChi;
+
+            lblSupevUnit1.Text = CommonParam.mSesData.supervisorData1._DonVi;
 
             textBox19.Text = CommonParam.mSesData.Notes;           
         }
@@ -332,8 +342,8 @@ namespace IRS_Demo
         private DocX CreateInvoiceFromTemplate(DocX template)
         {
             
-            template.AddCustomProperty(new Novacode.CustomProperty("DieuTraVien", CommonParam.mSesData.inspectorName));
-            template.AddCustomProperty(new Novacode.CustomProperty("GiamSatVien1", CommonParam.mSesData.supervisorName1));
+            template.AddCustomProperty(new Novacode.CustomProperty("DieuTraVien", CommonParam.mSesData.inspectData._Ten));
+            template.AddCustomProperty(new Novacode.CustomProperty("GiamSatVien1", CommonParam.mSesData.supervisorData1._Ten));
             template.AddCustomProperty(new Novacode.CustomProperty("GiamSatVien2", CommonParam.mSesData.supervisorName2));
             template.AddCustomProperty(new Novacode.CustomProperty("ThoiGianDienRa", CommonParam.mSesData.beginSessTime));
             template.AddCustomProperty(new Novacode.CustomProperty("BC_Ten", CommonParam.mSesData.suspectData._Ten));

@@ -44,15 +44,15 @@ namespace IRS_Demo
                 {
                     SessionData data = CommonParam.LoadObject<SessionData>(subDir + "\\" + CommonParam.SessionFileName);
                     data.SessionPath = subDir + "\\";
-                    data.SessionKeyText = data.inspectorName + " "
-                                            + data.inspectorCode + " "
-                                            + data.suspectData._Ten + " "
-                                            + data.suspectData._MaDT + " "
-                                            + data.supervisorName1 + " "
-                                            + data.supervisorCode1 + " "
-                                            + data.supervisorName2 + " "
-                                            + data.supervisorCode2 + " "
-                                            + data.Notes;
+                    data.SessionKeyText =       data.inspectData._Ten + " "
+                                            +   data.inspectData._maDTV + " "
+                                            +   data.suspectData._Ten + " "
+                                            +   data.suspectData._MaDT + " "
+                                            +   data.supervisorData1._Ten + " "
+                                            +   data.supervisorData1._maGSV + " "
+                                            +   data.supervisorName2 + " "
+                                            +   data.supervisorCode2 + " "
+                                            +   data.Notes;
                     SessionHistory.Add(data);
                     
                 }
@@ -110,8 +110,8 @@ namespace IRS_Demo
             {
                 if (!string.IsNullOrEmpty(searchParam.inspectorName))
                 {
-                    if (!string.IsNullOrEmpty(session.inspectorName))
-                        if (session.inspectorName.Contains(searchParam.inspectorName)) { SearchResults.Add(session); continue; }
+                    if (!string.IsNullOrEmpty(session.inspectData._Ten))
+                        if (session.inspectData._Ten.Contains(searchParam.inspectorName)) { SearchResults.Add(session); continue; }
                 }
                 if (!string.IsNullOrEmpty(searchParam.caseCode))
                 {
@@ -125,8 +125,8 @@ namespace IRS_Demo
                 }
                 if (!string.IsNullOrEmpty(searchParam.supervisorName1))
                 {
-                    if (!string.IsNullOrEmpty(session.supervisorName1))
-                        if (session.supervisorName1.Contains(searchParam.supervisorName1)) { SearchResults.Add(session); continue; }
+                    if (!string.IsNullOrEmpty(session.supervisorData1._Ten))
+                        if (session.supervisorData1._Ten.Contains(searchParam.supervisorName1)) { SearchResults.Add(session); continue; }
                 }
                 if (!string.IsNullOrEmpty(searchParam.supervisorName2))
                 {
@@ -140,8 +140,8 @@ namespace IRS_Demo
                 }
                 if (!string.IsNullOrEmpty(searchParam.inspectorCode))
                 {
-                    if (!string.IsNullOrEmpty(session.inspectorCode))
-                        if (session.inspectorCode.Contains(searchParam.inspectorCode)) { SearchResults.Add(session); continue; }
+                    if (!string.IsNullOrEmpty(session.inspectData._maDTV))
+                        if (session.inspectData._maDTV.Contains(searchParam.inspectorCode)) { SearchResults.Add(session); continue; }
                 }
                 
             }
@@ -165,10 +165,10 @@ namespace IRS_Demo
             selectedDataPath = listBoxSearchResults.GetItemText(listBoxSearchResults.SelectedItem);
             SessionData data = CommonParam.LoadObject<SessionData>(selectedDataPath + CommonParam.SessionFileName);
             
-            this.textBoxInspectorCode.Text = data.inspectorCode;
-            this.textBoxInsptectorName.Text = data.inspectorName;
+            this.textBoxInspectorCode.Text = data.inspectData._maDTV;
+            this.textBoxInsptectorName.Text = data.inspectData._Ten;
             this.textBoxSuspectName.Text = data.suspectData._Ten;
-            this.textBoxSupervisorName1.Text = data.supervisorName1;
+            this.textBoxSupervisorName1.Text = data.supervisorData1._Ten;
             this.textBoxSupervisorName2.Text = data.supervisorName2;
             this.textBoxCaseCode.Text = data.caseCode;
             this.txtNote_View.Text = data.Notes;
@@ -199,13 +199,13 @@ namespace IRS_Demo
         {
             CommonParam.mSesData.caseName = sessData.caseName;
             CommonParam.mSesData.suspectData._Ten = sessData.suspectData._Ten;
-            CommonParam.mSesData.inspectorName = sessData.inspectorName;
-            CommonParam.mSesData.supervisorName1 = sessData.supervisorName1;
+            CommonParam.mSesData.inspectData._Ten = sessData.inspectData._Ten;
+            CommonParam.mSesData.supervisorData1._Ten = sessData.supervisorData1._Ten;
             CommonParam.mSesData.supervisorName2 = sessData.supervisorName2;
             CommonParam.mSesData.caseCode = sessData.caseCode;
             CommonParam.mSesData.suspectData._MaDT = sessData.suspectData._MaDT;
-            CommonParam.mSesData.inspectorCode = sessData.inspectorCode;
-            CommonParam.mSesData.supervisorCode1 = sessData.supervisorCode1;
+            CommonParam.mSesData.inspectData._maDTV = sessData.inspectData._maDTV;
+            CommonParam.mSesData.supervisorData1._maGSV = sessData.supervisorData1._maGSV;
             CommonParam.mSesData.supervisorCode2 = sessData.supervisorCode2;
             CommonParam.mSesData.currentPlace = sessData.currentPlace;
             CommonParam.mSesData.Notes = sessData.Notes;

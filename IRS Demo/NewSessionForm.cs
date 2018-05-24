@@ -27,19 +27,24 @@ namespace IRS_Demo
         public bool getNewSessionInfo()
         {
             CommonParam.mSesData.caseName = txtCaseName.Text;
-            CommonParam.mSesData.suspectData._Ten = cbSuspectName.Text;
-            CommonParam.mSesData.inspectorName = cbInspectName.Text;
-            CommonParam.mSesData.supervisorName1 = cbSupevName1.Text;
-            CommonParam.mSesData.supervisorName2 = cbSupevName2.Text;
             CommonParam.mSesData.caseCode = txtCaseCode.Text;
+
+            CommonParam.mSesData.suspectData._Ten = cbSuspectName.Text;
             CommonParam.mSesData.suspectData._MaDT = txtSuspectCode.Text;
-            CommonParam.mSesData.inspectorCode = txtInspectCode.Text;
-            CommonParam.mSesData.supervisorCode1 = txtSupeCode1.Text;
+
+            CommonParam.mSesData.inspectData._Ten = cbInspectName.Text;
+            CommonParam.mSesData.inspectData._maDTV = txtInspectCode.Text;
+
+            CommonParam.mSesData.supervisorData1._Ten = cbSupevName1.Text;
+            CommonParam.mSesData.supervisorData1._maGSV = txtSupeCode1.Text;
+
+            CommonParam.mSesData.supervisorName2 = cbSupevName2.Text;            
             CommonParam.mSesData.supervisorCode2 = txtSupeCode2.Text;
+
             CommonParam.mSesData.currentPlace = textBox10.Text;
             CommonParam.mSesData.Notes = txtNotes.Text;
 
-            if (CommonParam.mSesData.supervisorCode1 == CommonParam.mSesData.supervisorCode2)
+            if (CommonParam.mSesData.supervisorData1._maGSV == CommonParam.mSesData.supervisorCode2)
             {
                 MessageBox.Show("GSV1 và GSV2 có tên và mã số giống nhau, đề nghị kiểm tra lại!");
                 return false;
@@ -53,6 +58,8 @@ namespace IRS_Demo
             if (!getNewSessionInfo())
                 return;
             getSuspectInfoByCode(txtSuspectCode.Text);
+            getInspectInfoByCode(txtInspectCode.Text);
+            getSupervisorInforByCode(txtSupeCode1.Text, 1);
 
             CommonParam.SessionFolderName = "SS_" + DateTime.Now.ToString(@"MM_dd_yyyy.h_mm_tt");
             System.IO.Directory.CreateDirectory(CommonParam.ProgramPath + "\\" + CommonParam.SessionFolderName);
@@ -150,7 +157,7 @@ namespace IRS_Demo
             string strInspecCode = rows[0].ItemArray[2].ToString();
             return strInspecCode;
         }
-
+        
         private void getSuspectInfoByCode(string suspectCode)
         {
             string filterExpression = "";
@@ -167,7 +174,27 @@ namespace IRS_Demo
             CommonParam.mSesData.suspectData._CMND = rows[0].ItemArray[7].ToString();
             CommonParam.mSesData.suspectData._NgayCapCMND = ".................";
             CommonParam.mSesData.suspectData._NoiCapCMND = ".................";
-            CommonParam.mSesData.suspectData._DiaChi = rows[0].ItemArray[5].ToString();   
+            CommonParam.mSesData.suspectData._DiaChi = rows[0].ItemArray[5].ToString();
+            CommonParam.mSesData.suspectData._HKTT = rows[0].ItemArray[6].ToString();
+        }
+
+        private void getInspectInfoByCode(string inspectCode)
+        {
+            string filterExpression = "";
+            filterExpression = "inspCode=" + "'" + inspectCode + "'";
+            DataRow[] rows = m_InspectDataTable.Select(filterExpression);
+            CommonParam.mSesData.inspectData._DonVi = rows[0].ItemArray[3].ToString();
+        }
+
+        private void getSupervisorInforByCode(string supervCode, int supervNum)
+        {
+            string filterExpression = "";
+            filterExpression = "supeCode=" + "'" + supervCode + "'";
+            DataRow[] rows = m_SuspeviDataTable.Select(filterExpression);
+            if (supervNum == 1)
+                CommonParam.mSesData.supervisorData1._DonVi = rows[0].ItemArray[3].ToString();
+            else if (supervNum == 2)
+                CommonParam.mSesData.supervisorData2._DonVi = rows[0].ItemArray[3].ToString();
         }
 
         private void loadInspecCodeTxtBox() 
