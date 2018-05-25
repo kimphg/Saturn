@@ -49,7 +49,7 @@ namespace IRS_Demo
             this.lblSupevName1 = new System.Windows.Forms.Label();
             this.lblSupevName2 = new System.Windows.Forms.Label();
             this.lblSupevUnit1 = new System.Windows.Forms.Label();
-            this.lblSupevCode2 = new System.Windows.Forms.Label();
+            this.lblSupevUnit2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.btnFinish = new System.Windows.Forms.Button();
             this.btnExport = new System.Windows.Forms.Button();
@@ -223,7 +223,7 @@ namespace IRS_Demo
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.83051F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.16949F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 96F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 143F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 144F));
             this.tableLayoutPanel3.Controls.Add(this.label10, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.label11, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.label12, 0, 1);
@@ -231,7 +231,7 @@ namespace IRS_Demo
             this.tableLayoutPanel3.Controls.Add(this.lblSupevName1, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.lblSupevName2, 1, 1);
             this.tableLayoutPanel3.Controls.Add(this.lblSupevUnit1, 3, 0);
-            this.tableLayoutPanel3.Controls.Add(this.lblSupevCode2, 3, 1);
+            this.tableLayoutPanel3.Controls.Add(this.lblSupevUnit2, 3, 1);
             this.tableLayoutPanel3.Location = new System.Drawing.Point(6, 14);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
@@ -254,7 +254,7 @@ namespace IRS_Demo
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(231, 0);
+            this.label11.Location = new System.Drawing.Point(230, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(83, 13);
             this.label11.TabIndex = 6;
@@ -274,7 +274,7 @@ namespace IRS_Demo
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(231, 27);
+            this.label13.Location = new System.Drawing.Point(230, 27);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(83, 13);
             this.label13.TabIndex = 6;
@@ -285,7 +285,7 @@ namespace IRS_Demo
             this.lblSupevName1.AutoSize = true;
             this.lblSupevName1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSupevName1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblSupevName1.Location = new System.Drawing.Point(94, 0);
+            this.lblSupevName1.Location = new System.Drawing.Point(93, 0);
             this.lblSupevName1.Name = "lblSupevName1";
             this.lblSupevName1.Size = new System.Drawing.Size(95, 13);
             this.lblSupevName1.TabIndex = 3;
@@ -296,7 +296,7 @@ namespace IRS_Demo
             this.lblSupevName2.AutoSize = true;
             this.lblSupevName2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSupevName2.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblSupevName2.Location = new System.Drawing.Point(94, 27);
+            this.lblSupevName2.Location = new System.Drawing.Point(93, 27);
             this.lblSupevName2.Name = "lblSupevName2";
             this.lblSupevName2.Size = new System.Drawing.Size(95, 13);
             this.lblSupevName2.TabIndex = 3;
@@ -307,22 +307,22 @@ namespace IRS_Demo
             this.lblSupevUnit1.AutoSize = true;
             this.lblSupevUnit1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSupevUnit1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblSupevUnit1.Location = new System.Drawing.Point(327, 0);
+            this.lblSupevUnit1.Location = new System.Drawing.Point(326, 0);
             this.lblSupevUnit1.Name = "lblSupevUnit1";
             this.lblSupevUnit1.Size = new System.Drawing.Size(30, 13);
             this.lblSupevUnit1.TabIndex = 6;
             this.lblSupevUnit1.Text = "Unit";
             // 
-            // lblSupevCode2
+            // lblSupevUnit2
             // 
-            this.lblSupevCode2.AutoSize = true;
-            this.lblSupevCode2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSupevCode2.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblSupevCode2.Location = new System.Drawing.Point(327, 27);
-            this.lblSupevCode2.Name = "lblSupevCode2";
-            this.lblSupevCode2.Size = new System.Drawing.Size(30, 13);
-            this.lblSupevCode2.TabIndex = 6;
-            this.lblSupevCode2.Text = "Unit";
+            this.lblSupevUnit2.AutoSize = true;
+            this.lblSupevUnit2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSupevUnit2.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.lblSupevUnit2.Location = new System.Drawing.Point(326, 27);
+            this.lblSupevUnit2.Name = "lblSupevUnit2";
+            this.lblSupevUnit2.Size = new System.Drawing.Size(30, 13);
+            this.lblSupevUnit2.TabIndex = 6;
+            this.lblSupevUnit2.Text = "Unit";
             // 
             // button2
             // 
@@ -372,7 +372,7 @@ namespace IRS_Demo
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.83051F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.16949F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 98F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 141F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 142F));
             this.tableLayoutPanel2.Controls.Add(this.label8, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.label9, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.lblInspectName, 1, 0);
@@ -398,7 +398,7 @@ namespace IRS_Demo
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(231, 0);
+            this.label9.Location = new System.Drawing.Point(230, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(83, 13);
             this.label9.TabIndex = 6;
@@ -409,7 +409,7 @@ namespace IRS_Demo
             this.lblInspectName.AutoSize = true;
             this.lblInspectName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInspectName.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblInspectName.Location = new System.Drawing.Point(94, 0);
+            this.lblInspectName.Location = new System.Drawing.Point(93, 0);
             this.lblInspectName.Name = "lblInspectName";
             this.lblInspectName.Size = new System.Drawing.Size(80, 13);
             this.lblInspectName.TabIndex = 3;
@@ -420,7 +420,7 @@ namespace IRS_Demo
             this.lblInspectUnit.AutoSize = true;
             this.lblInspectUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInspectUnit.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblInspectUnit.Location = new System.Drawing.Point(329, 0);
+            this.lblInspectUnit.Location = new System.Drawing.Point(328, 0);
             this.lblInspectUnit.Name = "lblInspectUnit";
             this.lblInspectUnit.Size = new System.Drawing.Size(30, 13);
             this.lblInspectUnit.TabIndex = 6;
@@ -466,7 +466,7 @@ namespace IRS_Demo
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.57447F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.42553F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 94F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 145F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 146F));
             this.tableLayoutPanel4.Controls.Add(this.label14, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.label15, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.label16, 0, 2);
@@ -533,7 +533,7 @@ namespace IRS_Demo
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(232, 0);
+            this.label18.Location = new System.Drawing.Point(231, 0);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(47, 13);
             this.label18.TabIndex = 4;
@@ -543,7 +543,7 @@ namespace IRS_Demo
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(232, 26);
+            this.label19.Location = new System.Drawing.Point(231, 26);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(54, 13);
             this.label19.TabIndex = 5;
@@ -554,7 +554,7 @@ namespace IRS_Demo
             this.lblSuspectName.AutoSize = true;
             this.lblSuspectName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSuspectName.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblSuspectName.Location = new System.Drawing.Point(94, 0);
+            this.lblSuspectName.Location = new System.Drawing.Point(93, 0);
             this.lblSuspectName.Name = "lblSuspectName";
             this.lblSuspectName.Size = new System.Drawing.Size(62, 13);
             this.lblSuspectName.TabIndex = 0;
@@ -565,7 +565,7 @@ namespace IRS_Demo
             this.lblSuspectOtherName.AutoSize = true;
             this.lblSuspectOtherName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSuspectOtherName.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblSuspectOtherName.Location = new System.Drawing.Point(94, 26);
+            this.lblSuspectOtherName.Location = new System.Drawing.Point(93, 26);
             this.lblSuspectOtherName.Name = "lblSuspectOtherName";
             this.lblSuspectOtherName.Size = new System.Drawing.Size(70, 13);
             this.lblSuspectOtherName.TabIndex = 1;
@@ -576,7 +576,7 @@ namespace IRS_Demo
             this.lblSuspectHKTT.AutoSize = true;
             this.lblSuspectHKTT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSuspectHKTT.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblSuspectHKTT.Location = new System.Drawing.Point(94, 52);
+            this.lblSuspectHKTT.Location = new System.Drawing.Point(93, 52);
             this.lblSuspectHKTT.Name = "lblSuspectHKTT";
             this.lblSuspectHKTT.Size = new System.Drawing.Size(40, 13);
             this.lblSuspectHKTT.TabIndex = 2;
@@ -587,7 +587,7 @@ namespace IRS_Demo
             this.lblSuspectAddr.AutoSize = true;
             this.lblSuspectAddr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSuspectAddr.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblSuspectAddr.Location = new System.Drawing.Point(94, 76);
+            this.lblSuspectAddr.Location = new System.Drawing.Point(93, 76);
             this.lblSuspectAddr.Name = "lblSuspectAddr";
             this.lblSuspectAddr.Size = new System.Drawing.Size(40, 13);
             this.lblSuspectAddr.TabIndex = 3;
@@ -598,7 +598,7 @@ namespace IRS_Demo
             this.lblSuspectSex.AutoSize = true;
             this.lblSuspectSex.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSuspectSex.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblSuspectSex.Location = new System.Drawing.Point(326, 0);
+            this.lblSuspectSex.Location = new System.Drawing.Point(325, 0);
             this.lblSuspectSex.Name = "lblSuspectSex";
             this.lblSuspectSex.Size = new System.Drawing.Size(28, 13);
             this.lblSuspectSex.TabIndex = 4;
@@ -609,7 +609,7 @@ namespace IRS_Demo
             this.lblSuspectBirthday.AutoSize = true;
             this.lblSuspectBirthday.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSuspectBirthday.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblSuspectBirthday.Location = new System.Drawing.Point(326, 26);
+            this.lblSuspectBirthday.Location = new System.Drawing.Point(325, 26);
             this.lblSuspectBirthday.Name = "lblSuspectBirthday";
             this.lblSuspectBirthday.Size = new System.Drawing.Size(55, 13);
             this.lblSuspectBirthday.TabIndex = 5;
@@ -632,7 +632,7 @@ namespace IRS_Demo
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.57447F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.42553F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 105F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 140F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 141F));
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
@@ -701,7 +701,7 @@ namespace IRS_Demo
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(226, 0);
+            this.label5.Location = new System.Drawing.Point(225, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(89, 13);
             this.label5.TabIndex = 4;
@@ -711,7 +711,7 @@ namespace IRS_Demo
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(226, 26);
+            this.label6.Location = new System.Drawing.Point(225, 26);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(51, 13);
             this.label6.TabIndex = 5;
@@ -721,7 +721,7 @@ namespace IRS_Demo
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(226, 52);
+            this.label7.Location = new System.Drawing.Point(225, 52);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(98, 13);
             this.label7.TabIndex = 6;
@@ -776,7 +776,7 @@ namespace IRS_Demo
             this.lblTimeCase.AutoSize = true;
             this.lblTimeCase.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTimeCase.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblTimeCase.Location = new System.Drawing.Point(331, 0);
+            this.lblTimeCase.Location = new System.Drawing.Point(330, 0);
             this.lblTimeCase.Name = "lblTimeCase";
             this.lblTimeCase.Size = new System.Drawing.Size(106, 13);
             this.lblTimeCase.TabIndex = 4;
@@ -787,7 +787,7 @@ namespace IRS_Demo
             this.lblSessCode.AutoSize = true;
             this.lblSessCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSessCode.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblSessCode.Location = new System.Drawing.Point(331, 26);
+            this.lblSessCode.Location = new System.Drawing.Point(330, 26);
             this.lblSessCode.Name = "lblSessCode";
             this.lblSessCode.Size = new System.Drawing.Size(59, 13);
             this.lblSessCode.TabIndex = 5;
@@ -798,7 +798,7 @@ namespace IRS_Demo
             this.lblTimePerform.AutoSize = true;
             this.lblTimePerform.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTimePerform.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblTimePerform.Location = new System.Drawing.Point(331, 52);
+            this.lblTimePerform.Location = new System.Drawing.Point(330, 52);
             this.lblTimePerform.Name = "lblTimePerform";
             this.lblTimePerform.Size = new System.Drawing.Size(117, 13);
             this.lblTimePerform.TabIndex = 6;
@@ -944,7 +944,7 @@ namespace IRS_Demo
             this.vlcPlayer.TabIndex = 0;
             this.vlcPlayer.Text = "vlcControl1";
             this.vlcPlayer.VlcLibDirectory = null;
-            this.vlcPlayer.VlcLibDirectoryNeeded+=vlcPlayer_VlcLibDirectoryNeeded;
+            this.vlcPlayer.VlcLibDirectoryNeeded += vlcPlayer_VlcLibDirectoryNeeded;
             this.vlcPlayer.VlcMediaplayerOptions = null;
             // 
             // tabControl1
@@ -1049,7 +1049,7 @@ namespace IRS_Demo
         private System.Windows.Forms.Label lblSupevName1;
         private System.Windows.Forms.Label lblSupevName2;
         private System.Windows.Forms.Label lblSupevUnit1;
-        private System.Windows.Forms.Label lblSupevCode2;
+        private System.Windows.Forms.Label lblSupevUnit2;
         private System.Windows.Forms.Label lblInspectName;
         private System.Windows.Forms.Label lblInspectUnit;
         private System.Windows.Forms.Label lblSuspectName;

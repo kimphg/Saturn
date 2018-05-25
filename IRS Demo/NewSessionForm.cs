@@ -38,13 +38,13 @@ namespace IRS_Demo
             CommonParam.mSesData.supervisorData1._Ten = cbSupevName1.Text;
             CommonParam.mSesData.supervisorData1._maGSV = txtSupeCode1.Text;
 
-            CommonParam.mSesData.supervisorName2 = cbSupevName2.Text;            
-            CommonParam.mSesData.supervisorCode2 = txtSupeCode2.Text;
+            CommonParam.mSesData.supervisorData2._Ten = cbSupevName2.Text;
+            CommonParam.mSesData.supervisorData2._maGSV = txtSupeCode2.Text;
 
             CommonParam.mSesData.currentPlace = textBox10.Text;
             CommonParam.mSesData.Notes = txtNotes.Text;
 
-            if (CommonParam.mSesData.supervisorData1._maGSV == CommonParam.mSesData.supervisorCode2)
+            if (CommonParam.mSesData.supervisorData1._maGSV == CommonParam.mSesData.supervisorData2._maGSV)
             {
                 MessageBox.Show("GSV1 và GSV2 có tên và mã số giống nhau, đề nghị kiểm tra lại!");
                 return false;
@@ -57,10 +57,12 @@ namespace IRS_Demo
         {
             if (!getNewSessionInfo())
                 return;
-            getSuspectInfoByCode(txtSuspectCode.Text);
-            getInspectInfoByCode(txtInspectCode.Text);
-            getSupervisorInforByCode(txtSupeCode1.Text, 1);
 
+            getSuspectInfoByCode(txtSuspectCode.Text, ref CommonParam.mSesData.suspectData);
+            getInspectInfoByCode(txtInspectCode.Text, ref CommonParam.mSesData.inspectData);            
+            getSupervisorInforByCode(txtSupeCode1.Text, ref CommonParam.mSesData.supervisorData1);
+            getSupervisorInforByCode(txtSupeCode2.Text, ref CommonParam.mSesData.supervisorData2);
+            
             CommonParam.SessionFolderName = "SS_" + DateTime.Now.ToString(@"MM_dd_yyyy.h_mm_tt");
             System.IO.Directory.CreateDirectory(CommonParam.ProgramPath + "\\" + CommonParam.SessionFolderName);
             recform = new RecordingForm(this);
@@ -149,52 +151,42 @@ namespace IRS_Demo
 
             loadSupevi2CodeTxtBox();
         }
-
-        private string getInspectCodeByName(string inspectName)
-        {
-            string filterExpression = "inspName=" + "'" + inspectName + "'";
-            DataRow[] rows = m_InspectDataTable.Select(filterExpression);
-            string strInspecCode = rows[0].ItemArray[2].ToString();
-            return strInspecCode;
-        }
-        
-        private void getSuspectInfoByCode(string suspectCode)
+                
+        private void getSuspectInfoByCode(string suspectCode, ref SuspectData suspectData)
         {
             string filterExpression = "";
             filterExpression = "suspCode=" + "'" + suspectCode + "'";
             DataRow[] rows = m_SuspectDataTable.Select(filterExpression);
-            CommonParam.mSesData.suspectData._GioiTinh = rows[0].ItemArray[3].ToString();
-            CommonParam.mSesData.suspectData._TenGoiKhac = "........................";
-            CommonParam.mSesData.suspectData._NgaySinh = rows[0].ItemArray[4].ToString();
-            CommonParam.mSesData.suspectData._NoiSinh = ".......................................";
-            CommonParam.mSesData.suspectData._QuocTich = rows[0].ItemArray[9].ToString();
-            CommonParam.mSesData.suspectData._DanToc = ".............";
-            CommonParam.mSesData.suspectData._TonGiao = ".............";
-            CommonParam.mSesData.suspectData._NgheNghiep = rows[0].ItemArray[8].ToString();
-            CommonParam.mSesData.suspectData._CMND = rows[0].ItemArray[7].ToString();
-            CommonParam.mSesData.suspectData._NgayCapCMND = ".................";
-            CommonParam.mSesData.suspectData._NoiCapCMND = ".................";
-            CommonParam.mSesData.suspectData._DiaChi = rows[0].ItemArray[5].ToString();
-            CommonParam.mSesData.suspectData._HKTT = rows[0].ItemArray[6].ToString();
+            suspectData._GioiTinh = rows[0].ItemArray[3].ToString();
+            suspectData._TenGoiKhac = "........................";
+            suspectData._NgaySinh = rows[0].ItemArray[4].ToString();
+            suspectData._NoiSinh = ".......................................";
+            suspectData._QuocTich = rows[0].ItemArray[9].ToString();
+            suspectData._DanToc = ".............";
+            suspectData._TonGiao = ".............";
+            suspectData._NgheNghiep = rows[0].ItemArray[8].ToString();
+            suspectData._CMND = rows[0].ItemArray[7].ToString();
+            suspectData._NgayCapCMND = ".................";
+            suspectData._NoiCapCMND = ".................";
+            suspectData._DiaChi = rows[0].ItemArray[5].ToString();
+            suspectData._HKTT = rows[0].ItemArray[6].ToString();
         }
 
-        private void getInspectInfoByCode(string inspectCode)
+        private void getInspectInfoByCode(string inspectCode, ref InspectData inspectData)
         {
             string filterExpression = "";
             filterExpression = "inspCode=" + "'" + inspectCode + "'";
             DataRow[] rows = m_InspectDataTable.Select(filterExpression);
-            CommonParam.mSesData.inspectData._DonVi = rows[0].ItemArray[3].ToString();
+            inspectData._DonVi = rows[0].ItemArray[3].ToString();
         }
 
-        private void getSupervisorInforByCode(string supervCode, int supervNum)
+        private void getSupervisorInforByCode(string supervCode, ref SupervisorData supervisorData)
         {
             string filterExpression = "";
             filterExpression = "supeCode=" + "'" + supervCode + "'";
             DataRow[] rows = m_SuspeviDataTable.Select(filterExpression);
-            if (supervNum == 1)
-                CommonParam.mSesData.supervisorData1._DonVi = rows[0].ItemArray[3].ToString();
-            else if (supervNum == 2)
-                CommonParam.mSesData.supervisorData2._DonVi = rows[0].ItemArray[3].ToString();
+            
+            supervisorData._DonVi = rows[0].ItemArray[3].ToString();
         }
 
         private void loadInspecCodeTxtBox() 

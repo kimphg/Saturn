@@ -41,10 +41,7 @@ namespace IRS_Demo
     public struct SessionData
     {
         public string caseName, caseCode;
-        
-        //public string inspectorName, inspectorCode;
-        //public string supervisorName1, supervisorCode1;
-        public string supervisorName2, supervisorCode2;        
+
         public string Notes;
 
         public string beginSessTime;
@@ -55,7 +52,7 @@ namespace IRS_Demo
 
         public SuspectData      suspectData;
         public InspectData      inspectData;
-        public SupervisorData supervisorData1, supervisorData2;
+        public SupervisorData   supervisorData1, supervisorData2;
 
         public string SessionPath {get;set;}
         public string SessionKeyText { get; set; }

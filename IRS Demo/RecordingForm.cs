@@ -116,7 +116,7 @@ namespace IRS_Demo
             lblInspectUnit.Text = CommonParam.mSesData.inspectData._DonVi;
 
             lblSupevName1.Text = CommonParam.mSesData.supervisorData1._Ten;
-            lblSupevName2.Text = CommonParam.mSesData.supervisorName2;
+            lblSupevName2.Text = CommonParam.mSesData.supervisorData2._Ten;
 
             lblSuspectName.Text = CommonParam.mSesData.suspectData._Ten;
             lblSuspectSex.Text = CommonParam.mSesData.suspectData._GioiTinh;
@@ -126,6 +126,7 @@ namespace IRS_Demo
             lblSuspectAddr.Text = CommonParam.mSesData.suspectData._DiaChi;
 
             lblSupevUnit1.Text = CommonParam.mSesData.supervisorData1._DonVi;
+            lblSupevUnit2.Text = CommonParam.mSesData.supervisorData2._DonVi;
 
             textBox19.Text = CommonParam.mSesData.Notes;           
         }
@@ -344,7 +345,7 @@ namespace IRS_Demo
             
             template.AddCustomProperty(new Novacode.CustomProperty("DieuTraVien", CommonParam.mSesData.inspectData._Ten));
             template.AddCustomProperty(new Novacode.CustomProperty("GiamSatVien1", CommonParam.mSesData.supervisorData1._Ten));
-            template.AddCustomProperty(new Novacode.CustomProperty("GiamSatVien2", CommonParam.mSesData.supervisorName2));
+            template.AddCustomProperty(new Novacode.CustomProperty("GiamSatVien2", CommonParam.mSesData.supervisorData2._Ten));
             template.AddCustomProperty(new Novacode.CustomProperty("ThoiGianDienRa", CommonParam.mSesData.beginSessTime));
             template.AddCustomProperty(new Novacode.CustomProperty("BC_Ten", CommonParam.mSesData.suspectData._Ten));
             template.AddCustomProperty(new Novacode.CustomProperty("BC_GioiTinh", CommonParam.mSesData.suspectData._GioiTinh));

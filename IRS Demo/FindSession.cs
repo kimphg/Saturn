@@ -50,8 +50,8 @@ namespace IRS_Demo
                                             +   data.suspectData._MaDT + " "
                                             +   data.supervisorData1._Ten + " "
                                             +   data.supervisorData1._maGSV + " "
-                                            +   data.supervisorName2 + " "
-                                            +   data.supervisorCode2 + " "
+                                            +   data.supervisorData2._Ten + " "
+                                            + data.supervisorData2._maGSV + " "
                                             +   data.Notes;
                     SessionHistory.Add(data);
                     
@@ -130,8 +130,8 @@ namespace IRS_Demo
                 }
                 if (!string.IsNullOrEmpty(searchParam.supervisorName2))
                 {
-                    if (!string.IsNullOrEmpty(session.supervisorName2))
-                        if (session.supervisorName2.Contains(searchParam.supervisorName2)) { SearchResults.Add(session); continue; }
+                    if (!string.IsNullOrEmpty(session.supervisorData2._Ten))
+                        if (session.supervisorData2._Ten.Contains(searchParam.supervisorName2)) { SearchResults.Add(session); continue; }
                 }
                 if (!string.IsNullOrEmpty(searchParam.notes))
                 {
@@ -169,7 +169,7 @@ namespace IRS_Demo
             this.textBoxInsptectorName.Text = data.inspectData._Ten;
             this.textBoxSuspectName.Text = data.suspectData._Ten;
             this.textBoxSupervisorName1.Text = data.supervisorData1._Ten;
-            this.textBoxSupervisorName2.Text = data.supervisorName2;
+            this.textBoxSupervisorName2.Text = data.supervisorData2._Ten;
             this.textBoxCaseCode.Text = data.caseCode;
             this.txtNote_View.Text = data.Notes;
 
@@ -201,12 +201,12 @@ namespace IRS_Demo
             CommonParam.mSesData.suspectData._Ten = sessData.suspectData._Ten;
             CommonParam.mSesData.inspectData._Ten = sessData.inspectData._Ten;
             CommonParam.mSesData.supervisorData1._Ten = sessData.supervisorData1._Ten;
-            CommonParam.mSesData.supervisorName2 = sessData.supervisorName2;
+            CommonParam.mSesData.supervisorData2._Ten = sessData.supervisorData2._Ten;
             CommonParam.mSesData.caseCode = sessData.caseCode;
             CommonParam.mSesData.suspectData._MaDT = sessData.suspectData._MaDT;
             CommonParam.mSesData.inspectData._maDTV = sessData.inspectData._maDTV;
             CommonParam.mSesData.supervisorData1._maGSV = sessData.supervisorData1._maGSV;
-            CommonParam.mSesData.supervisorCode2 = sessData.supervisorCode2;
+            CommonParam.mSesData.supervisorData2._maGSV = sessData.supervisorData2._maGSV;
             CommonParam.mSesData.currentPlace = sessData.currentPlace;
             CommonParam.mSesData.Notes = sessData.Notes;
         }
