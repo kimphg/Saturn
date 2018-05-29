@@ -108,7 +108,6 @@
             this.dataGridViewSuspect = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.dataGridViewCase = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.label26 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
@@ -122,6 +121,7 @@
             this.txtCaseCode = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
+            this.dataGridViewCase = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -142,8 +142,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSuspect)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCase)).BeginInit();
             this.tableLayoutPanel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCase)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -1071,15 +1071,6 @@
             this.panel5.Size = new System.Drawing.Size(743, 493);
             this.panel5.TabIndex = 1;
             // 
-            // dataGridViewCase
-            // 
-            this.dataGridViewCase.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewCase.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewCase.Location = new System.Drawing.Point(0, 0);
-            this.dataGridViewCase.Name = "dataGridViewCase";
-            this.dataGridViewCase.Size = new System.Drawing.Size(743, 493);
-            this.dataGridViewCase.TabIndex = 1;
-            // 
             // tableLayoutPanel5
             // 
             this.tableLayoutPanel5.ColumnCount = 6;
@@ -1235,6 +1226,15 @@
             this.label25.TabIndex = 22;
             this.label25.Text = "Mô tả:";
             // 
+            // dataGridViewCase
+            // 
+            this.dataGridViewCase.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewCase.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewCase.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewCase.Name = "dataGridViewCase";
+            this.dataGridViewCase.Size = new System.Drawing.Size(743, 493);
+            this.dataGridViewCase.TabIndex = 1;
+            // 
             // SystemDataForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1267,9 +1267,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSuspect)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCase)).EndInit();
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCase)).EndInit();
             this.ResumeLayout(false);
 
         }

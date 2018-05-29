@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -29,6 +30,8 @@ namespace IRS_Demo
         
         List<SessionData> SessionHistory = new List<SessionData>();
         List<SessionData> SearchResults ;
+        DataTable sessDataTable = new DataTable();
+
         public string selectedDataPath = "";
 
         public RecordingForm replayForm;
@@ -51,7 +54,7 @@ namespace IRS_Demo
                                             +   data.supervisorData1._Ten + " "
                                             +   data.supervisorData1._maGSV + " "
                                             +   data.supervisorData2._Ten + " "
-                                            + data.supervisorData2._maGSV + " "
+                                            +   data.supervisorData2._maGSV + " "
                                             +   data.sessNotes;
                     SessionHistory.Add(data);
                     
@@ -66,20 +69,80 @@ namespace IRS_Demo
             GetUSBRemovable();
             if(comboBox2.Items.Count != 0)
                 comboBox2.SelectedIndex = 0;
-            
+
             UpdateSearchResults();
+        }
+
+        DataTable getResultsTableFromList(List<SessionData> resultsList)
+        {
+            DataTable resultsTable = new DataTable();            
+
+            resultsTable.Columns.Add("caseCode", typeof(String));
+            resultsTable.Columns.Add("sessionCode", typeof(String));
+            resultsTable.Columns.Add("suspectName", typeof(String));
+            resultsTable.Columns.Add("inspectorName", typeof(String));
+            resultsTable.Columns.Add("inspectorCode", typeof(String));
+            resultsTable.Columns.Add("supervisorName1", typeof(String));
+            resultsTable.Columns.Add("supervisorName2", typeof(String));
+            resultsTable.Columns.Add("sessionNotes", typeof(String));
+            resultsTable.Columns.Add("sessionPath", typeof(String));
+            
+            foreach (SessionData session in resultsList)
+            {
+                resultsTable.Rows.Add(session.caseData._maVuAn, session.sessionCode, session.suspectData._Ten, session.inspectData._Ten, session.inspectData._maDTV, session.supervisorData1._Ten, session.supervisorData2._Ten,
+                    session.sessNotes, session.SessionPath);
+            }
+            return resultsTable;
         }
 
         private void UpdateSearchResults()
         {
-            var bindingSource = new BindingSource();
-            // Bind BindingSource1 to the list of states.
-            bindingSource.DataSource = SearchResults;
-            this.listBoxSearchResults.DataSource = bindingSource;
-            listBoxSearchResults.BindingContext = this.BindingContext;
-            listBoxSearchResults.DisplayMember = "SessionPath";
-            //listBoxSearchResults.ValueMember = "suspectName";
-            listBoxSearchResults.Refresh();
+            //var bindingSource = new BindingSource();
+            //// Bind BindingSource1 to the list of states.            
+            //bindingSource.DataSource = SearchResults;
+            //this.listBoxSearchResults.DataSource = bindingSource;
+            //listBoxSearchResults.BindingContext = this.BindingContext;
+            //listBoxSearchResults.DisplayMember = "SessionPath";
+            ////listBoxSearchResults.ValueMember = "suspectName";
+            //listBoxSearchResults.Refresh();
+
+            //////////////////////////////////////////////////////
+
+            sessDataTable = getResultsTableFromList(SearchResults);
+            dataGridViewResults.DataSource = sessDataTable;
+
+            txtCaseCode.DataBindings.Clear();
+            txtSuspectName.DataBindings.Clear();
+            txtInsptectorName.DataBindings.Clear();
+            txtInspectorCode.DataBindings.Clear();
+            txtSupervisorName1.DataBindings.Clear();
+            txtSupervisorName2.DataBindings.Clear();
+            txtNoteView.DataBindings.Clear();
+
+            txtCaseCode.DataBindings.Add("text", sessDataTable, "caseCode"); ;
+            txtSuspectName.DataBindings.Add("text", sessDataTable, "suspectName");
+            txtInsptectorName.DataBindings.Add("text", sessDataTable, "inspectorName");
+            txtInspectorCode.DataBindings.Add("text", sessDataTable, "inspectorCode");
+            txtSupervisorName1.DataBindings.Add("text", sessDataTable, "supervisorName1");
+            txtSupervisorName2.DataBindings.Add("text", sessDataTable, "supervisorName2");
+            txtNoteView.DataBindings.Add("text", sessDataTable, "sessionNotes");
+
+            dataGridViewResults.Columns[0].HeaderText = "Mã vụ án";
+            dataGridViewResults.Columns[1].HeaderText = "Mã PHC";
+            dataGridViewResults.Columns[2].HeaderText = "Đối tượng";
+            dataGridViewResults.Columns[3].HeaderText = "Điều tra viên";           
+            dataGridViewResults.Columns[8].HeaderText = "Đường dẫn";
+
+            dataGridViewResults.Columns[0].Width = 80;
+            dataGridViewResults.Columns[1].Width = 80;
+            dataGridViewResults.Columns[2].Width = 120;
+            dataGridViewResults.Columns[3].Width = 120;            
+            dataGridViewResults.Columns[8].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            dataGridViewResults.Columns[4].Visible = false;
+            dataGridViewResults.Columns[5].Visible = false;
+            dataGridViewResults.Columns[6].Visible = false;
+            dataGridViewResults.Columns[7].Visible = false;            
         }
 
         private void FindSession_FormClosing(object sender, FormClosingEventArgs e)
@@ -158,24 +221,6 @@ namespace IRS_Demo
             }
             UpdateSearchResults();
         }
-        
-
-        private void listBoxSearchResults_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            selectedDataPath = listBoxSearchResults.GetItemText(listBoxSearchResults.SelectedItem);
-            SessionData data = CommonParam.LoadObject<SessionData>(selectedDataPath + CommonParam.SessionFileName);
-            
-            this.textBoxInspectorCode.Text = data.inspectData._maDTV;
-            this.textBoxInsptectorName.Text = data.inspectData._Ten;
-            this.textBoxSuspectName.Text = data.suspectData._Ten;
-            this.textBoxSupervisorName1.Text = data.supervisorData1._Ten;
-            this.textBoxSupervisorName2.Text = data.supervisorData2._Ten;
-            this.textBoxCaseCode.Text = data.caseData._maVuAn;
-            this.txtNote_View.Text = data.sessNotes;
-
-            getReplayInfo(data);
-           
-        }
 
         private void btnCopyUSB_Click(object sender, EventArgs e)
         {
@@ -251,6 +296,16 @@ namespace IRS_Demo
             }
             string destPath = selectedDataPath.Replace("C:\\", driveNameCD);
             CommonParam.DirectoryCopy(selectedDataPath, destPath, true);
+        }
+
+        private void dataGridViewResults_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index = e.RowIndex;// get the Row Index
+            DataGridViewRow selectedRow = dataGridViewResults.Rows[index];
+            selectedDataPath = selectedRow.Cells[8].Value.ToString();
+            SessionData data = CommonParam.LoadObject<SessionData>(selectedDataPath + CommonParam.SessionFileName);
+            getReplayInfo(data);
+            //MessageBox.Show(selectedRow.Cells[7].Value.ToString());
         }
 
         

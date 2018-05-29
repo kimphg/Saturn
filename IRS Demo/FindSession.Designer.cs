@@ -55,33 +55,36 @@
             this.label11 = new System.Windows.Forms.Label();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.listBoxSearchResults = new System.Windows.Forms.ListBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBoxCaseCode = new System.Windows.Forms.TextBox();
-            this.textBoxInsptectorName = new System.Windows.Forms.TextBox();
-            this.textBoxSupervisorName1 = new System.Windows.Forms.TextBox();
+            this.txtCaseCode = new System.Windows.Forms.TextBox();
+            this.txtInsptectorName = new System.Windows.Forms.TextBox();
+            this.txtSupervisorName1 = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.textBoxSuspectName = new System.Windows.Forms.TextBox();
+            this.txtSuspectName = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.textBoxInspectorCode = new System.Windows.Forms.TextBox();
-            this.textBoxSupervisorName2 = new System.Windows.Forms.TextBox();
-            this.txtNote_View = new System.Windows.Forms.TextBox();
+            this.txtInspectorCode = new System.Windows.Forms.TextBox();
+            this.txtSupervisorName2 = new System.Windows.Forms.TextBox();
+            this.txtNoteView = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.btnReplay = new System.Windows.Forms.Button();
             this.btnCopyUSB = new System.Windows.Forms.Button();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.btnCopyDVD = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.dataGridViewResults = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewResults)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -385,32 +388,10 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "IRS - Tra cứu dữ liệu phiên hỏi cung";
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.listBoxSearchResults);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(17, 267);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(755, 145);
-            this.groupBox2.TabIndex = 2;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Kết quả tìm kiếm";
-            // 
-            // listBoxSearchResults
-            // 
-            this.listBoxSearchResults.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBoxSearchResults.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listBoxSearchResults.FormattingEnabled = true;
-            this.listBoxSearchResults.Location = new System.Drawing.Point(3, 16);
-            this.listBoxSearchResults.Name = "listBoxSearchResults";
-            this.listBoxSearchResults.Size = new System.Drawing.Size(749, 126);
-            this.listBoxSearchResults.TabIndex = 0;
-            this.listBoxSearchResults.SelectedIndexChanged += new System.EventHandler(this.listBoxSearchResults_SelectedIndexChanged);
-            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.tableLayoutPanel2);
-            this.groupBox3.Controls.Add(this.txtNote_View);
+            this.groupBox3.Controls.Add(this.txtNoteView);
             this.groupBox3.Controls.Add(this.label15);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(17, 418);
@@ -430,15 +411,15 @@
             this.tableLayoutPanel2.Controls.Add(this.label12, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.label13, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.label14, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.textBoxCaseCode, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.textBoxInsptectorName, 1, 1);
-            this.tableLayoutPanel2.Controls.Add(this.textBoxSupervisorName1, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.txtCaseCode, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.txtInsptectorName, 1, 1);
+            this.tableLayoutPanel2.Controls.Add(this.txtSupervisorName1, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.label18, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.textBoxSuspectName, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.txtSuspectName, 3, 0);
             this.tableLayoutPanel2.Controls.Add(this.label20, 2, 1);
             this.tableLayoutPanel2.Controls.Add(this.label19, 2, 2);
-            this.tableLayoutPanel2.Controls.Add(this.textBoxInspectorCode, 3, 1);
-            this.tableLayoutPanel2.Controls.Add(this.textBoxSupervisorName2, 3, 2);
+            this.tableLayoutPanel2.Controls.Add(this.txtInspectorCode, 3, 1);
+            this.tableLayoutPanel2.Controls.Add(this.txtSupervisorName2, 3, 2);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(6, 19);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 3;
@@ -481,35 +462,35 @@
             this.label14.TabIndex = 0;
             this.label14.Text = "Tên giám sát viên 1:";
             // 
-            // textBoxCaseCode
+            // txtCaseCode
             // 
-            this.textBoxCaseCode.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBoxCaseCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCaseCode.Location = new System.Drawing.Point(113, 6);
-            this.textBoxCaseCode.Name = "textBoxCaseCode";
-            this.textBoxCaseCode.ReadOnly = true;
-            this.textBoxCaseCode.Size = new System.Drawing.Size(227, 20);
-            this.textBoxCaseCode.TabIndex = 2;
+            this.txtCaseCode.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtCaseCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCaseCode.Location = new System.Drawing.Point(113, 6);
+            this.txtCaseCode.Name = "txtCaseCode";
+            this.txtCaseCode.ReadOnly = true;
+            this.txtCaseCode.Size = new System.Drawing.Size(227, 20);
+            this.txtCaseCode.TabIndex = 2;
             // 
-            // textBoxInsptectorName
+            // txtInsptectorName
             // 
-            this.textBoxInsptectorName.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBoxInsptectorName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxInsptectorName.Location = new System.Drawing.Point(113, 39);
-            this.textBoxInsptectorName.Name = "textBoxInsptectorName";
-            this.textBoxInsptectorName.ReadOnly = true;
-            this.textBoxInsptectorName.Size = new System.Drawing.Size(227, 20);
-            this.textBoxInsptectorName.TabIndex = 2;
+            this.txtInsptectorName.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtInsptectorName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtInsptectorName.Location = new System.Drawing.Point(113, 39);
+            this.txtInsptectorName.Name = "txtInsptectorName";
+            this.txtInsptectorName.ReadOnly = true;
+            this.txtInsptectorName.Size = new System.Drawing.Size(227, 20);
+            this.txtInsptectorName.TabIndex = 2;
             // 
-            // textBoxSupervisorName1
+            // txtSupervisorName1
             // 
-            this.textBoxSupervisorName1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBoxSupervisorName1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSupervisorName1.Location = new System.Drawing.Point(113, 73);
-            this.textBoxSupervisorName1.Name = "textBoxSupervisorName1";
-            this.textBoxSupervisorName1.ReadOnly = true;
-            this.textBoxSupervisorName1.Size = new System.Drawing.Size(227, 20);
-            this.textBoxSupervisorName1.TabIndex = 2;
+            this.txtSupervisorName1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtSupervisorName1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSupervisorName1.Location = new System.Drawing.Point(113, 73);
+            this.txtSupervisorName1.Name = "txtSupervisorName1";
+            this.txtSupervisorName1.ReadOnly = true;
+            this.txtSupervisorName1.Size = new System.Drawing.Size(227, 20);
+            this.txtSupervisorName1.TabIndex = 2;
             // 
             // label18
             // 
@@ -522,15 +503,15 @@
             this.label18.TabIndex = 0;
             this.label18.Text = "Tên đối tượng:";
             // 
-            // textBoxSuspectName
+            // txtSuspectName
             // 
-            this.textBoxSuspectName.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBoxSuspectName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSuspectName.Location = new System.Drawing.Point(483, 6);
-            this.textBoxSuspectName.Name = "textBoxSuspectName";
-            this.textBoxSuspectName.ReadOnly = true;
-            this.textBoxSuspectName.Size = new System.Drawing.Size(227, 20);
-            this.textBoxSuspectName.TabIndex = 2;
+            this.txtSuspectName.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtSuspectName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSuspectName.Location = new System.Drawing.Point(483, 6);
+            this.txtSuspectName.Name = "txtSuspectName";
+            this.txtSuspectName.ReadOnly = true;
+            this.txtSuspectName.Size = new System.Drawing.Size(227, 20);
+            this.txtSuspectName.TabIndex = 2;
             // 
             // label20
             // 
@@ -554,36 +535,36 @@
             this.label19.TabIndex = 0;
             this.label19.Text = "Tên giám sát viên 2:";
             // 
-            // textBoxInspectorCode
+            // txtInspectorCode
             // 
-            this.textBoxInspectorCode.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBoxInspectorCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxInspectorCode.Location = new System.Drawing.Point(483, 39);
-            this.textBoxInspectorCode.Name = "textBoxInspectorCode";
-            this.textBoxInspectorCode.ReadOnly = true;
-            this.textBoxInspectorCode.Size = new System.Drawing.Size(227, 20);
-            this.textBoxInspectorCode.TabIndex = 2;
+            this.txtInspectorCode.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtInspectorCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtInspectorCode.Location = new System.Drawing.Point(483, 39);
+            this.txtInspectorCode.Name = "txtInspectorCode";
+            this.txtInspectorCode.ReadOnly = true;
+            this.txtInspectorCode.Size = new System.Drawing.Size(227, 20);
+            this.txtInspectorCode.TabIndex = 2;
             // 
-            // textBoxSupervisorName2
+            // txtSupervisorName2
             // 
-            this.textBoxSupervisorName2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBoxSupervisorName2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSupervisorName2.Location = new System.Drawing.Point(483, 73);
-            this.textBoxSupervisorName2.Name = "textBoxSupervisorName2";
-            this.textBoxSupervisorName2.ReadOnly = true;
-            this.textBoxSupervisorName2.Size = new System.Drawing.Size(227, 20);
-            this.textBoxSupervisorName2.TabIndex = 2;
+            this.txtSupervisorName2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtSupervisorName2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSupervisorName2.Location = new System.Drawing.Point(483, 73);
+            this.txtSupervisorName2.Name = "txtSupervisorName2";
+            this.txtSupervisorName2.ReadOnly = true;
+            this.txtSupervisorName2.Size = new System.Drawing.Size(227, 20);
+            this.txtSupervisorName2.TabIndex = 2;
             // 
-            // txtNote_View
+            // txtNoteView
             // 
-            this.txtNote_View.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtNote_View.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNote_View.Location = new System.Drawing.Point(119, 125);
-            this.txtNote_View.Multiline = true;
-            this.txtNote_View.Name = "txtNote_View";
-            this.txtNote_View.ReadOnly = true;
-            this.txtNote_View.Size = new System.Drawing.Size(597, 51);
-            this.txtNote_View.TabIndex = 2;
+            this.txtNoteView.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtNoteView.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNoteView.Location = new System.Drawing.Point(119, 125);
+            this.txtNoteView.Multiline = true;
+            this.txtNoteView.Name = "txtNoteView";
+            this.txtNoteView.ReadOnly = true;
+            this.txtNoteView.Size = new System.Drawing.Size(597, 51);
+            this.txtNoteView.TabIndex = 2;
             // 
             // label15
             // 
@@ -638,11 +619,42 @@
             this.btnCopyDVD.UseVisualStyleBackColor = true;
             this.btnCopyDVD.Click += new System.EventHandler(this.btnCopyDVD_Click);
             // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.panel1);
+            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.groupBox4.Location = new System.Drawing.Point(17, 269);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(755, 140);
+            this.groupBox4.TabIndex = 5;
+            this.groupBox4.TabStop = false;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.dataGridViewResults);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(3, 16);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(749, 121);
+            this.panel1.TabIndex = 0;
+            // 
+            // dataGridViewResults
+            // 
+            this.dataGridViewResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewResults.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewResults.Location = new System.Drawing.Point(0, 0);
+            this.dataGridViewResults.Name = "dataGridViewResults";
+            this.dataGridViewResults.Size = new System.Drawing.Size(749, 121);
+            this.dataGridViewResults.TabIndex = 0;
+            this.dataGridViewResults.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewResults_CellClick);
+            // 
             // FindSession
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 641);
+            this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.groupBox3);
@@ -650,7 +662,6 @@
             this.Controls.Add(this.btnCopyDVD);
             this.Controls.Add(this.btnReplay);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.textBox9);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
@@ -663,11 +674,13 @@
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewResults)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -677,7 +690,6 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label2;
@@ -702,26 +714,28 @@
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.Button btnReplay;
         private System.Windows.Forms.Button btnCopyUSB;
-        private System.Windows.Forms.ListBox listBoxSearchResults;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.TextBox textBoxInspectorCode;
+        private System.Windows.Forms.TextBox txtInspectorCode;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textBoxCaseCode;
-        private System.Windows.Forms.TextBox textBoxInsptectorName;
-        private System.Windows.Forms.TextBox textBoxSupervisorName1;
-        private System.Windows.Forms.TextBox txtNote_View;
+        private System.Windows.Forms.TextBox txtCaseCode;
+        private System.Windows.Forms.TextBox txtInsptectorName;
+        private System.Windows.Forms.TextBox txtSupervisorName1;
+        private System.Windows.Forms.TextBox txtNoteView;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox textBoxSuspectName;
-        private System.Windows.Forms.TextBox textBoxSupervisorName2;
+        private System.Windows.Forms.TextBox txtSuspectName;
+        private System.Windows.Forms.TextBox txtSupervisorName2;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Button btnCopyDVD;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.DataGridView dataGridViewResults;
     }
 }
