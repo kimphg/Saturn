@@ -52,7 +52,7 @@ namespace IRS_Demo
                                             +   data.supervisorData1._maGSV + " "
                                             +   data.supervisorData2._Ten + " "
                                             + data.supervisorData2._maGSV + " "
-                                            +   data.Notes;
+                                            +   data.sessNotes;
                     SessionHistory.Add(data);
                     
                 }
@@ -115,8 +115,8 @@ namespace IRS_Demo
                 }
                 if (!string.IsNullOrEmpty(searchParam.caseCode))
                 {
-                    if (!string.IsNullOrEmpty(session.caseCode))
-                        if (session.caseCode.Contains(searchParam.caseCode)) { SearchResults.Add(session); continue; }
+                    if (!string.IsNullOrEmpty(session.caseData._maVuAn))
+                        if (session.caseData._maVuAn.Contains(searchParam.caseCode)) { SearchResults.Add(session); continue; }
                 }
                 if (!string.IsNullOrEmpty(searchParam.suspectName))
                 {
@@ -135,8 +135,8 @@ namespace IRS_Demo
                 }
                 if (!string.IsNullOrEmpty(searchParam.notes))
                 {
-                    if (!string.IsNullOrEmpty(session.Notes))
-                        if (session.Notes.Contains(searchParam.notes)) { SearchResults.Add(session); continue; }
+                    if (!string.IsNullOrEmpty(session.sessNotes))
+                        if (session.sessNotes.Contains(searchParam.notes)) { SearchResults.Add(session); continue; }
                 }
                 if (!string.IsNullOrEmpty(searchParam.inspectorCode))
                 {
@@ -170,8 +170,8 @@ namespace IRS_Demo
             this.textBoxSuspectName.Text = data.suspectData._Ten;
             this.textBoxSupervisorName1.Text = data.supervisorData1._Ten;
             this.textBoxSupervisorName2.Text = data.supervisorData2._Ten;
-            this.textBoxCaseCode.Text = data.caseCode;
-            this.txtNote_View.Text = data.Notes;
+            this.textBoxCaseCode.Text = data.caseData._maVuAn;
+            this.txtNote_View.Text = data.sessNotes;
 
             getReplayInfo(data);
            
@@ -197,18 +197,18 @@ namespace IRS_Demo
 
         private void getReplayInfo(SessionData sessData)
         {
-            CommonParam.mSesData.caseName = sessData.caseName;
+            CommonParam.mSesData.caseData._Ten = sessData.caseData._Ten;
             CommonParam.mSesData.suspectData._Ten = sessData.suspectData._Ten;
             CommonParam.mSesData.inspectData._Ten = sessData.inspectData._Ten;
             CommonParam.mSesData.supervisorData1._Ten = sessData.supervisorData1._Ten;
             CommonParam.mSesData.supervisorData2._Ten = sessData.supervisorData2._Ten;
-            CommonParam.mSesData.caseCode = sessData.caseCode;
+            CommonParam.mSesData.caseData._maVuAn = sessData.caseData._maVuAn;
             CommonParam.mSesData.suspectData._MaDT = sessData.suspectData._MaDT;
             CommonParam.mSesData.inspectData._maDTV = sessData.inspectData._maDTV;
             CommonParam.mSesData.supervisorData1._maGSV = sessData.supervisorData1._maGSV;
             CommonParam.mSesData.supervisorData2._maGSV = sessData.supervisorData2._maGSV;
-            CommonParam.mSesData.currentPlace = sessData.currentPlace;
-            CommonParam.mSesData.Notes = sessData.Notes;
+            CommonParam.mSesData.sessPlace = sessData.sessPlace;
+            CommonParam.mSesData.sessNotes = sessData.sessNotes;
         }
 
         private void GetUSBRemovable()

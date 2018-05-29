@@ -13,7 +13,13 @@ namespace IRS_Demo
     public partial class NewSessionForm : Form
     {
         public RecordingForm recform;
-        public FindSession findForm;    
+        public FindSession findForm;
+
+        private DataTable m_InspectDataTable = new DataTable();
+        private DataTable m_SuspectDataTable = new DataTable();
+        private DataTable m_SuspeviDataTable = new DataTable();
+        private DataTable m_CaseDataTable = new DataTable();
+
         public NewSessionForm()
         {
             InitializeComponent();
@@ -22,12 +28,13 @@ namespace IRS_Demo
             loadSuspectCbBox();
             loadSupevi1CbBox();
             loadSupevi2CbBox();
+            loadCaseCbBox();
         }
 
         public bool getNewSessionInfo()
         {
-            CommonParam.mSesData.caseName = txtCaseName.Text;
-            CommonParam.mSesData.caseCode = txtCaseCode.Text;
+            CommonParam.mSesData.caseData._Ten = cbCaseName.Text;
+            CommonParam.mSesData.caseData._maVuAn = txtCaseCode.Text;
 
             CommonParam.mSesData.suspectData._Ten = cbSuspectName.Text;
             CommonParam.mSesData.suspectData._MaDT = txtSuspectCode.Text;
@@ -41,8 +48,10 @@ namespace IRS_Demo
             CommonParam.mSesData.supervisorData2._Ten = cbSupevName2.Text;
             CommonParam.mSesData.supervisorData2._maGSV = txtSupeCode2.Text;
 
-            CommonParam.mSesData.currentPlace = textBox10.Text;
-            CommonParam.mSesData.Notes = txtNotes.Text;
+            CommonParam.mSesData.sessPlace = txtSessionPlace.Text;
+            CommonParam.mSesData.sessNotes = txtNotes.Text;
+
+            CommonParam.mSesData.sessionCode = txtSessionCode.Text;
 
             if (CommonParam.mSesData.supervisorData1._maGSV == CommonParam.mSesData.supervisorData2._maGSV)
             {
@@ -62,12 +71,13 @@ namespace IRS_Demo
             getInspectInfoByCode(txtInspectCode.Text, ref CommonParam.mSesData.inspectData);            
             getSupervisorInforByCode(txtSupeCode1.Text, ref CommonParam.mSesData.supervisorData1);
             getSupervisorInforByCode(txtSupeCode2.Text, ref CommonParam.mSesData.supervisorData2);
+            getCaseInfoByCode(txtCaseCode.Text, ref CommonParam.mSesData.caseData);
             
             CommonParam.SessionFolderName = "SS_" + DateTime.Now.ToString(@"MM_dd_yyyy.h_mm_tt");
             System.IO.Directory.CreateDirectory(CommonParam.ProgramPath + "\\" + CommonParam.SessionFolderName);
             recform = new RecordingForm(this);
             
-            CommonParam.mSesData.beginSessTime = DateTime.Now.Hour.ToString() + " giờ " + DateTime.Now.Minute.ToString() + " phút";            
+            CommonParam.mSesData.sessBeginTime = DateTime.Now.Hour.ToString() + " giờ " + DateTime.Now.Minute.ToString() + " phút";            
             this.Hide();
             recform.ShowDialog();
             CommonParam.saveSession();
@@ -94,9 +104,7 @@ namespace IRS_Demo
             
         }
 
-        private DataTable m_InspectDataTable = new DataTable();
-        private DataTable m_SuspectDataTable = new DataTable();
-        private DataTable m_SuspeviDataTable = new DataTable();
+        
 
         void loadInspectCbBox()
         {
@@ -109,6 +117,18 @@ namespace IRS_Demo
             cbInspectName.DisplayMember = m_InspectDataTable.Columns[1].ToString();
 
             loadInspecCodeTxtBox();
+        }
+
+        void loadCaseCbBox()
+        {
+            DataSet dataSet = new DataSet();
+            CommonParam.GetCasesInfo();
+            dataSet.Reset();
+            CommonParam.sql_DataAdaptCase.Fill(dataSet);
+            m_CaseDataTable = dataSet.Tables[0];            
+            cbCaseName.DataSource = m_CaseDataTable;            
+            cbCaseName.DisplayMember = m_CaseDataTable.Columns[1].ToString();
+            loadCaseCodeTxtBox();
         }
 
         void loadSuspectCbBox()
@@ -180,6 +200,14 @@ namespace IRS_Demo
             inspectData._DonVi = rows[0].ItemArray[3].ToString();
         }
 
+        private void getCaseInfoByCode(string caseCode, ref CaseData caseData)
+        {
+            string filterExpression = "";
+            filterExpression = "caseCode=" + "'" + caseCode + "'";
+            DataRow[] rows = m_CaseDataTable.Select(filterExpression);
+            caseData._Mota = rows[0].ItemArray[3].ToString();
+        }
+
         private void getSupervisorInforByCode(string supervCode, ref SupervisorData supervisorData)
         {
             string filterExpression = "";
@@ -196,6 +224,15 @@ namespace IRS_Demo
             DataRow[] rows = m_InspectDataTable.Select(filterExpression);
             string strInspecCode = rows[0].ItemArray[2].ToString();
             txtInspectCode.Text = strInspecCode;
+        }
+
+        private void loadCaseCodeTxtBox()
+        {
+            string strCaseName = cbCaseName.GetItemText(cbCaseName.SelectedItem);
+            string filterExpression = "caseName=" + "'" + strCaseName + "'";
+            DataRow[] rows = m_CaseDataTable.Select(filterExpression);
+            string strCaseCode = rows[0].ItemArray[2].ToString();
+            txtCaseCode.Text = strCaseCode;
         }
 
         private void loadSuspecCodeTxtBox()
@@ -248,6 +285,11 @@ namespace IRS_Demo
         private void cbSupevName2_SelectionChangeCommitted(object sender, EventArgs e)
         {
             loadSupevi2CodeTxtBox();
+        }
+
+        private void cbCaseName_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            loadCaseCodeTxtBox();
         }
 
 

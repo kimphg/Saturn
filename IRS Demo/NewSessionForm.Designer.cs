@@ -40,10 +40,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.txtCaseCode = new System.Windows.Forms.TextBox();
             this.cbSupevName1 = new System.Windows.Forms.ComboBox();
-            this.label15 = new System.Windows.Forms.Label();
             this.txtSuspectCode = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtCaseName = new System.Windows.Forms.TextBox();
             this.txtInspectCode = new System.Windows.Forms.TextBox();
             this.txtSupeCode1 = new System.Windows.Forms.TextBox();
             this.txtSupeCode2 = new System.Windows.Forms.TextBox();
@@ -51,11 +49,14 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label14 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
             this.cbInspectName = new System.Windows.Forms.ComboBox();
             this.cbSuspectName = new System.Windows.Forms.ComboBox();
             this.cbSupevName2 = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.txtSessionPlace = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.txtSessionCode = new System.Windows.Forms.TextBox();
+            this.cbCaseName = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.radioButton5 = new System.Windows.Forms.RadioButton();
@@ -78,7 +79,7 @@
             // btnNewSession
             // 
             this.btnNewSession.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewSession.Location = new System.Drawing.Point(150, 518);
+            this.btnNewSession.Location = new System.Drawing.Point(150, 525);
             this.btnNewSession.Name = "btnNewSession";
             this.btnNewSession.Size = new System.Drawing.Size(96, 32);
             this.btnNewSession.TabIndex = 0;
@@ -143,20 +144,18 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 37.17949F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 62.82051F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 113F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 234F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 238F));
             this.tableLayoutPanel1.Controls.Add(this.label8, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.label7, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.label6, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtCaseCode, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.cbSupevName1, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label15, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.txtSuspectCode, 3, 1);
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label5, 0, 4);
-            this.tableLayoutPanel1.Controls.Add(this.txtCaseName, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtInspectCode, 3, 2);
             this.tableLayoutPanel1.Controls.Add(this.txtSupeCode1, 3, 3);
             this.tableLayoutPanel1.Controls.Add(this.txtSupeCode2, 3, 4);
@@ -164,22 +163,25 @@
             this.tableLayoutPanel1.Controls.Add(this.label10, 2, 4);
             this.tableLayoutPanel1.Controls.Add(this.label11, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.dateTimePicker1, 1, 5);
-            this.tableLayoutPanel1.Controls.Add(this.label14, 2, 5);
-            this.tableLayoutPanel1.Controls.Add(this.textBox10, 3, 5);
             this.tableLayoutPanel1.Controls.Add(this.cbInspectName, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.cbSuspectName, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.cbSupevName2, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.label15, 2, 5);
+            this.tableLayoutPanel1.Controls.Add(this.txtSessionCode, 3, 5);
+            this.tableLayoutPanel1.Controls.Add(this.cbCaseName, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label14, 0, 6);
+            this.tableLayoutPanel1.Controls.Add(this.txtSessionPlace, 1, 6);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(28, 28);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 7;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66666F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66666F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(676, 214);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.2853F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28531F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28531F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.2853F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28531F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28531F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.28816F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(676, 226);
             this.tableLayoutPanel1.TabIndex = 5;
             // 
             // label8
@@ -188,7 +190,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(331, 64);
+            this.label8.Location = new System.Drawing.Point(327, 64);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(87, 32);
             this.label8.TabIndex = 17;
@@ -201,7 +203,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(331, 32);
+            this.label7.Location = new System.Drawing.Point(327, 32);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(73, 32);
             this.label7.TabIndex = 16;
@@ -214,7 +216,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(331, 0);
+            this.label6.Location = new System.Drawing.Point(327, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(55, 32);
             this.label6.TabIndex = 6;
@@ -224,42 +226,33 @@
             // txtCaseCode
             // 
             this.txtCaseCode.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtCaseCode.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtCaseCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCaseCode.Location = new System.Drawing.Point(444, 6);
+            this.txtCaseCode.Location = new System.Drawing.Point(440, 6);
             this.txtCaseCode.Name = "txtCaseCode";
+            this.txtCaseCode.ReadOnly = true;
             this.txtCaseCode.Size = new System.Drawing.Size(193, 20);
             this.txtCaseCode.TabIndex = 12;
             // 
             // cbSupevName1
             // 
             this.cbSupevName1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbSupevName1.BackColor = System.Drawing.SystemColors.Window;
             this.cbSupevName1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSupevName1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cbSupevName1.FormattingEnabled = true;
-            this.cbSupevName1.Location = new System.Drawing.Point(125, 101);
+            this.cbSupevName1.Location = new System.Drawing.Point(123, 101);
             this.cbSupevName1.Name = "cbSupevName1";
             this.cbSupevName1.Size = new System.Drawing.Size(193, 21);
             this.cbSupevName1.TabIndex = 19;
             this.cbSupevName1.SelectionChangeCommitted += new System.EventHandler(this.cbSupevName1_SelectionChangeCommitted);
             // 
-            // label15
-            // 
-            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(3, 192);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(99, 22);
-            this.label15.TabIndex = 17;
-            this.label15.Text = "Mã giám sát viên 1:";
-            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // txtSuspectCode
             // 
             this.txtSuspectCode.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtSuspectCode.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtSuspectCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSuspectCode.Location = new System.Drawing.Point(444, 38);
+            this.txtSuspectCode.Location = new System.Drawing.Point(440, 38);
             this.txtSuspectCode.Name = "txtSuspectCode";
             this.txtSuspectCode.ReadOnly = true;
             this.txtSuspectCode.Size = new System.Drawing.Size(193, 20);
@@ -278,20 +271,12 @@
             this.label5.Text = "Giám sát viên 2:";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // txtCaseName
-            // 
-            this.txtCaseName.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.txtCaseName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCaseName.Location = new System.Drawing.Point(125, 6);
-            this.txtCaseName.Name = "txtCaseName";
-            this.txtCaseName.Size = new System.Drawing.Size(193, 20);
-            this.txtCaseName.TabIndex = 6;
-            // 
             // txtInspectCode
             // 
             this.txtInspectCode.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtInspectCode.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtInspectCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtInspectCode.Location = new System.Drawing.Point(444, 70);
+            this.txtInspectCode.Location = new System.Drawing.Point(440, 70);
             this.txtInspectCode.Name = "txtInspectCode";
             this.txtInspectCode.ReadOnly = true;
             this.txtInspectCode.Size = new System.Drawing.Size(193, 20);
@@ -300,8 +285,9 @@
             // txtSupeCode1
             // 
             this.txtSupeCode1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtSupeCode1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtSupeCode1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSupeCode1.Location = new System.Drawing.Point(444, 102);
+            this.txtSupeCode1.Location = new System.Drawing.Point(440, 102);
             this.txtSupeCode1.Name = "txtSupeCode1";
             this.txtSupeCode1.ReadOnly = true;
             this.txtSupeCode1.Size = new System.Drawing.Size(193, 20);
@@ -310,8 +296,9 @@
             // txtSupeCode2
             // 
             this.txtSupeCode2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtSupeCode2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtSupeCode2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSupeCode2.Location = new System.Drawing.Point(444, 134);
+            this.txtSupeCode2.Location = new System.Drawing.Point(440, 134);
             this.txtSupeCode2.Name = "txtSupeCode2";
             this.txtSupeCode2.ReadOnly = true;
             this.txtSupeCode2.Size = new System.Drawing.Size(193, 20);
@@ -323,7 +310,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(331, 96);
+            this.label9.Location = new System.Drawing.Point(327, 96);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(99, 32);
             this.label9.TabIndex = 17;
@@ -336,7 +323,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(331, 128);
+            this.label10.Location = new System.Drawing.Point(327, 128);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(99, 32);
             this.label10.TabIndex = 17;
@@ -362,40 +349,19 @@
             this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(125, 166);
+            this.dateTimePicker1.Location = new System.Drawing.Point(123, 166);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(193, 20);
             this.dateTimePicker1.TabIndex = 18;
             // 
-            // label14
-            // 
-            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(331, 160);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(96, 32);
-            this.label14.TabIndex = 17;
-            this.label14.Text = "Địa điểm hỏi cung:";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // textBox10
-            // 
-            this.textBox10.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.textBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox10.Location = new System.Drawing.Point(444, 166);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(193, 20);
-            this.textBox10.TabIndex = 15;
-            // 
             // cbInspectName
             // 
             this.cbInspectName.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbInspectName.BackColor = System.Drawing.SystemColors.Window;
             this.cbInspectName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbInspectName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cbInspectName.FormattingEnabled = true;
-            this.cbInspectName.Location = new System.Drawing.Point(125, 69);
+            this.cbInspectName.Location = new System.Drawing.Point(123, 69);
             this.cbInspectName.Name = "cbInspectName";
             this.cbInspectName.Size = new System.Drawing.Size(193, 21);
             this.cbInspectName.TabIndex = 19;
@@ -404,10 +370,11 @@
             // cbSuspectName
             // 
             this.cbSuspectName.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbSuspectName.BackColor = System.Drawing.SystemColors.Window;
             this.cbSuspectName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSuspectName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cbSuspectName.FormattingEnabled = true;
-            this.cbSuspectName.Location = new System.Drawing.Point(125, 37);
+            this.cbSuspectName.Location = new System.Drawing.Point(123, 37);
             this.cbSuspectName.Name = "cbSuspectName";
             this.cbSuspectName.Size = new System.Drawing.Size(193, 21);
             this.cbSuspectName.TabIndex = 19;
@@ -416,14 +383,72 @@
             // cbSupevName2
             // 
             this.cbSupevName2.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbSupevName2.BackColor = System.Drawing.SystemColors.Window;
             this.cbSupevName2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSupevName2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cbSupevName2.FormattingEnabled = true;
-            this.cbSupevName2.Location = new System.Drawing.Point(125, 133);
+            this.cbSupevName2.Location = new System.Drawing.Point(123, 133);
             this.cbSupevName2.Name = "cbSupevName2";
             this.cbSupevName2.Size = new System.Drawing.Size(193, 21);
             this.cbSupevName2.TabIndex = 19;
             this.cbSupevName2.SelectionChangeCommitted += new System.EventHandler(this.cbSupevName2_SelectionChangeCommitted);
+            // 
+            // label14
+            // 
+            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(3, 192);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(96, 34);
+            this.label14.TabIndex = 17;
+            this.label14.Text = "Địa điểm hỏi cung:";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtSessionPlace
+            // 
+            this.txtSessionPlace.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtSessionPlace.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSessionPlace.Location = new System.Drawing.Point(123, 199);
+            this.txtSessionPlace.Name = "txtSessionPlace";
+            this.txtSessionPlace.Size = new System.Drawing.Size(193, 20);
+            this.txtSessionPlace.TabIndex = 15;
+            // 
+            // label15
+            // 
+            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(327, 160);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(98, 32);
+            this.label15.TabIndex = 17;
+            this.label15.Text = "Mã phiên hỏi cung:";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtSessionCode
+            // 
+            this.txtSessionCode.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.txtSessionCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSessionCode.Location = new System.Drawing.Point(440, 166);
+            this.txtSessionCode.Name = "txtSessionCode";
+            this.txtSessionCode.Size = new System.Drawing.Size(193, 20);
+            this.txtSessionCode.TabIndex = 15;
+            // 
+            // cbCaseName
+            // 
+            this.cbCaseName.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.cbCaseName.BackColor = System.Drawing.SystemColors.Window;
+            this.cbCaseName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCaseName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cbCaseName.FormattingEnabled = true;
+            this.cbCaseName.Location = new System.Drawing.Point(123, 5);
+            this.cbCaseName.Name = "cbCaseName";
+            this.cbCaseName.Size = new System.Drawing.Size(193, 21);
+            this.cbCaseName.TabIndex = 19;
+            this.cbCaseName.SelectionChangeCommitted += new System.EventHandler(this.cbCaseName_SelectionChangeCommitted);
             // 
             // groupBox1
             // 
@@ -436,7 +461,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(12, 73);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(760, 556);
+            this.groupBox1.Size = new System.Drawing.Size(760, 564);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin phiên hỏi cung";
@@ -445,7 +470,7 @@
             // 
             this.groupBox3.Controls.Add(this.radioButton5);
             this.groupBox3.Controls.Add(this.radioButton4);
-            this.groupBox3.Location = new System.Drawing.Point(450, 248);
+            this.groupBox3.Location = new System.Drawing.Point(450, 260);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(232, 40);
             this.groupBox3.TabIndex = 10;
@@ -480,7 +505,7 @@
             this.groupBox2.Controls.Add(this.radioButton3);
             this.groupBox2.Controls.Add(this.radioButton2);
             this.groupBox2.Controls.Add(this.radioButton1);
-            this.groupBox2.Location = new System.Drawing.Point(150, 248);
+            this.groupBox2.Location = new System.Drawing.Point(150, 260);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(294, 40);
             this.groupBox2.TabIndex = 10;
@@ -524,7 +549,7 @@
             // txtNotes
             // 
             this.txtNotes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNotes.Location = new System.Drawing.Point(150, 299);
+            this.txtNotes.Location = new System.Drawing.Point(150, 306);
             this.txtNotes.Multiline = true;
             this.txtNotes.Name = "txtNotes";
             this.txtNotes.Size = new System.Drawing.Size(532, 213);
@@ -534,7 +559,7 @@
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(66, 299);
+            this.label21.Location = new System.Drawing.Point(66, 306);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(47, 13);
             this.label21.TabIndex = 8;
@@ -611,7 +636,6 @@
         private System.Windows.Forms.TextBox txtCaseCode;
         private System.Windows.Forms.TextBox txtSuspectCode;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtCaseName;
         private System.Windows.Forms.TextBox txtInspectCode;
         private System.Windows.Forms.TextBox txtSupeCode1;
         private System.Windows.Forms.TextBox txtSupeCode2;
@@ -636,11 +660,13 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox txtSessionPlace;
         private System.Windows.Forms.ComboBox cbInspectName;
         private System.Windows.Forms.ComboBox cbSuspectName;
         private System.Windows.Forms.ComboBox cbSupevName1;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ComboBox cbSupevName2;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox txtSessionCode;
+        private System.Windows.Forms.ComboBox cbCaseName;
     }
 }

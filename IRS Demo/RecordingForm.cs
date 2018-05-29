@@ -104,11 +104,11 @@ namespace IRS_Demo
 
         public void setViewSessionInfo()
         {
-            lblCaseCode.Text = CommonParam.mSesData.caseCode;
+            lblCaseCode.Text = CommonParam.mSesData.caseData._maVuAn;
             lblRoom.Text = "Phòng 1";
-            //label25.Text = DateTime.Now.ToString("dd/MM/yyyy h:mm tt");
+            lblTimeBegin.Text = DateTime.Now.ToString("dd/MM/yyyy h:mm tt");
             lblTimeEnd.Text = ""; // time ket thuc
-            lblTimeCase.Text = ""; // Thoi diem dien ra
+            lblTimeCase.Text = DateTime.Now.ToString("dd/MM/yyyy"); ; // Thoi diem dien ra
             lblSessCode.Text = ""; // Ma phien
             lblTimePerform.Text = ""; // Thoi gian thuc hien
 
@@ -128,7 +128,7 @@ namespace IRS_Demo
             lblSupevUnit1.Text = CommonParam.mSesData.supervisorData1._DonVi;
             lblSupevUnit2.Text = CommonParam.mSesData.supervisorData2._DonVi;
 
-            textBox19.Text = CommonParam.mSesData.Notes;           
+            textBox19.Text = CommonParam.mSesData.sessNotes;           
         }
 
         private void vlcPlayer_VlcLibDirectoryNeeded(object sender, Vlc.DotNet.Forms.VlcLibDirectoryNeededEventArgs e)
@@ -241,8 +241,8 @@ namespace IRS_Demo
             label42.Text = "00:00:00";
             btnPlay.Enabled = true;
             btnExport.Enabled = true;
-            CommonParam.mSesData.endSessTime = DateTime.Now.Hour.ToString() + " giờ " + DateTime.Now.Minute.ToString() + " phút";
-            CommonParam.mSesData.currentDate = DateTime.Now.ToString("dd/MM/yyyy");
+            CommonParam.mSesData.sessEndTime = DateTime.Now.Hour.ToString() + " giờ " + DateTime.Now.Minute.ToString() + " phút";
+            CommonParam.mSesData.sessCurrDate = DateTime.Now.ToString("dd/MM/yyyy");
             CommonParam.saveSession();
         }
 
@@ -346,7 +346,7 @@ namespace IRS_Demo
             template.AddCustomProperty(new Novacode.CustomProperty("DieuTraVien", CommonParam.mSesData.inspectData._Ten));
             template.AddCustomProperty(new Novacode.CustomProperty("GiamSatVien1", CommonParam.mSesData.supervisorData1._Ten));
             template.AddCustomProperty(new Novacode.CustomProperty("GiamSatVien2", CommonParam.mSesData.supervisorData2._Ten));
-            template.AddCustomProperty(new Novacode.CustomProperty("ThoiGianDienRa", CommonParam.mSesData.beginSessTime));
+            template.AddCustomProperty(new Novacode.CustomProperty("ThoiGianDienRa", CommonParam.mSesData.sessBeginTime));
             template.AddCustomProperty(new Novacode.CustomProperty("BC_Ten", CommonParam.mSesData.suspectData._Ten));
             template.AddCustomProperty(new Novacode.CustomProperty("BC_GioiTinh", CommonParam.mSesData.suspectData._GioiTinh));
             template.AddCustomProperty(new Novacode.CustomProperty("BC_QuocTich", CommonParam.mSesData.suspectData._QuocTich));
@@ -360,11 +360,11 @@ namespace IRS_Demo
             template.AddCustomProperty(new Novacode.CustomProperty("BC_NgayCapCMND", CommonParam.mSesData.suspectData._NgayCapCMND));
             template.AddCustomProperty(new Novacode.CustomProperty("BC_NoiCuTru", CommonParam.mSesData.suspectData._DiaChi));
             template.AddCustomProperty(new Novacode.CustomProperty("BC_NoiCapCMND", CommonParam.mSesData.suspectData._NoiCapCMND));
-            template.AddCustomProperty(new Novacode.CustomProperty("DiaDiemHoiCung", CommonParam.mSesData.currentPlace));
-            template.AddCustomProperty(new Novacode.CustomProperty("ThoiGianKetThuc", CommonParam.mSesData.endSessTime));
-            template.AddCustomProperty(new Novacode.CustomProperty("NgayHoiCung", CommonParam.mSesData.currentDate));
-            template.AddCustomProperty(new Novacode.CustomProperty("DiaDiemHoiCung", CommonParam.mSesData.currentPlace));
-            template.AddCustomProperty(new Novacode.CustomProperty("GhiChu", CommonParam.mSesData.Notes));
+            template.AddCustomProperty(new Novacode.CustomProperty("DiaDiemHoiCung", CommonParam.mSesData.sessPlace));
+            template.AddCustomProperty(new Novacode.CustomProperty("ThoiGianKetThuc", CommonParam.mSesData.sessEndTime));
+            template.AddCustomProperty(new Novacode.CustomProperty("NgayHoiCung", CommonParam.mSesData.sessCurrDate));
+            template.AddCustomProperty(new Novacode.CustomProperty("DiaDiemHoiCung", CommonParam.mSesData.sessPlace));
+            template.AddCustomProperty(new Novacode.CustomProperty("GhiChu", CommonParam.mSesData.sessNotes));
             
             return template;
         }
@@ -407,10 +407,10 @@ namespace IRS_Demo
 
         private void btnAddNotes_Click(object sender, EventArgs e)
         {
-            CommonParam.mSesData.Notes += "\r\n";
-            CommonParam.mSesData.Notes += txtAddNotes.Text;
+            CommonParam.mSesData.sessNotes += "\r\n";
+            CommonParam.mSesData.sessNotes += txtAddNotes.Text;
             txtAddNotes.Clear();
-            textBox19.Text = CommonParam.mSesData.Notes;
+            textBox19.Text = CommonParam.mSesData.sessNotes;
         }
 
     }

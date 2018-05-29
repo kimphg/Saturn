@@ -37,22 +37,31 @@ namespace IRS_Demo
         public string _Ten, _maGSV, _DonVi;
     }
 
+    public struct CaseData
+    {
+        public string _Ten, _maVuAn, _Mota;
+    }
+
 
     public struct SessionData
     {
-        public string caseName, caseCode;
+       // public string caseName, caseCode;
 
-        public string Notes;
+        public string sessNotes;
 
-        public string beginSessTime;
-        public string endSessTime;
+        public string sessBeginTime;
+        public string sessEndTime;
 
-        public string currentPlace;
-        public string currentDate;
+        public string sessPlace;
+        public string sessCurrDate;
+
+        public string sessionCode;
 
         public SuspectData      suspectData;
         public InspectData      inspectData;
         public SupervisorData   supervisorData1, supervisorData2;
+        public CaseData         caseData;
+        
 
         public string SessionPath {get;set;}
         public string SessionKeyText { get; set; }
@@ -77,6 +86,7 @@ namespace IRS_Demo
         public static SQLiteDataAdapter sql_DataAdaptInspector;
         public static SQLiteDataAdapter sql_DataAdaptSupervisor;
         public static SQLiteDataAdapter sql_DataAdaptSuspect;
+        public static SQLiteDataAdapter sql_DataAdaptCase;
         
 
         public static void GetSessSuspectInfo(string strSuspectCode)
@@ -130,6 +140,17 @@ namespace IRS_Demo
             sql_Cmd = sql_Conn.CreateCommand();
             string CommandText = "select * from  inspTbl";
             sql_DataAdaptInspector = new SQLiteDataAdapter(CommandText, sql_Conn);
+            sql_Conn.Close();
+        }
+
+        public static void GetCasesInfo() // lay thong tin vu an
+        {
+            setConnection();
+            sql_Conn.Open();
+
+            sql_Cmd = sql_Conn.CreateCommand();
+            string CommandText = "select * from  caseTbl";
+            sql_DataAdaptCase = new SQLiteDataAdapter(CommandText, sql_Conn);
             sql_Conn.Close();
         }
 

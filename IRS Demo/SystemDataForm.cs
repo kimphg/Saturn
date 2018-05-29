@@ -25,6 +25,7 @@ namespace IRS_Demo
             CommonParam.GetInspectorsInfo();
             CommonParam.GetSupervisorsInfo();
             CommonParam.GetSuspectsInfo();
+            CommonParam.GetCasesInfo();
         }
 
         private void loadDataUsers()
@@ -52,6 +53,35 @@ namespace IRS_Demo
             dataGridViewUser.Columns[1].Width = 300;            
             dataGridViewUser.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGridViewUser.Columns[3].Visible = false;
+        }
+
+        private void loadDataCases()
+        {
+            DataSet dataSet = new DataSet();
+            DataTable dataTable = new DataTable();
+            dataSet.Reset();
+            CommonParam.sql_DataAdaptCase.Fill(dataSet);
+            dataTable = dataSet.Tables[0];
+            dataGridViewCase.DataSource = dataTable;
+
+            txtId4.DataBindings.Clear();
+            txtCaseName.DataBindings.Clear();
+            txtCaseCode.DataBindings.Clear();
+            txtCaseDescription.DataBindings.Clear();
+
+            txtId4.DataBindings.Add("text", dataTable, "id");
+            txtCaseName.DataBindings.Add("text", dataTable, "caseName");
+            txtCaseCode.DataBindings.Add("text", dataTable, "caseCode");
+            txtCaseDescription.DataBindings.Add("text", dataTable, "caseDescrpt");
+
+            dataGridViewCase.Columns[1].HeaderText = "Tên vụ án";
+            dataGridViewCase.Columns[2].HeaderText = "Mã vụ án";
+            dataGridViewCase.Columns[3].HeaderText = "Mô tả vụ án";
+
+            dataGridViewCase.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCase.Columns[1].Width = 200;
+            dataGridViewCase.Columns[2].Width = 100;
+            dataGridViewCase.Columns[3].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
         private void loadDataInspectors()
@@ -196,6 +226,10 @@ namespace IRS_Demo
             if (tabControl1.SelectedIndex == 3)
             {
                 loadDataSuspects();
+            }
+            if (tabControl1.SelectedIndex == 4)
+            {
+                loadDataCases();
             }
         }
         private void btnAdd0_Click(object sender, EventArgs e)
@@ -402,6 +436,66 @@ namespace IRS_Demo
             string strInsert = string.Format("DELETE FROM suspTbl where id='{0}'", txtId3.Text);
             ExecuteQuery(strInsert);
             loadDataSuspects();
+        }
+
+        private void btnAdd4_Click(object sender, EventArgs e)
+        {
+            txtId4.Clear();
+            txtCaseName.Clear();
+            txtCaseCode.Clear();
+            txtCaseDescription.Clear();
+            txtCaseName.Focus();
+            btnSave4.Enabled = true;
+        }
+
+        private void btnSave4_Click(object sender, EventArgs e)
+        {
+            string name = txtCaseName.Text;
+            string code = txtCaseCode.Text;
+            string descrpt = txtCaseDescription.Text;
+            if (name == "")
+            {
+                MessageBox.Show("Lỗi! Tên vụ án không thể để trống!");
+                return;
+            }
+            string strInsert = string.Format("INSERT INTO caseTbl(caseName, caseCode, caseDescrpt) VALUES('{0}','{1}','{2}')", name, code, descrpt);
+            ExecuteQuery(strInsert);
+            loadDataCases();
+            btnSave4.Enabled = false;
+            loadDataCases();
+        }
+
+        private void btnUpd4_Click(object sender, EventArgs e)
+        {
+            string id = txtId4.Text;
+
+            if (id == "1")
+            {
+                MessageBox.Show("Không thể sửa thông tin vụ án này");
+                return;
+            }
+
+            string name = txtCaseName.Text;
+            string code = txtCaseCode.Text;
+            string descrpt = txtCaseDescription.Text;
+            string strInsert = string.Format("UPDATE caseTbl set caseName='{0}', caseCode='{1}', caseDescrpt='{2}' where id = {3}", name, code, descrpt, id);
+            ExecuteQuery(strInsert);
+            loadDataCases();
+        }
+
+        private void btnDel4_Click(object sender, EventArgs e)
+        {
+            string id = txtId4.Text;
+
+            if (id == "1")
+            {
+                MessageBox.Show("Không thể xóa thông tin này!");
+                return;
+            }
+
+            string strInsert = string.Format("DELETE FROM caseTbl where id='{0}'", id);
+            ExecuteQuery(strInsert);
+            loadDataCases();
         }
         
     }
