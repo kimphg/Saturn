@@ -74,7 +74,7 @@ namespace IRS_Demo
             label42.BackColor = Color.Transparent;
             vlcPlayer.Play();
 
-            setViewSessionInfo();            
+            setViewSessionInfo(false);            
             
         }
 
@@ -92,7 +92,7 @@ namespace IRS_Demo
             btnAddNotes.Enabled = false;
             btnPlay.Visible = false;
             label42.Visible = false;
-            setViewSessionInfo();
+            setViewSessionInfo(true);
 
             vlcPlayer.SetMedia(new Uri(_findSession.selectedDataPath + "\\video.mp4"));
             label42.BackColor = Color.Transparent;
@@ -102,14 +102,24 @@ namespace IRS_Demo
             
         }
 
-        public void setViewSessionInfo()
+        public void setViewSessionInfo(bool bReplay)
         {
             lblCaseCode.Text = CommonParam.mSesData.caseData._maVuAn;
+            lblSessCode.Text = CommonParam.mSesData.sessionCode;
             lblRoom.Text = "Phòng 1";
-            lblTimeBegin.Text = DateTime.Now.ToString("dd/MM/yyyy h:mm tt");
-            lblTimeEnd.Text = ""; // time ket thuc
-            lblTimeCase.Text = DateTime.Now.ToString("dd/MM/yyyy"); ; // Thoi diem dien ra
-            lblSessCode.Text = ""; // Ma phien
+            if (!bReplay)
+            {
+                lblTimeBegin.Text = DateTime.Now.ToString("dd/MM/yyyy h:mm tt");
+                lblTimeCase.Text = DateTime.Now.ToString("dd/MM/yyyy"); ; // Thoi diem dien ra
+                lblTimeEnd.Text = ""; // time ket thuc
+            }     
+            else
+            {
+                lblTimeBegin.Text = CommonParam.mSesData.sessBeginTime;
+                lblTimeCase.Text = CommonParam.mSesData.sessCurrDate; // Thoi diem dien ra
+                lblTimeEnd.Text = CommonParam.mSesData.sessEndTime; // time ket thuc
+            }            
+            
             lblTimePerform.Text = ""; // Thoi gian thuc hien
 
             lblInspectName.Text = CommonParam.mSesData.inspectData._Ten;

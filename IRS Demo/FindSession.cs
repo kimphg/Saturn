@@ -30,7 +30,7 @@ namespace IRS_Demo
         
         List<SessionData> SessionHistory = new List<SessionData>();
         List<SessionData> SearchResults ;
-        DataTable sessDataTable = new DataTable();
+        DataTable searchResultsDt = new DataTable();
 
         public string selectedDataPath = "";
 
@@ -96,20 +96,10 @@ namespace IRS_Demo
         }
 
         private void UpdateSearchResults()
-        {
-            //var bindingSource = new BindingSource();
-            //// Bind BindingSource1 to the list of states.            
-            //bindingSource.DataSource = SearchResults;
-            //this.listBoxSearchResults.DataSource = bindingSource;
-            //listBoxSearchResults.BindingContext = this.BindingContext;
-            //listBoxSearchResults.DisplayMember = "SessionPath";
-            ////listBoxSearchResults.ValueMember = "suspectName";
-            //listBoxSearchResults.Refresh();
+        {           
 
-            //////////////////////////////////////////////////////
-
-            sessDataTable = getResultsTableFromList(SearchResults);
-            dataGridViewResults.DataSource = sessDataTable;
+            searchResultsDt = getResultsTableFromList(SearchResults);
+            dataGridViewResults.DataSource = searchResultsDt;
 
             txtCaseCode.DataBindings.Clear();
             txtSuspectName.DataBindings.Clear();
@@ -119,13 +109,13 @@ namespace IRS_Demo
             txtSupervisorName2.DataBindings.Clear();
             txtNoteView.DataBindings.Clear();
 
-            txtCaseCode.DataBindings.Add("text", sessDataTable, "caseCode"); ;
-            txtSuspectName.DataBindings.Add("text", sessDataTable, "suspectName");
-            txtInsptectorName.DataBindings.Add("text", sessDataTable, "inspectorName");
-            txtInspectorCode.DataBindings.Add("text", sessDataTable, "inspectorCode");
-            txtSupervisorName1.DataBindings.Add("text", sessDataTable, "supervisorName1");
-            txtSupervisorName2.DataBindings.Add("text", sessDataTable, "supervisorName2");
-            txtNoteView.DataBindings.Add("text", sessDataTable, "sessionNotes");
+            txtCaseCode.DataBindings.Add("text", searchResultsDt, "caseCode"); ;
+            txtSuspectName.DataBindings.Add("text", searchResultsDt, "suspectName");
+            txtInsptectorName.DataBindings.Add("text", searchResultsDt, "inspectorName");
+            txtInspectorCode.DataBindings.Add("text", searchResultsDt, "inspectorCode");
+            txtSupervisorName1.DataBindings.Add("text", searchResultsDt, "supervisorName1");
+            txtSupervisorName2.DataBindings.Add("text", searchResultsDt, "supervisorName2");
+            txtNoteView.DataBindings.Add("text", searchResultsDt, "sessionNotes");
 
             dataGridViewResults.Columns[0].HeaderText = "Mã vụ án";
             dataGridViewResults.Columns[1].HeaderText = "Mã PHC";
@@ -163,7 +153,7 @@ namespace IRS_Demo
 
         }
 
-        private void button1_Click(object sender, EventArgs e)//tim kiem
+        private void btnInforSearch_Click(object sender, EventArgs e)//tim kiem
         {
             SearchResults.Clear();
 
@@ -211,7 +201,7 @@ namespace IRS_Demo
             UpdateSearchResults();
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void btnKeywordSearch_Click(object sender, EventArgs e)
         {
             string keyWord = textBox9.Text;
             SearchResults.Clear();
@@ -243,17 +233,31 @@ namespace IRS_Demo
         private void getReplayInfo(SessionData sessData)
         {
             CommonParam.mSesData.caseData._Ten = sessData.caseData._Ten;
-            CommonParam.mSesData.suspectData._Ten = sessData.suspectData._Ten;
-            CommonParam.mSesData.inspectData._Ten = sessData.inspectData._Ten;
-            CommonParam.mSesData.supervisorData1._Ten = sessData.supervisorData1._Ten;
-            CommonParam.mSesData.supervisorData2._Ten = sessData.supervisorData2._Ten;
-            CommonParam.mSesData.caseData._maVuAn = sessData.caseData._maVuAn;
-            CommonParam.mSesData.suspectData._MaDT = sessData.suspectData._MaDT;
+            
             CommonParam.mSesData.inspectData._maDTV = sessData.inspectData._maDTV;
             CommonParam.mSesData.supervisorData1._maGSV = sessData.supervisorData1._maGSV;
             CommonParam.mSesData.supervisorData2._maGSV = sessData.supervisorData2._maGSV;
-            CommonParam.mSesData.sessPlace = sessData.sessPlace;
+            CommonParam.mSesData.sessPlace = sessData.sessPlace;            
+
+            CommonParam.mSesData.caseData._maVuAn = sessData.caseData._maVuAn;            
+            CommonParam.mSesData.sessBeginTime = sessData.sessBeginTime;
+            CommonParam.mSesData.sessEndTime = sessData.sessEndTime;
+            CommonParam.mSesData.sessCurrDate = sessData.sessCurrDate;
+            CommonParam.mSesData.inspectData._Ten = sessData.inspectData._Ten;
+            CommonParam.mSesData.inspectData._DonVi = sessData.inspectData._DonVi;
+            CommonParam.mSesData.supervisorData1._Ten = sessData.supervisorData1._Ten;
+            CommonParam.mSesData.supervisorData1._DonVi = sessData.supervisorData1._DonVi;
+            CommonParam.mSesData.supervisorData2._Ten = sessData.supervisorData2._Ten;
+            CommonParam.mSesData.supervisorData2._DonVi = sessData.supervisorData2._DonVi;
+            CommonParam.mSesData.suspectData._Ten = sessData.suspectData._Ten;
+            CommonParam.mSesData.suspectData._MaDT = sessData.suspectData._MaDT;
+            CommonParam.mSesData.suspectData._GioiTinh = sessData.suspectData._GioiTinh;
+            CommonParam.mSesData.suspectData._TenGoiKhac = sessData.suspectData._TenGoiKhac;
+            CommonParam.mSesData.suspectData._NgaySinh = sessData.suspectData._NgaySinh;
+            CommonParam.mSesData.suspectData._HKTT = sessData.suspectData._HKTT;
+            CommonParam.mSesData.suspectData._DiaChi = sessData.suspectData._DiaChi;
             CommonParam.mSesData.sessNotes = sessData.sessNotes;
+            
         }
 
         private void GetUSBRemovable()
@@ -301,11 +305,31 @@ namespace IRS_Demo
         private void dataGridViewResults_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int index = e.RowIndex;// get the Row Index
-            DataGridViewRow selectedRow = dataGridViewResults.Rows[index];
-            selectedDataPath = selectedRow.Cells[8].Value.ToString();
-            SessionData data = CommonParam.LoadObject<SessionData>(selectedDataPath + CommonParam.SessionFileName);
-            getReplayInfo(data);
-            //MessageBox.Show(selectedRow.Cells[7].Value.ToString());
+            try
+            {
+                DataGridViewRow selectedRow = dataGridViewResults.Rows[index];
+                selectedDataPath = selectedRow.Cells[8].Value.ToString();
+                SessionData data = CommonParam.LoadObject<SessionData>(selectedDataPath + CommonParam.SessionFileName);
+                getReplayInfo(data);
+                
+            }
+            catch(Exception excpt)
+            {
+                MessageBox.Show(excpt.ToString());
+                return;
+            }       
+        }
+
+        private void btnResetSearch_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "";
+            textBox2.Text = "";
+            textBox6.Text = "";
+            textBox5.Text = "";
+            textBox3.Text = "";
+            textBox7.Text = "";
+            textBox4.Text = "";
+            textBox8.Text = "";
         }
 
         

@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FindSession));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnResetSearch = new System.Windows.Forms.Button();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -48,10 +48,10 @@
             this.label7 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnInforSearch = new System.Windows.Forms.Button();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btnKeywordSearch = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -105,7 +105,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 261F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 109F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 263F));
-            this.tableLayoutPanel1.Controls.Add(this.button2, 3, 4);
+            this.tableLayoutPanel1.Controls.Add(this.btnResetSearch, 3, 4);
             this.tableLayoutPanel1.Controls.Add(this.textBox7, 3, 2);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 2);
@@ -122,7 +122,7 @@
             this.tableLayoutPanel1.Controls.Add(this.label7, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.textBox5, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.textBox6, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.button1, 2, 4);
+            this.tableLayoutPanel1.Controls.Add(this.btnInforSearch, 2, 4);
             this.tableLayoutPanel1.Controls.Add(this.textBox8, 3, 3);
             this.tableLayoutPanel1.Controls.Add(this.label8, 2, 3);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(6, 19);
@@ -136,16 +136,17 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(743, 162);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // button2
+            // btnResetSearch
             // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(483, 133);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(103, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Đặt lại";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnResetSearch.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnResetSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnResetSearch.Location = new System.Drawing.Point(483, 133);
+            this.btnResetSearch.Name = "btnResetSearch";
+            this.btnResetSearch.Size = new System.Drawing.Size(103, 23);
+            this.btnResetSearch.TabIndex = 1;
+            this.btnResetSearch.Text = "Đặt lại";
+            this.btnResetSearch.UseVisualStyleBackColor = true;
+            this.btnResetSearch.Click += new System.EventHandler(this.btnResetSearch_Click);
             // 
             // textBox7
             // 
@@ -315,17 +316,17 @@
             this.textBox6.Size = new System.Drawing.Size(227, 20);
             this.textBox6.TabIndex = 2;
             // 
-            // button1
+            // btnInforSearch
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(374, 133);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(103, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Tìm kiếm";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnInforSearch.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnInforSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInforSearch.Location = new System.Drawing.Point(374, 133);
+            this.btnInforSearch.Name = "btnInforSearch";
+            this.btnInforSearch.Size = new System.Drawing.Size(103, 23);
+            this.btnInforSearch.TabIndex = 1;
+            this.btnInforSearch.Text = "Tìm kiếm";
+            this.btnInforSearch.UseVisualStyleBackColor = true;
+            this.btnInforSearch.Click += new System.EventHandler(this.btnInforSearch_Click);
             // 
             // textBox8
             // 
@@ -347,16 +348,16 @@
             this.label8.TabIndex = 0;
             this.label8.Text = "Tên giám sát viên 2:";
             // 
-            // button6
+            // btnKeywordSearch
             // 
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(506, 240);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(103, 23);
-            this.button6.TabIndex = 3;
-            this.button6.Text = "Tìm kiếm";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.btnKeywordSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnKeywordSearch.Location = new System.Drawing.Point(506, 240);
+            this.btnKeywordSearch.Name = "btnKeywordSearch";
+            this.btnKeywordSearch.Size = new System.Drawing.Size(103, 23);
+            this.btnKeywordSearch.TabIndex = 3;
+            this.btnKeywordSearch.Text = "Tìm kiếm";
+            this.btnKeywordSearch.UseVisualStyleBackColor = true;
+            this.btnKeywordSearch.Click += new System.EventHandler(this.btnKeywordSearch_Click);
             // 
             // label11
             // 
@@ -656,7 +657,7 @@
             this.ClientSize = new System.Drawing.Size(784, 641);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.button6);
+            this.Controls.Add(this.btnKeywordSearch);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.btnCopyUSB);
             this.Controls.Add(this.btnCopyDVD);
@@ -701,8 +702,8 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnResetSearch;
+        private System.Windows.Forms.Button btnInforSearch;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
@@ -716,7 +717,7 @@
         private System.Windows.Forms.Button btnCopyUSB;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btnKeywordSearch;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TextBox txtInspectorCode;
         private System.Windows.Forms.Label label12;
