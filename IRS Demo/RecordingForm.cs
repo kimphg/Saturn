@@ -12,7 +12,6 @@ using Novacode;
 using System.Diagnostics;
 using MjpegProcessor;
 
-
 using System.Reflection;
 using System.Threading;
 using Microsoft.Office.Interop.Word;
@@ -107,17 +106,17 @@ namespace IRS_Demo
             lblCaseCode.Text = CommonParam.mSesData.caseData._maVuAn;
             lblSessCode.Text = CommonParam.mSesData.sessionCode;
             lblRoom.Text = "Phòng 1";
-            if (!bReplay)
+            if (bReplay)
+            {
+                lblTimeBegin.Text = CommonParam.mSesData.sessBeginTime;
+                lblTimeCase.Text = CommonParam.mSesData.sessCurrDate; // Thoi diem dien ra
+                lblTimeEnd.Text = CommonParam.mSesData.sessEndTime; // time ket thuc                
+            }     
+            else
             {
                 lblTimeBegin.Text = DateTime.Now.ToString("dd/MM/yyyy h:mm tt");
                 lblTimeCase.Text = DateTime.Now.ToString("dd/MM/yyyy"); ; // Thoi diem dien ra
                 lblTimeEnd.Text = ""; // time ket thuc
-            }     
-            else
-            {
-                lblTimeBegin.Text = CommonParam.mSesData.sessBeginTime;
-                lblTimeCase.Text = CommonParam.mSesData.sessCurrDate; // Thoi diem dien ra
-                lblTimeEnd.Text = CommonParam.mSesData.sessEndTime; // time ket thuc
             }            
             
             lblTimePerform.Text = ""; // Thoi gian thuc hien
