@@ -99,10 +99,10 @@ namespace IRS_Demo
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.label43 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnVideoReload = new System.Windows.Forms.Button();
+            this.btnVideoStop = new System.Windows.Forms.Button();
+            this.btnVideoContinue = new System.Windows.Forms.Button();
+            this.btnVideoPause = new System.Windows.Forms.Button();
             this.vlcPlayer = new Vlc.DotNet.Forms.VlcControl();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -223,7 +223,7 @@ namespace IRS_Demo
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.83051F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.16949F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 96F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 144F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 146F));
             this.tableLayoutPanel3.Controls.Add(this.label10, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.label11, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.label12, 0, 1);
@@ -254,7 +254,7 @@ namespace IRS_Demo
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(230, 0);
+            this.label11.Location = new System.Drawing.Point(228, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(83, 13);
             this.label11.TabIndex = 6;
@@ -274,7 +274,7 @@ namespace IRS_Demo
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(230, 27);
+            this.label13.Location = new System.Drawing.Point(228, 27);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(83, 13);
             this.label13.TabIndex = 6;
@@ -307,7 +307,7 @@ namespace IRS_Demo
             this.lblSupevUnit1.AutoSize = true;
             this.lblSupevUnit1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSupevUnit1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblSupevUnit1.Location = new System.Drawing.Point(326, 0);
+            this.lblSupevUnit1.Location = new System.Drawing.Point(324, 0);
             this.lblSupevUnit1.Name = "lblSupevUnit1";
             this.lblSupevUnit1.Size = new System.Drawing.Size(30, 13);
             this.lblSupevUnit1.TabIndex = 6;
@@ -318,7 +318,7 @@ namespace IRS_Demo
             this.lblSupevUnit2.AutoSize = true;
             this.lblSupevUnit2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSupevUnit2.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblSupevUnit2.Location = new System.Drawing.Point(326, 27);
+            this.lblSupevUnit2.Location = new System.Drawing.Point(324, 27);
             this.lblSupevUnit2.Name = "lblSupevUnit2";
             this.lblSupevUnit2.Size = new System.Drawing.Size(30, 13);
             this.lblSupevUnit2.TabIndex = 6;
@@ -372,7 +372,7 @@ namespace IRS_Demo
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.83051F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.16949F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 98F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 142F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 144F));
             this.tableLayoutPanel2.Controls.Add(this.label8, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.label9, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.lblInspectName, 1, 0);
@@ -398,7 +398,7 @@ namespace IRS_Demo
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(230, 0);
+            this.label9.Location = new System.Drawing.Point(228, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(83, 13);
             this.label9.TabIndex = 6;
@@ -420,7 +420,7 @@ namespace IRS_Demo
             this.lblInspectUnit.AutoSize = true;
             this.lblInspectUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInspectUnit.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblInspectUnit.Location = new System.Drawing.Point(328, 0);
+            this.lblInspectUnit.Location = new System.Drawing.Point(326, 0);
             this.lblInspectUnit.Name = "lblInspectUnit";
             this.lblInspectUnit.Size = new System.Drawing.Size(30, 13);
             this.lblInspectUnit.TabIndex = 6;
@@ -466,7 +466,7 @@ namespace IRS_Demo
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.57447F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.42553F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 94F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 146F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 148F));
             this.tableLayoutPanel4.Controls.Add(this.label14, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.label15, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.label16, 0, 2);
@@ -533,7 +533,7 @@ namespace IRS_Demo
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(231, 0);
+            this.label18.Location = new System.Drawing.Point(229, 0);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(47, 13);
             this.label18.TabIndex = 4;
@@ -543,7 +543,7 @@ namespace IRS_Demo
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(231, 26);
+            this.label19.Location = new System.Drawing.Point(229, 26);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(54, 13);
             this.label19.TabIndex = 5;
@@ -554,7 +554,7 @@ namespace IRS_Demo
             this.lblSuspectName.AutoSize = true;
             this.lblSuspectName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSuspectName.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblSuspectName.Location = new System.Drawing.Point(93, 0);
+            this.lblSuspectName.Location = new System.Drawing.Point(92, 0);
             this.lblSuspectName.Name = "lblSuspectName";
             this.lblSuspectName.Size = new System.Drawing.Size(62, 13);
             this.lblSuspectName.TabIndex = 0;
@@ -565,7 +565,7 @@ namespace IRS_Demo
             this.lblSuspectOtherName.AutoSize = true;
             this.lblSuspectOtherName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSuspectOtherName.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblSuspectOtherName.Location = new System.Drawing.Point(93, 26);
+            this.lblSuspectOtherName.Location = new System.Drawing.Point(92, 26);
             this.lblSuspectOtherName.Name = "lblSuspectOtherName";
             this.lblSuspectOtherName.Size = new System.Drawing.Size(70, 13);
             this.lblSuspectOtherName.TabIndex = 1;
@@ -576,7 +576,7 @@ namespace IRS_Demo
             this.lblSuspectHKTT.AutoSize = true;
             this.lblSuspectHKTT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSuspectHKTT.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblSuspectHKTT.Location = new System.Drawing.Point(93, 52);
+            this.lblSuspectHKTT.Location = new System.Drawing.Point(92, 52);
             this.lblSuspectHKTT.Name = "lblSuspectHKTT";
             this.lblSuspectHKTT.Size = new System.Drawing.Size(40, 13);
             this.lblSuspectHKTT.TabIndex = 2;
@@ -587,7 +587,7 @@ namespace IRS_Demo
             this.lblSuspectAddr.AutoSize = true;
             this.lblSuspectAddr.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSuspectAddr.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblSuspectAddr.Location = new System.Drawing.Point(93, 76);
+            this.lblSuspectAddr.Location = new System.Drawing.Point(92, 76);
             this.lblSuspectAddr.Name = "lblSuspectAddr";
             this.lblSuspectAddr.Size = new System.Drawing.Size(40, 13);
             this.lblSuspectAddr.TabIndex = 3;
@@ -598,7 +598,7 @@ namespace IRS_Demo
             this.lblSuspectSex.AutoSize = true;
             this.lblSuspectSex.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSuspectSex.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblSuspectSex.Location = new System.Drawing.Point(325, 0);
+            this.lblSuspectSex.Location = new System.Drawing.Point(323, 0);
             this.lblSuspectSex.Name = "lblSuspectSex";
             this.lblSuspectSex.Size = new System.Drawing.Size(28, 13);
             this.lblSuspectSex.TabIndex = 4;
@@ -609,7 +609,7 @@ namespace IRS_Demo
             this.lblSuspectBirthday.AutoSize = true;
             this.lblSuspectBirthday.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSuspectBirthday.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblSuspectBirthday.Location = new System.Drawing.Point(325, 26);
+            this.lblSuspectBirthday.Location = new System.Drawing.Point(323, 26);
             this.lblSuspectBirthday.Name = "lblSuspectBirthday";
             this.lblSuspectBirthday.Size = new System.Drawing.Size(55, 13);
             this.lblSuspectBirthday.TabIndex = 5;
@@ -632,7 +632,7 @@ namespace IRS_Demo
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 39.57447F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60.42553F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 105F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 141F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 143F));
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
@@ -701,7 +701,7 @@ namespace IRS_Demo
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(225, 0);
+            this.label5.Location = new System.Drawing.Point(223, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(89, 13);
             this.label5.TabIndex = 4;
@@ -711,7 +711,7 @@ namespace IRS_Demo
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(225, 26);
+            this.label6.Location = new System.Drawing.Point(223, 26);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(51, 13);
             this.label6.TabIndex = 5;
@@ -721,7 +721,7 @@ namespace IRS_Demo
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(225, 52);
+            this.label7.Location = new System.Drawing.Point(223, 52);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(98, 13);
             this.label7.TabIndex = 6;
@@ -732,7 +732,7 @@ namespace IRS_Demo
             this.lblCaseCode.AutoSize = true;
             this.lblCaseCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCaseCode.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblCaseCode.Location = new System.Drawing.Point(91, 0);
+            this.lblCaseCode.Location = new System.Drawing.Point(90, 0);
             this.lblCaseCode.Name = "lblCaseCode";
             this.lblCaseCode.Size = new System.Drawing.Size(60, 13);
             this.lblCaseCode.TabIndex = 0;
@@ -743,7 +743,7 @@ namespace IRS_Demo
             this.lblRoom.AutoSize = true;
             this.lblRoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRoom.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblRoom.Location = new System.Drawing.Point(91, 26);
+            this.lblRoom.Location = new System.Drawing.Point(90, 26);
             this.lblRoom.Name = "lblRoom";
             this.lblRoom.Size = new System.Drawing.Size(43, 13);
             this.lblRoom.TabIndex = 1;
@@ -754,7 +754,7 @@ namespace IRS_Demo
             this.lblTimeBegin.AutoSize = true;
             this.lblTimeBegin.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTimeBegin.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblTimeBegin.Location = new System.Drawing.Point(91, 52);
+            this.lblTimeBegin.Location = new System.Drawing.Point(90, 52);
             this.lblTimeBegin.Name = "lblTimeBegin";
             this.lblTimeBegin.Size = new System.Drawing.Size(52, 13);
             this.lblTimeBegin.TabIndex = 2;
@@ -765,7 +765,7 @@ namespace IRS_Demo
             this.lblTimeEnd.AutoSize = true;
             this.lblTimeEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTimeEnd.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblTimeEnd.Location = new System.Drawing.Point(91, 76);
+            this.lblTimeEnd.Location = new System.Drawing.Point(90, 76);
             this.lblTimeEnd.Name = "lblTimeEnd";
             this.lblTimeEnd.Size = new System.Drawing.Size(55, 13);
             this.lblTimeEnd.TabIndex = 3;
@@ -776,7 +776,7 @@ namespace IRS_Demo
             this.lblTimeCase.AutoSize = true;
             this.lblTimeCase.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTimeCase.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblTimeCase.Location = new System.Drawing.Point(330, 0);
+            this.lblTimeCase.Location = new System.Drawing.Point(328, 0);
             this.lblTimeCase.Name = "lblTimeCase";
             this.lblTimeCase.Size = new System.Drawing.Size(106, 13);
             this.lblTimeCase.TabIndex = 4;
@@ -787,7 +787,7 @@ namespace IRS_Demo
             this.lblSessCode.AutoSize = true;
             this.lblSessCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSessCode.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblSessCode.Location = new System.Drawing.Point(330, 26);
+            this.lblSessCode.Location = new System.Drawing.Point(328, 26);
             this.lblSessCode.Name = "lblSessCode";
             this.lblSessCode.Size = new System.Drawing.Size(59, 13);
             this.lblSessCode.TabIndex = 5;
@@ -798,7 +798,7 @@ namespace IRS_Demo
             this.lblTimePerform.AutoSize = true;
             this.lblTimePerform.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTimePerform.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.lblTimePerform.Location = new System.Drawing.Point(330, 52);
+            this.lblTimePerform.Location = new System.Drawing.Point(328, 52);
             this.lblTimePerform.Name = "lblTimePerform";
             this.lblTimePerform.Size = new System.Drawing.Size(117, 13);
             this.lblTimePerform.TabIndex = 6;
@@ -860,10 +860,10 @@ namespace IRS_Demo
             // 
             this.tabPage4.Controls.Add(this.label43);
             this.tabPage4.Controls.Add(this.label42);
-            this.tabPage4.Controls.Add(this.button6);
-            this.tabPage4.Controls.Add(this.button5);
-            this.tabPage4.Controls.Add(this.button4);
-            this.tabPage4.Controls.Add(this.button3);
+            this.tabPage4.Controls.Add(this.btnVideoReload);
+            this.tabPage4.Controls.Add(this.btnVideoStop);
+            this.tabPage4.Controls.Add(this.btnVideoContinue);
+            this.tabPage4.Controls.Add(this.btnVideoPause);
             this.tabPage4.Controls.Add(this.vlcPlayer);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
@@ -893,45 +893,45 @@ namespace IRS_Demo
             this.label42.TabIndex = 5;
             this.label42.Text = "00:00:00";
             // 
-            // button6
+            // btnVideoReload
             // 
-            this.button6.Location = new System.Drawing.Point(182, 591);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 4;
-            this.button6.Text = "Tải lại";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.btnVideoReload.Location = new System.Drawing.Point(182, 591);
+            this.btnVideoReload.Name = "btnVideoReload";
+            this.btnVideoReload.Size = new System.Drawing.Size(75, 23);
+            this.btnVideoReload.TabIndex = 4;
+            this.btnVideoReload.Text = "Tải lại";
+            this.btnVideoReload.UseVisualStyleBackColor = true;
+            this.btnVideoReload.Click += new System.EventHandler(this.btnVideoReload_Click);
             // 
-            // button5
+            // btnVideoStop
             // 
-            this.button5.Location = new System.Drawing.Point(262, 591);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 23);
-            this.button5.TabIndex = 3;
-            this.button5.Text = "Stop";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.btnVideoStop.Location = new System.Drawing.Point(262, 591);
+            this.btnVideoStop.Name = "btnVideoStop";
+            this.btnVideoStop.Size = new System.Drawing.Size(75, 23);
+            this.btnVideoStop.TabIndex = 3;
+            this.btnVideoStop.Text = "Stop";
+            this.btnVideoStop.UseVisualStyleBackColor = true;
+            this.btnVideoStop.Click += new System.EventHandler(this.btnVideoStop_Click);
             // 
-            // button4
+            // btnVideoContinue
             // 
-            this.button4.Location = new System.Drawing.Point(101, 591);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 2;
-            this.button4.Text = "Tiếp tục";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btnVideoContinue.Location = new System.Drawing.Point(101, 591);
+            this.btnVideoContinue.Name = "btnVideoContinue";
+            this.btnVideoContinue.Size = new System.Drawing.Size(75, 23);
+            this.btnVideoContinue.TabIndex = 2;
+            this.btnVideoContinue.Text = "Tiếp tục";
+            this.btnVideoContinue.UseVisualStyleBackColor = true;
+            this.btnVideoContinue.Click += new System.EventHandler(this.btnVideoContinue_Click);
             // 
-            // button3
+            // btnVideoPause
             // 
-            this.button3.Location = new System.Drawing.Point(20, 591);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 1;
-            this.button3.Text = "Tạm dừng";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btnVideoPause.Location = new System.Drawing.Point(20, 591);
+            this.btnVideoPause.Name = "btnVideoPause";
+            this.btnVideoPause.Size = new System.Drawing.Size(75, 23);
+            this.btnVideoPause.TabIndex = 1;
+            this.btnVideoPause.Text = "Tạm dừng";
+            this.btnVideoPause.UseVisualStyleBackColor = true;
+            this.btnVideoPause.Click += new System.EventHandler(this.btnVideoPause_Click);
             // 
             // vlcPlayer
             // 
@@ -943,8 +943,8 @@ namespace IRS_Demo
             this.vlcPlayer.Spu = -1;
             this.vlcPlayer.TabIndex = 0;
             this.vlcPlayer.Text = "vlcControl1";
-            this.vlcPlayer.VlcLibDirectory = null;
             this.vlcPlayer.VlcLibDirectoryNeeded += vlcPlayer_VlcLibDirectoryNeeded;
+            this.vlcPlayer.VlcLibDirectory = null;
             this.vlcPlayer.VlcMediaplayerOptions = null;
             // 
             // tabControl1
@@ -1068,10 +1068,10 @@ namespace IRS_Demo
         private System.Windows.Forms.Label lblVideoPath;
         private System.Windows.Forms.Button btnPause;
         private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnVideoReload;
+        private System.Windows.Forms.Button btnVideoStop;
+        private System.Windows.Forms.Button btnVideoContinue;
+        private System.Windows.Forms.Button btnVideoPause;
         private Vlc.DotNet.Forms.VlcControl vlcPlayer;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.Label label42;

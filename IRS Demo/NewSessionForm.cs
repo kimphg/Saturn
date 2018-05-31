@@ -73,7 +73,7 @@ namespace IRS_Demo
             getSupervisorInforByCode(txtSupeCode2.Text, ref CommonParam.mSesData.supervisorData2);
             getCaseInfoByCode(txtCaseCode.Text, ref CommonParam.mSesData.caseData);
             
-            CommonParam.SessionFolderName = "SS_" + DateTime.Now.ToString(@"MM_dd_yyyy.h_mm_tt");
+            CommonParam.SessionFolderName = "PHC_" + DateTime.Now.ToString(@"yyyy_MM_dd.HH_mm_ss");
             System.IO.Directory.CreateDirectory(CommonParam.ProgramPath + "\\" + CommonParam.SessionFolderName);
             recform = new RecordingForm(this);
             

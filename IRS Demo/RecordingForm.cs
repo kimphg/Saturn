@@ -25,7 +25,9 @@ namespace IRS_Demo
     {
         private NewSessionForm _newSessionForm;
         private FindSession _findSession;
+        private bool _bReplaying;
         private Vlc.DotNet.Forms.VlcControl vlcRecorder;
+                
         // class attribute
        // MjpegDecoder m_mjpeg;
         //Capture m_capture;        
@@ -44,7 +46,8 @@ namespace IRS_Demo
 
             this.StartPosition = FormStartPosition.CenterScreen;
 
-            
+
+            _bReplaying = false;
 
             btnStartRec.Enabled = true;
             btnStopRec.Enabled = false;
@@ -56,7 +59,8 @@ namespace IRS_Demo
             CommonParam.LoadConfig();
 
             
-            vlcRecorder = new Vlc.DotNet.Forms.VlcControl();
+            vlcRecorder = new Vlc.DotNet.Forms.VlcControl();           
+
             ((System.ComponentModel.ISupportInitialize)(this.vlcRecorder)).BeginInit();
             this.vlcRecorder.Name = "vlcRecorder";
             this.vlcRecorder.Size = new System.Drawing.Size(813, 618);
@@ -69,11 +73,14 @@ namespace IRS_Demo
             ((System.ComponentModel.ISupportInitialize)(this.vlcRecorder)).EndInit();
             //itnit vlc player
             vlcPlayer.SetMedia(CommonParam.mConfig.videoUrl );
+
+            vlcPlayer.VlcMediaplayerOptions = new[] { "--network-caching=200" };
+
             //label42.Parent = vlcPlayer;            
             label42.BackColor = Color.Transparent;
             vlcPlayer.Play();
 
-            setViewSessionInfo(false);            
+            setViewSessionInfo(_bReplaying);            
             
         }
 
@@ -84,6 +91,8 @@ namespace IRS_Demo
 
             this.StartPosition = FormStartPosition.CenterScreen;
 
+            _bReplaying = true;
+
             btnStartRec.Enabled = false;
             btnStopRec.Enabled = false;            
             label43.Visible = false;
@@ -91,7 +100,7 @@ namespace IRS_Demo
             btnAddNotes.Enabled = false;
             btnPlay.Visible = false;
             label42.Visible = false;
-            setViewSessionInfo(true);
+            setViewSessionInfo(_bReplaying);
 
             vlcPlayer.SetMedia(new Uri(_findSession.selectedDataPath + "\\video.mp4"));
             label42.BackColor = Color.Transparent;
@@ -174,6 +183,7 @@ namespace IRS_Demo
             if (stopRecDialogResult == DialogResult.Yes)
             {
                 vlcRecorder.Stop();
+                vlcRecorder.Dispose();
                 timer1.Stop();
                 label43.Visible = false;
                 //btnStartRec.Enabled = true;
@@ -227,7 +237,9 @@ namespace IRS_Demo
                 try
                 {
                     vlcPlayer.Stop();
-                    vlcRecorder.Stop();                    
+                    vlcRecorder.Stop();
+                    vlcPlayer.Dispose();
+                    vlcRecorder.Dispose();
                 }
                 catch(Exception exp)
                 {
@@ -247,6 +259,7 @@ namespace IRS_Demo
         private void btnFinish_Click(object sender, EventArgs e)
         {
             vlcPlayer.Stop();
+            vlcPlayer.Dispose();
             label42.Text = "00:00:00";
             btnPlay.Enabled = true;
             btnExport.Enabled = true;
@@ -261,24 +274,39 @@ namespace IRS_Demo
             vlcPlayer.Play();            
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btnVideoPause_Click(object sender, EventArgs e)
         {
             vlcPlayer.Pause();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void btnVideoContinue_Click(object sender, EventArgs e)
         {
+            if (!_bReplaying)
+                vlcPlayer.SetMedia(CommonParam.mConfig.videoUrl);
+
             vlcPlayer.Play();
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void btnVideoReload_Click(object sender, EventArgs e)
         {
-            //itnit vlc player
-            vlcPlayer.SetMedia(CommonParam.mConfig.videoUrl);
-            vlcPlayer.Play();
+            try
+            {
+                //itnit vlc player
+                if (_bReplaying)
+                    vlcPlayer.SetMedia(new Uri(_findSession.selectedDataPath + "\\video.mp4"));                    
+                else
+                    vlcPlayer.SetMedia(CommonParam.mConfig.videoUrl);                
+                vlcPlayer.Play();
+            }
+            catch (Exception exp)
+            {
+                MessageBox.Show("Lỗi video: " + exp.ToString());
+                return;
+            }
+            
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void btnVideoStop_Click(object sender, EventArgs e)
         {
             vlcPlayer.Stop();
         }
@@ -400,16 +428,22 @@ namespace IRS_Demo
         {
             if (btnPause.Text == "Tạm dừng")
             {
+                vlcRecorder.Pause();                 
                 btnPause.Text = "Tiếp tục ghi";
-                timer1.Stop();                
-                vlcRecorder.Pause();
+                timer1.Stop();
             }
                 
             else if (btnPause.Text == "Tiếp tục ghi")
-            {
+            {   
+                vlcRecorder.SetMedia(CommonParam.mConfig.videoUrl,
+                ":sout=#transcode{vcodec=theo,vb=1000,scale=1,acodec=flac,ab=128,channels=2,samplerate=44100}:std{access=file,mux=ogg,dst="
+                + CommonParam.ProgramPath + CommonParam.SessionFolderName + "\\video.mp4}");                
+
+                vlcRecorder.Play();
+
+                                               
                 btnPause.Text = "Tạm dừng";
                 timer1.Start();
-                vlcRecorder.Play();
             }
                 
         }
