@@ -74,7 +74,13 @@ namespace IRS_Demo
             //itnit vlc player
             vlcPlayer.SetMedia(CommonParam.mConfig.videoUrl );
 
-            vlcPlayer.VlcMediaplayerOptions = new[] { "--network-caching=200" };
+            vlcPlayer.VlcMediaplayerOptions = new[]
+            {
+                "--network-caching=1000",
+                "--live-caching=300",
+                "--no-rtsp-tcp",
+                "--video-filter=transform"                
+            };
 
             //label42.Parent = vlcPlayer;            
             label42.BackColor = Color.Transparent;
