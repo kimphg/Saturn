@@ -222,7 +222,8 @@ namespace IRS_Demo
 
         public static void LoadConfig()
         {
-            mConfig = LoadObject<Config>(ProgramPath + "\\" + ConfigFileName);                 
+            //mConfig = LoadObject<Config>(ProgramPath + "\\" + ConfigFileName);                 
+            mConfig = LoadObject<Config>(ConfigFileName);                 
             if (mConfig.recCommand == null) LoadDefault();
         }
 
@@ -235,7 +236,7 @@ namespace IRS_Demo
         }
         public static void saveSession()
         {
-            SaveObject<SessionData>(mSesData, SessionFolderName +"\\"+ SessionFileName);
+            SaveObject<SessionData>(mSesData, ProgramPath + "\\" + SessionFolderName +"\\"+ SessionFileName);
         }
         public static void saveConfig()
         {
@@ -253,8 +254,8 @@ namespace IRS_Demo
                 {
                     serializer.Serialize(stream, serializableObject);
                     stream.Position = 0;
-                    xmlDocument.Load(stream);
-                    xmlDocument.Save(ProgramPath + "\\" + fileName);
+                    xmlDocument.Load(stream);                    
+                    xmlDocument.Save(fileName);                    
                     stream.Close();
                 }
             }

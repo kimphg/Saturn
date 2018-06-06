@@ -15,6 +15,7 @@ using MjpegProcessor;
 using System.Reflection;
 using System.Threading;
 using Microsoft.Office.Interop.Word;
+ 
 
 
 //using IRS_Demo;
@@ -170,7 +171,6 @@ namespace IRS_Demo
                 + CommonParam.ProgramPath + CommonParam.SessionFolderName + "\\video.mp4}");
             vlcRecorder.Play();
 
-
             timer1.Start();
             timer1.Interval = 500;
             nRecTimeInSecond = 0;
@@ -269,6 +269,7 @@ namespace IRS_Demo
             label42.Text = "00:00:00";
             btnPlay.Enabled = true;
             btnExport.Enabled = true;
+            btnFinish.Enabled = false;
             CommonParam.mSesData.sessEndTime = DateTime.Now.Hour.ToString() + " giờ " + DateTime.Now.Minute.ToString() + " phút";
             CommonParam.mSesData.sessCurrDate = DateTime.Now.ToString("dd/MM/yyyy");
             CommonParam.saveSession();
@@ -331,6 +332,7 @@ namespace IRS_Demo
                     startInfo.FileName = "WINWORD.EXE";
                     startInfo.Arguments = CommonParam.ProgramPath + CommonParam.SessionFolderName + "\\BienBan.docx";
                     Process.Start(startInfo);
+                    btnExport.Enabled = false;
                 }
                 else
                 {
@@ -339,8 +341,7 @@ namespace IRS_Demo
             }
             catch (Exception)
             {
-
-                throw;
+                return;
             }  
             /*
             using (var fbd = new FolderBrowserDialog())
@@ -384,8 +385,7 @@ namespace IRS_Demo
         }
 
         private DocX CreateInvoiceFromTemplate(DocX template)
-        {
-            
+        {            
             template.AddCustomProperty(new Novacode.CustomProperty("DieuTraVien", CommonParam.mSesData.inspectData._Ten));
             template.AddCustomProperty(new Novacode.CustomProperty("GiamSatVien1", CommonParam.mSesData.supervisorData1._Ten));
             template.AddCustomProperty(new Novacode.CustomProperty("GiamSatVien2", CommonParam.mSesData.supervisorData2._Ten));
@@ -423,8 +423,7 @@ namespace IRS_Demo
                 TimeSpan time = TimeSpan.FromSeconds(nRecTimeInSecond/2);
                 string recordTime = time.ToString(@"hh\:mm\:ss");
                 label42.Text = recordTime;
-            }
-                
+            }                
             else
                 label43.Visible = true;
             
@@ -437,21 +436,25 @@ namespace IRS_Demo
                 vlcRecorder.Pause();                 
                 btnPause.Text = "Tiếp tục ghi";
                 timer1.Stop();
-            }
-                
+            }                
             else if (btnPause.Text == "Tiếp tục ghi")
-            {   
-                vlcRecorder.SetMedia(CommonParam.mConfig.videoUrl,
+            {
+                try
+                {
+                    vlcRecorder.SetMedia(CommonParam.mConfig.videoUrl,
                 ":sout=#transcode{vcodec=theo,vb=1000,scale=1,acodec=flac,ab=128,channels=2,samplerate=44100}:std{access=file,mux=ogg,dst="
-                + CommonParam.ProgramPath + CommonParam.SessionFolderName + "\\video.mp4}");                
+                + CommonParam.ProgramPath + CommonParam.SessionFolderName + "\\video.mp4}");
 
-                vlcRecorder.Play();
-
-                                               
+                    vlcRecorder.Play();
+                }
+                catch (Exception exp)
+                {
+                    MessageBox.Show(exp.ToString());
+                }
+                
                 btnPause.Text = "Tạm dừng";
                 timer1.Start();
-            }
-                
+            }   
         }
 
         private void btnAddNotes_Click(object sender, EventArgs e)
