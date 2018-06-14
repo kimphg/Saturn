@@ -109,11 +109,27 @@ namespace IRS_Demo
             label42.Visible = false;
             setViewSessionInfo(_bReplaying);
 
-            vlcPlayer.SetMedia(new Uri(_findSession.selectedDataPath + "\\video.mp4"));
+            
+            string[] videoFile = Directory.GetFiles(_findSession.selectedDataPath, "*.mp4");
+            if (videoFile.Count() == 0)
+            {
+                MessageBox.Show("Dữ liệu phiên không có file video!");
+                lblVideoPath.Text = ""; 
+            }
+            else
+            {
+                vlcPlayer.SetMedia(new Uri(videoFile[0]));
+                //vlcPlayer.SetMedia(new Uri(_findSession.selectedDataPath + "\\video.mp4"));
+                lblVideoPath.Text = videoFile[0];
+                //lblVideoPath.Text = _findSession.selectedDataPath + "video.mp4"; 
+            }
+            
+            
             label42.BackColor = Color.Transparent;
             vlcPlayer.Play();
 
-            lblVideoPath.Text = _findSession.selectedDataPath + "video.mp4"; 
+            
+            
             
         }
 
@@ -168,7 +184,7 @@ namespace IRS_Demo
         {
             vlcRecorder.SetMedia(CommonParam.mConfig.videoUrl,
                 ":sout=#transcode{vcodec=theo,vb=1000,scale=1,acodec=flac,ab=128,channels=2,samplerate=44100}:std{access=file,mux=ogg,dst="
-                + CommonParam.ProgramPath + CommonParam.SessionFolderName + "\\video.mp4}");
+                + CommonParam.ProgramPath + CommonParam.SessionFolderName + "\\video_" + DateTime.Now.ToString(@"yyyy_MM_dd.HH_mm_ss") + ".mp4}");
             vlcRecorder.Play();
 
             timer1.Start();
@@ -265,7 +281,7 @@ namespace IRS_Demo
         private void btnFinish_Click(object sender, EventArgs e)
         {
             vlcPlayer.Stop();
-            vlcPlayer.Dispose();
+            //vlcPlayer.Dispose();
             label42.Text = "00:00:00";
             btnPlay.Enabled = true;
             btnExport.Enabled = true;
@@ -277,7 +293,11 @@ namespace IRS_Demo
 
         private void btnPlay_Click(object sender, EventArgs e)
         {
-            vlcPlayer.SetMedia(new Uri(CommonParam.ProgramPath + CommonParam.SessionFolderName + "\\video.mp4"));
+            string[] videoFile = Directory.GetFiles(CommonParam.ProgramPath + CommonParam.SessionFolderName, "*.mp4");
+            if (videoFile.Count() == 0)
+                return;
+            vlcPlayer.SetMedia(new Uri(videoFile[0]));
+            //vlcPlayer.SetMedia(new Uri(CommonParam.ProgramPath + CommonParam.SessionFolderName + "\\video.mp4"));
             vlcPlayer.Play();            
         }
 
@@ -300,9 +320,17 @@ namespace IRS_Demo
             {
                 //itnit vlc player
                 if (_bReplaying)
-                    vlcPlayer.SetMedia(new Uri(_findSession.selectedDataPath + "\\video.mp4"));                    
+                {
+                    string[] videoFile = Directory.GetFiles(_findSession.selectedDataPath, "*.mp4");
+                    if (videoFile.Count() == 0)
+                        return;
+                    vlcPlayer.SetMedia(new Uri(videoFile[0]));
+                    //vlcPlayer.SetMedia(new Uri(_findSession.selectedDataPath + "\\video.mp4"));
+                }
+                                        
                 else
-                    vlcPlayer.SetMedia(CommonParam.mConfig.videoUrl);                
+                    vlcPlayer.SetMedia(CommonParam.mConfig.videoUrl);  
+              
                 vlcPlayer.Play();
             }
             catch (Exception exp)
@@ -433,7 +461,7 @@ namespace IRS_Demo
         {
             if (btnPause.Text == "Tạm dừng")
             {
-                vlcRecorder.Pause();                 
+                vlcRecorder.Stop();                 
                 btnPause.Text = "Tiếp tục ghi";
                 timer1.Stop();
             }                
@@ -442,9 +470,9 @@ namespace IRS_Demo
                 try
                 {
                     vlcRecorder.SetMedia(CommonParam.mConfig.videoUrl,
-                ":sout=#transcode{vcodec=theo,vb=1000,scale=1,acodec=flac,ab=128,channels=2,samplerate=44100}:std{access=file,mux=ogg,dst="
-                + CommonParam.ProgramPath + CommonParam.SessionFolderName + "\\video.mp4}");
-
+                    ":sout=#transcode{vcodec=theo,vb=1000,scale=1,acodec=flac,ab=128,channels=2,samplerate=44100}:std{access=file,mux=ogg,dst="
+                    + CommonParam.ProgramPath + CommonParam.SessionFolderName + "\\video_" + DateTime.Now.ToString(@"yyyy_MM_dd.HH_mm_ss") + ".mp4}");
+                    
                     vlcRecorder.Play();
                 }
                 catch (Exception exp)
