@@ -107,6 +107,7 @@ namespace IRS_Demo
             btnAddNotes.Enabled = false;
             btnPlay.Visible = false;
             label42.Visible = false;
+
             setViewSessionInfo(_bReplaying);
 
             

@@ -301,3 +301,4 @@ __pycache__/
 IRS Demo/IRS Demo.csproj
 *.ini
 IRS Demo/RecordingForm.cs
+opencv_development/
